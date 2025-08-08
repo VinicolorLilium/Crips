@@ -69,5 +69,33 @@
         text-decoration: line-through;
       }
     }
+
+    &:not(:last-child) {
+      margin-bottom: rem(16);
+    }
+  }
+
+  &__colors {
+    display: flex;
+    column-gap: rem(10);
+  }
+
+  &__label {
+    input[type=checkbox]:checked + .card-product__checkbox {       
+        outline: 2px solid $black;      
+    }
+  }
+
+  &__input {
+    @extend %checkbox-hidden;
+
+  }
+
+  &__checkbox {
+    display: inline-block;
+    width: rem(23);
+    height: rem(23);
+    border: 3px solid $white;
+    cursor: pointer;
   }
 }

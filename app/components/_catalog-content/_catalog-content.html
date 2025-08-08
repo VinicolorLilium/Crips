@@ -3,13 +3,13 @@
     <div class="catalog-content__wrapper">
       <div class="catalog-content__breadcrumbs breadcrumbs">
         <ul class="breadcrumbs__list">
-          <li class="breadcrumbs__item"> 
+          <li class="breadcrumbs__item">
             <a class="breadcrumbs__link" href="#">Home</a>
           </li>
-          <li class="breadcrumbs__item"> 
+          <li class="breadcrumbs__item">
             <a class="breadcrumbs__link" href="#">Womens Dress</a>
           </li>
-          <li class="breadcrumbs__item"> 
+          <li class="breadcrumbs__item">
             <span class="breadcrumbs__link" href="#">Best Chose</span>
           </li>
         </ul>
@@ -225,15 +225,685 @@
               <h3 class="filter__title">Price Range</h3>
               <button class="filter__btn" type="button"><span></span></button>
             </div>
+            <form class="filter__range-form filter__form" action="#">
+              <div class="filter__range-slider">
+                <span id="min-price-label">0.00 EUR</span>
+                <span id="max-price-label">400.00 EUR</span>
+
+                <div class="filter__range-container">
+                  <input type="range" id="range-min" value="0" min="0" max="400" step="1">
+                  <input type="range" id="range-max" value="250" min="0" max="400" step="1">
+                  <div class="filter__range-track"></div>
+                </div>
+              </div>
+              <div class="filter__range-bottom">
+                <button class="filter__range-btn" type="button">Apply</button>
+              </div>
+
+            </form>
+
 
           </div>
           <div class="filter__about">
             <h3 class="filter__title">About Dresses</h3>
             <p class="filter__text">
-              Every day we’re gonna be dropping the latest trends to help you nail every Summer sitch. Whether it’s a graduation, your mate's wedding, or just a cute day at the races with the gals, our occasion dresses have got you covered. Not looking for something fancy? No stress. We’ve got day dresses for days (aka bodycon dresses, t-shirt dresses, oversized shirt dresses).
+              Every day we’re gonna be dropping the latest trends to help you nail every Summer sitch. Whether it’s a
+              graduation, your mate's wedding, or just a cute day at the races with the gals, our occasion dresses have
+              got you covered. Not looking for something fancy? No stress. We’ve got day dresses for days (aka bodycon
+              dresses, t-shirt dresses, oversized shirt dresses).
             </p>
           </div>
-
+        </div>
+        <div class="catalog-content__cards catalog-cards">
+          <div class="catalog-cards__filter">
+            <form class="catalog-cards__filter-form" action="#">
+              <select class="catalog-cards__filter-sort" name="sort" id="sort">
+                <option value="High to low">price (High to low)</option>
+                <option value="Low to high">price (Low to high)</option>
+              </select>
+              <select class="catalog-cards__filter-size" name="size" id="size">
+                <option value="48">48</option>
+                <option value="50">50</option>
+                <option value="52">52</option>
+                <option value="54">54</option>
+                <option value="56">56</option>
+                <option value="58">58</option>
+              </select>
+            </form>
+          </div>
+          <div class="catalog-cards__content">
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/some-wear/01.jpeg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #18574A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/02.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">235,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #88ABCB;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #FACBCE;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #A75E5D;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/03.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">90,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #C2BEB6;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #CBA13E;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/04.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #F3ECE2;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/05.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #2B9FA7;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #971E34;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/06.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #292A2D;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #F3ECE2;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/02.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #88ABCB;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #FACBCE;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #A75E5D;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/07.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #F3ECE2;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #292A2D;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #AAABA7;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/04.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #18574A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/01.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #88ABCB;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #FACBCE;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #A75E5D;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/05.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #C2BEB6;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #CBA13E;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/07.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #F3ECE2;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="catalog-cards__banner" style="background-image: url(images/catalog/bg.jpg);">
+              <h2 class="catalog-cards__banner-title">shoping without limits.</h2>
+              <p class="catalog-cards__banner-text">You can choose the best option for you, and it does not matter
+                whether you are in Prague or San Francisco. We will
+                deliver your purchase anywhere!</p>
+              <a class="catalog-cards__banner-btn page-btn" href="#">shop now</a>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/some-wear/01.jpeg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #18574A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/02.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">235,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #88ABCB;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #FACBCE;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #A75E5D;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/03.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">90,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #C2BEB6;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #CBA13E;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/04.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #F3ECE2;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/05.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #2B9FA7;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #971E34;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/06.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #292A2D;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #F3ECE2;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/02.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #88ABCB;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #FACBCE;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #A75E5D;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/07.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #F3ECE2;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #292A2D;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #AAABA7;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/04.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #18574A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/01.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #88ABCB;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #FACBCE;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #A75E5D;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/05.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #C2BEB6;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #CBA13E;"></span>
+                </label>
+              </form>
+            </div>
+            <div class="card-product">
+              <div class="card-product__img">
+                <img src="images/catalog/07.jpg" alt="dres">
+              </div>
+              <div class="card-product__category">
+                TOP women
+              </div>
+              <p class="card-product__text">
+                Angels malu zip jeans slim black used
+              </p>
+              <p class="card-product__price">139,00 EUR</p>
+              <form class="card-product__colors" action="#">
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #24426A;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox" checked>
+                  <span class="card-product__checkbox" style="background-color: #F3ECE2;"></span>
+                </label>
+                <label class="card-product__label">
+                  <input class="card-product__input" type="checkbox">
+                  <span class="card-product__checkbox" style="background-color: #666689;"></span>
+                </label>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
