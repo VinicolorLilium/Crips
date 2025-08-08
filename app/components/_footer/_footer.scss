@@ -1,0 +1,210 @@
+.footer {
+  &__top {
+    padding: rem(35);
+    background-color: #E6F1FA;
+  }
+
+  &__top-list {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__top-item {
+    position: relative;
+    padding-left: rem(30);
+    @extend %Oswald-400;
+    font-size: rem(14);
+    line-height: rem(21);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      display: inline-block;
+      width: rem(14);
+      height: rem(9);
+      background-image: url('../images/icons/check-black.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.footer-content {
+  padding: rem(65) 0 rem(26);
+  background-color: $black;
+  color: $white;
+  text-transform: uppercase;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: inline-block;
+    max-width: rem(103);
+    aspect-ratio: 1 / 0.427;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__list-title {
+    @extend %Oswald-600;
+    font-size: rem(18);
+    line-height: rem(27);
+
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__list-item {
+    @extend %Roboto-500;
+    font-size: rem(13);
+    line-height: rem(27);
+    color: $gray;
+  }
+
+  &__copy {
+    flex: 1 0 100%;
+    padding: rem(14) 0;
+    margin-top: rem(130);
+    border-top: 1px solid #4F4F4F;
+    @extend %Roboto-500;
+    font-size: rem(12);
+    line-height: rem(27);
+    text-transform: uppercase;
+  }
+}
+
+.footer-contact {
+  &__title {
+    @extend %Oswald-600;
+    font-size: rem(18);
+    line-height: rem(27);
+
+    &:not(:last-child) {
+      margin-bottom: rem(35);
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  dt {
+    @extend %Oswald-500;
+    font-size: rem(12);
+    line-height: rem(20);
+  }
+
+  dd {
+    @extend %Roboto-500;
+    font-size: rem(12);
+    line-height: rem(20);
+    color: $gray;
+  }
+}
+
+.footer-follow {
+  &__title {
+    @extend %Oswald-600;
+    font-size: rem(18);
+    line-height: rem(27);
+
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+
+  &__item {
+    display: flex;
+    column-gap: rem(18);
+    align-items: center;
+    @extend %Roboto-500;
+    font-size: rem(13);
+    line-height: rem(20);
+    color: $gray;
+
+    &:not(:last-child) {
+      margin-bottom: rem(25);
+    }
+  }
+}
+
+.footer-form {
+  width: rem(280);
+
+  &__title {
+    @extend %Oswald-600;
+    font-size: rem(18);
+    line-height: rem(27);
+
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__text {
+    @extend %Roboto-500;
+    font-size: rem(13);
+    line-height: rem(27);
+    color: $gray;
+
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__input {
+
+    input {
+      width: 100%;
+      padding: rem(15);
+      border: 1px solid $white;
+      @extend %Roboto-400;
+      font-size: rem(12);
+      line-height: rem(20);
+      text-transform: capitalize;
+      color: $white;
+      background-color: transparent;
+
+      &::placeholder {
+        @extend %Roboto-400;
+        font-size: rem(12);
+        line-height: rem(20);
+        text-transform: capitalize;
+        color: $white;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: rem(7);
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    padding: rem(10);
+    border: none;
+    @extend %Oswald-400;
+    font-size: rem(15);
+    line-height: rem(21);
+    text-align: center;
+    text-transform: uppercase;
+    background-color: $white;
+    color: #3F3F3F;
+  }
+
+
+}

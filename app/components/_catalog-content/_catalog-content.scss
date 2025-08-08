@@ -1,0 +1,264 @@
+.catalog-content {
+  margin: rem(20) 0 rem(40);
+
+  &__breadcrumbs {
+    &:not(:last-child) {
+      margin-bottom: rem(18);
+    }
+  }
+
+  &__box {
+    display: flex;
+  }
+
+  &__filter {
+    padding: rem(18) rem(40) rem(18) 0;
+    width: rem(396);
+    border-right: 1px solid #C4C4C4;
+  }
+}
+
+.breadcrumbs {
+  &__list {
+    display: flex;
+    align-items: center;
+    column-gap: rem(15);
+  }
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: '/';
+      position: absolute;
+      right: rem(-10);
+      top: 0;
+      color: #828282;
+    }
+  }
+
+  &__link {
+    @extend %Roboto-400;
+    font-size: rem(14);
+    text-transform: capitalize;
+    color: #828282;
+  }
+}
+
+.filter {
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: rem(60);
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__title {
+    @extend %Oswald-400;
+    font-size: rem(24);
+    text-transform: capitalize;
+  }
+
+  &__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: rem(20);
+    height: rem(20);
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-size: rem(0);
+
+    span {
+      width: rem(20);
+      height: rem(2);
+      background-color: #3F3F3F;
+      transition: all 0.3s ease 0s;
+
+      &::after {
+        content: '';
+        transition: all 0.3s ease 0s;
+      }
+    }
+
+    &._close {
+      span:after {
+        position: absolute;
+        top: rem(10);
+        right: 0;
+        display: block;
+        width: rem(20);
+        height: rem(2);
+        background-color: #3F3F3F;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__form._close {
+    height: 0;
+    opacity: 0;
+  }
+
+  &__brands {}
+
+  &__brands-form {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+  }
+
+  &__brands-form-label {
+    display: flex;
+    align-items: center;
+    column-gap: rem(10);
+    @extend %Roboto-400;
+    font-size: rem(14);
+    text-transform: uppercase;
+    color: #3F3F3F;
+    cursor: pointer;
+
+    &:has(input[type=checkbox]:checked) {
+      color: $black;
+    }
+  }
+
+  &__brands-form-input {
+    @extend %checkbox-hidden;
+
+    &:checked+.filter__brands-form-checkbox {
+      background-color: $black;
+      border-color: $black;
+      background-image: url('../images/icons/check.svg');
+      @include bg;
+    }
+  }
+
+  &__brands-form-checkbox {
+    width: rem(10);
+    height: rem(10);
+    margin-top: rem(-2);
+    border: 1px solid #828282;    
+  }
+
+  &__size {}
+
+  &__size-form {
+    display: grid;
+    grid-template-columns: repeat(5, rem(46));
+    
+    gap: rem(10);
+  }
+
+  &__size-form-label {
+    
+  }
+
+  &__size-form-input {
+    @extend %checkbox-hidden;
+
+    &:checked + .filter__size-form-checkbox {
+      border-color: $black;
+      outline: 2px solid $black;
+      color: $black;
+    }
+  }
+
+  &__size-form-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(46);
+    height: rem(46);
+    border: 2px solid #C4C4C4;
+    @extend %Oswald-400;
+    font-size: rem(14);
+    text-transform: uppercase;
+    color: #828282;
+    cursor: pointer;
+  }
+
+  &__length {}
+
+  &__length-form {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+    @extend %Roboto-400;
+    font-size: rem(14);
+    text-transform: uppercase;
+    color: #3F3F3F;
+  }
+
+  &__length-label {
+    display: flex;
+    align-items: center;
+    column-gap: rem(10);
+    cursor: pointer;
+
+    &:has(input[type=checkbox]:checked) {
+      color: $black;
+    }
+  }
+
+  &__length-input {
+    @extend %checkbox-hidden;
+
+    &:checked + .filter__length-checkbox {
+      border-color: $black;
+      background-color: $black;
+      background-image: url('../images/icons/check.svg');
+      @include bg;
+    }
+  }
+
+  &__length-checkbox {
+    width: rem(10);
+    height: rem(10);
+    margin-top: rem(-2);
+    border: 2px solid #828282;
+  }
+
+  &__color {}
+
+  &__color-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(18) rem(17);
+  }
+
+  &__color-label {
+    cursor: pointer;
+  }
+
+  &__color-input {
+    @extend %checkbox-hidden;
+
+    &:checked + .filter__color-checkbox {
+      outline: 2px solid $black;
+    }
+  }
+
+  &__color-checkbox {
+    display: inline-block;
+    width: rem(23);
+    height: rem(23);
+    border: 3px solid $white;
+  }
+
+  &__range {}
+
+  &__about {}
+
+  &__text {}
+}

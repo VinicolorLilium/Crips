@@ -1,0 +1,54 @@
+$mw: 1878px;
+
+%Oswald-300 {
+  font-family: "Oswald Light", sans-serif;
+  font-weight: 300;
+}
+
+%Oswald-400 {
+  font-family: "Oswald Regular", sans-serif;
+  font-weight: 400;
+}
+
+%Oswald-500 {
+  font-family: "Oswald Medium", sans-serif;
+  font-weight: 500;
+}
+
+%Oswald-600 {
+  font-family: "Oswald SemiBold", sans-serif;
+  font-weight: 600;
+}
+
+%Oswald-700 {
+  font-family: "Oswald Bold", sans-serif;
+  font-weight: 700;
+}
+
+%Roboto-300 {
+  font-family: "Roboto Light", sans-serif;
+  font-weight: 300;
+}
+
+%Roboto-400 {
+  font-family: "Roboto Regular", sans-serif;
+  font-weight: 400;
+}
+
+%Roboto-500 {
+  font-family: "Roboto Medium", sans-serif;
+  font-weight: 500;
+}
+
+%checkbox-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+//colors
+$black: #000;
+$white: #fff;
+$gray: #828282;

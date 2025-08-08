@@ -1,0 +1,49 @@
+.filter-category {
+  &__title {
+    @extend %Oswald-400;
+    font-size: rem(24);
+
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
+  }
+
+  &__label {
+    display: flex;
+    column-gap: rem(15);
+    align-items: center;
+  }
+
+  &__input {
+    @extend %checkbox-hidden;
+
+    &:checked+.filter-category__checkbox {
+      border-color: #000000;
+      background-color: #000;
+      background-image: url('../images/icons/check.svg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__checkbox {
+    display: inline-block;
+    width: rem(10);
+    height: rem(10);
+    border: 3px solid #828282;
+  }
+
+  &__text {
+    @extend %Roboto-400;
+    font-size: rem(14);
+    text-transform: uppercase;
+    color: #3F3F3F;
+  }
+}

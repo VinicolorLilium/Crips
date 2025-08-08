@@ -1,0 +1,38 @@
+.some-wear {
+  margin: rem(30) 0 rem(25);
+
+  &__wrapper {
+    display: flex;
+    column-gap: rem(30);
+  }
+
+  &__aside {
+    flex: 0 0 21%;
+    padding: rem(18) rem(18) rem(18) 0;
+    border-right: 1px solid #C4C4C4;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    gap: rem(48) rem(26);
+
+    &:not(:last-child) {
+      margin-bottom: rem(63);
+    }
+  }
+
+  &__btn {
+    @include flex-center;
+    width: rem(140);
+    height: rem(50);
+    margin: 0 auto;
+    border: 2px solid #C4C4C4;
+    @extend %Oswald-500;
+    font-size: rem(14);
+    line-height: rem(21);
+    text-transform: uppercase;
+    color: #828282;
+  }
+}

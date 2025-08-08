@@ -1,0 +1,98 @@
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal--show {
+  display: block;
+}
+
+.modal::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.modal__content {
+  position: relative;
+  width: 300px;
+  margin: 100px auto;
+  padding: 30px 70px 15px;
+  background-color: #ffffff;
+  box-shadow: -1px 5px 12px 0 rgba(89, 90, 90, 0.3);
+  z-index: 2;
+}
+
+.modal__button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 20px;
+  height: 20px;
+
+  font-size: 0;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.modal__button::after,
+.modal__button::before {
+  content: "";
+
+  position: absolute;
+  right: 0;
+  top: 20px;
+
+  width: 26px;
+  height: 6px;
+  margin: -13px -3px;
+
+  background-color: #7656de;
+}
+
+.modal__button::before {
+  transform: rotate(45deg);
+}
+
+.modal__button::after {
+  transform: rotate(-45deg);
+}
+
+.modal__button:hover::after,
+.modal__button:hover::before,
+.modal__button:focus::after,
+.modal__button:focus::before {
+  background-color: #9b7ff7;
+}
+
+.modal__button:active::after,
+.modal__button:active::before {
+  background-color: #4023a0;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

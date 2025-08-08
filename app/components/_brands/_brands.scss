@@ -1,0 +1,44 @@
+.barnds {
+  margin-top: rem(55);
+  &__wrapper {
+    position: relative;
+    padding: rem(28) rem(11);
+    border: 2px solid #C4C4C4;
+  }
+
+  &__title {
+    position: absolute;
+    top: rem(-15);
+    left: 50%;
+    display: inline-block;
+    width: rem(370);
+    text-align: center;
+    @extend %Oswald-400;
+    font-size: rem(24);
+    text-transform: uppercase;
+    background-color: $white;
+    transform: translateX(-50%);
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(35);
+  }
+
+  &__list-item {
+    flex: 1 1 auto;
+  }
+
+  &__list-link {
+    @include flex-center;
+    min-height: rem(140);
+    transition: background-color 0.3s ease 0s;
+
+    @media (any-hover: hover){
+      &:hover{
+        background-color: #F0F2F2;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@use 'sass:math';
+
+@import 'reset';
+@import 'fonts';
+@import 'vars';
+@import 'mixin';
+@import 'global';
+
+
+@import '../components/_header/header';
+
+@import '../components/_hero/hero';
+@import '../components/_brands/brands';
+@import '../components/_banners/banners';
+@import '../components/_some-wear/some-wear';
+@import '../components/_card-product/card-product';
+@import '../components/_filter-category/filter-category';
+@import '../components/_shoping-slogan/shoping-slogan';
+@import '../components/_product-carousel/product-carousel';
+@import '../components/_explore-banner/explore-banner';
+@import '../components/_blog/blog';
+
+@import '../components/_footer/footer';

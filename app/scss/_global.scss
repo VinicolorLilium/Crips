@@ -1,0 +1,66 @@
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: $mw;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+body {
+  @extend %Roboto-400;
+  font-size: rem(16);
+  line-height: rem(28);
+}
+
+a{
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.page-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: rem(175);
+  min-height: rem(56);
+  border: 2px solid $black;
+  @extend %Oswald-500;
+  font-size: rem(18);
+  line-height: rem(27);
+  text-transform: uppercase;
+}

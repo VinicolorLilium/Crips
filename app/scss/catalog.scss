@@ -1,0 +1,15 @@
+@use 'sass:math';
+
+@import 'reset';
+@import 'fonts';
+@import 'vars';
+@import 'mixin';
+@import 'global';
+
+
+@import '../components/_header/header';
+
+@import '../components/_catalog-hero/catalog-hero';
+@import '../components/_catalog-content/catalog-content';
+
+@import '../components/_footer/footer';

@@ -1,0 +1,73 @@
+.card-product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: rem(344);
+
+  &__sale {
+    position: absolute;
+    top: rem(15);
+    display: inline-block;
+    width: rem(40);
+    @extend %Oswald-400;
+    font-size: rem(14);
+    line-height: rem(21);
+    text-align: center;
+    background-color: $black;
+    color: $white;
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 1 / 1.31;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: rem(14);
+    }
+  }
+
+  &__category {
+    @extend %Oswald-600;
+    font-size: rem(12);
+    line-height: rem(18);
+    text-transform: uppercase;
+    color: #BDBDBD;
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    @extend %Oswald-300;
+    font-size: rem(18);
+    line-height: rem(27);
+
+    &:not(:last-child) {
+      margin-bottom: rem(18);
+    }
+  }
+
+  &__price {
+    @extend %Oswald-500;
+    font-size: rem(22);
+    line-height: rem(33);
+    text-transform: uppercase;
+
+    &--sale {
+      color: #EB5757;
+
+      span {
+        margin-left: rem(15);
+        @extend %Oswald-400;
+        font-size: rem(14);
+        line-height: rem(21);
+        color: #828282;
+        text-decoration: line-through;
+      }
+    }
+  }
+}

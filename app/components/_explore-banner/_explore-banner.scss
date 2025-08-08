@@ -1,0 +1,55 @@
+.explore-banner {
+  margin-bottom: rem(82);
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(98);
+  }
+
+  &__img {
+    max-width: rem(1060);
+    aspect-ratio: 1 / 0.342;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    margin-top: rem(22);
+  }
+
+  &__title {
+    position: relative;
+    max-width: rem(595);
+    @extend %Oswald-500;
+    font-size: rem(56);
+    line-height: rem(72);
+    text-transform: uppercase;
+    &::after{
+      content:'';
+      position: absolute;
+      top: rem(-21);
+      right: rem(-49);
+      display: inline-block;
+      background-image: url('../images/explore-banner/decor.svg');
+      width: rem(627);
+      height: rem(115);
+    }
+    &:not(:last-child) {
+      margin-bottom: rem(34);
+    }
+  }
+
+  &__text {
+    max-width: rem(650);
+    @extend %Roboto-300;
+    font-size: rem(25);
+    line-height: rem(37);
+    &:not(:last-child) {
+      margin-bottom: rem(35);
+    }
+  }
+}
