@@ -113,3 +113,27 @@ if (filterFormBtn) {
     filterChoice.classList.remove('_close');
   });
 }
+
+const productSlidersVertical = new Swiper('.product-sliders__vertical', {
+  observer: true,
+  // direction: "vertical",
+  observeParents: true,
+  speed: 800,
+});
+
+const productSlidersHorizontal = new Swiper('.product-sliders__horizontal', {
+  observer: true,
+  observeParents: true,
+  speed: 800,
+  thumbs: {
+    swiper: productSlidersVertical,
+  },
+});
+
+let productsNone = document.querySelectorAll('.product-details__form-checkbox--none');
+
+if (productsNone) {
+  productsNone.forEach(productNone => {
+    productNone.previousElementSibling.setAttribute("disabled", "");
+  });
+}
