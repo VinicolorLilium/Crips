@@ -82,216 +82,252 @@
             </div>
             <div class="catalog-content__box">
               <div class="catalog-content__filter filter">
-                <div class="filter__brands filter__item">
-                  <div class="filter__top">
-                    <h3 class="filter__title">Brand</h3>
-                    <button class="filter__btn" type="button"><span></span></button>
+                <form class="filter__form filter-form" action="#">
+                  <div class="filter-form__choice filter-choice _close">
+                    <div class="filter-choice__top">
+                      <h2 class="filter-choice__title">Filter</h2>
+                      <button class="filter-choice__btn" type="button" id="filterChoiceBtn">reset all</button>
+                    </div>
+                    <div class="filter-choice__content">
+                      <div class="filter-choice__item">
+                        <div class="filter-choice__name">Brand:</div>
+                        <ul class="filter-choice__category">
+                          <li class="filter-choice__category-item">
+                            bardot
+                          </li>
+                          <li class="filter-choice__category-item">
+                            Cooper
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="filter-choice__item">
+                        <div class="filter-choice__name">Size (Inches):</div>
+                        <ul class="filter-choice__category">
+                          <li class="filter-choice__category-item">
+                            W32
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="filter-choice__item">
+                        <div class="filter-choice__name">Dress length:</div>
+                        <ul class="filter-choice__category">
+                          <li class="filter-choice__category-item">
+                            hight low
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="filter-choice__item">
+                        <div class="filter-choice__name">Color:</div>
+                        <ul class="filter-choice__category">
+                          <li class="filter-choice__category-item">
+                            <span class="filter-choice__category-color" style="background-color: #18574A;"></span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="filter-choice__item">
+                        <div class="filter-choice__name">Price Range:</div>
+                        <ul class="filter-choice__category">
+                          <li class="filter-choice__category-item">
+                            0.00 EUR – 250 EUR
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  <form class="filter__brands-form filter__form" action="#">
-                    <label class="filter__brands-form-label">
-                      <input class="filter__brands-form-input" type="checkbox">
-                      <span class="filter__brands-form-checkbox"></span>State
-                    </label>
-                    <label class="filter__brands-form-label">
-                      <input class="filter__brands-form-input" type="checkbox">
-                      <span class="filter__brands-form-checkbox"></span>Cooper
-                    </label>
-                    <label class="filter__brands-form-label">
-                      <input class="filter__brands-form-input" type="checkbox">
-                      <span class="filter__brands-form-checkbox"></span>bardot
-                    </label>
-                    <label class="filter__brands-form-label">
-                      <input class="filter__brands-form-input" type="checkbox">
-                      <span class="filter__brands-form-checkbox"></span>alfani
-                    </label>
-                    <label class="filter__brands-form-label">
-                      <input class="filter__brands-form-input" type="checkbox">
-                      <span class="filter__brands-form-checkbox"></span>cece
-                    </label>
-                    <label class="filter__brands-form-label">
-                      <input class="filter__brands-form-input" type="checkbox">
-                      <span class="filter__brands-form-checkbox"></span>donna ricco
-                    </label>
-                  </form>
-                </div>
-                <div class="filter__size filter__item">
-                  <div class="filter__top">
-                    <h3 class="filter__title">Size (Inches)</h3>
-                    <button class="filter__btn" type="button"><span></span></button>
+                  <div class="filter-form__item">
+                    <h2 class="filter-form__title">Brand</h2>
+                    <div class="filter-form__list">
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>State
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>cooper
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>bardot
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>alfani
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>cece
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>donna ricco
+                      </label>
+                    </div>
                   </div>
-                  <form class="filter__size-form filter__form" action="#">
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">osfa</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w26</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w27</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w28</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w29</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w30</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w31</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w32</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w33</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w34</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w35</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w36</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w38</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w40</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w42</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w44</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w46</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w48</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w50</span>
-                    </label>
-                    <label class="filter__size-form-label">
-                      <input class="filter__size-form-input" type="checkbox">
-                      <span class="filter__size-form-checkbox">w52</span>
-                    </label>
-                  </form>
-                </div>
-                <div class="filter__length filter__item">
-                  <div class="filter__top">
-                    <h3 class="filter__title">Dress length</h3>
-                    <button class="filter__btn" type="button"><span></span></button>
+                  <div class="filter-form__item">
+                    <h2 class="filter-form__title">Size (Inches)</h2>
+                    <div class="filter-form__grid">
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">OSFA</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w26</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w27</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w28</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w29</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w30</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w31</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w32</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w33</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w34</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w35</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w36</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w38</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w40</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w42</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w44</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w46</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w48</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w50</span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-square">w52</span>
+                      </label>
+                    </div>
                   </div>
-                  <form class="filter__length-form filter__form" action="#">
-                    <label class="filter__length-label">
-                      <input class="filter__length-input" type="checkbox">
-                      <span class="filter__length-checkbox"></span>short
-                    </label>
-                    <label class="filter__length-label">
-                      <input class="filter__length-input" type="checkbox">
-                      <span class="filter__length-checkbox"></span>knee length
-                    </label>
-                    <label class="filter__length-label">
-                      <input class="filter__length-input" type="checkbox">
-                      <span class="filter__length-checkbox"></span>hight low
-                    </label>
-                    <label class="filter__length-label">
-                      <input class="filter__length-input" type="checkbox">
-                      <span class="filter__length-checkbox"></span>long
-                    </label>
-                    <label class="filter__length-label">
-                      <input class="filter__length-input" type="checkbox">
-                      <span class="filter__length-checkbox"></span>midi
-                    </label>
-                  </form>
-                </div>
-                <div class="filter__color filter__item">
-                  <div class="filter__top">
-                    <h3 class="filter__title">Color</h3>
-                    <button class="filter__btn" type="button"><span></span></button>
+                  <div class="filter-form__item">
+                    <h2 class="filter-form__title">Dress length</h2>
+                    <div class="filter-form__list">
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>short
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>knee length
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>hight low
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>long
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox"></span>midi
+                      </label>
+                    </div>
                   </div>
-                  <form class="filter__color-form filter__form" action="#">
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #292A2D;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #F3ECE2;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #24426A;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #18574A;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #666689;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #C2BEB6;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #AAABA7;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #971E34;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #CBA13E;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #73513C;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #DAB1B1;"></span>
-                    </label>
-                    <label class="filter__color-label">
-                      <input class="filter__color-input" type="checkbox">
-                      <span class="filter__color-checkbox" style="background-color: #2B9FA7;"></span>
-                    </label>
-                  </form>
-                </div>
-                <div class="filter__range filter__item">
-                  <div class="filter__top">
-                    <h3 class="filter__title">Price Range</h3>
-                    <button class="filter__btn" type="button"><span></span></button>
+                  <div class="filter-form__item">
+                    <h2 class="filter-form__title">Color</h2>
+                    <div class="filter-form__grid-color">
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #292A2D;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #F3ECE2;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #24426A;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #18574A;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #666689;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #C2BEB6;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #AAABA7;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #971E34;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #CBA13E;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #73513C;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #DAB1B1;"></span>
+                      </label>
+                      <label class="filter-form__label">
+                        <input class="filter-form__input" type="checkbox">
+                        <span class="filter-form__checkbox-color" style="background-color: #2B9FA7;"></span>
+                      </label>
+                    </div>
                   </div>
-                  <form class="filter__range-form filter__form" action="#">
+                  <div class="filter-form__item">
+                    <h2 class="filter-form__title">Price Range</h2>
                     <div class="filter__range-slider">
                       <span id="min-price-label">0.00 EUR</span>
                       <span id="max-price-label">400.00 EUR</span>
@@ -302,14 +338,11 @@
                         <div class="filter__range-track"></div>
                       </div>
                     </div>
-                    <div class="filter__range-bottom">
-                      <button class="filter__range-btn" type="button">Apply</button>
-                    </div>
-      
-                  </form>
-      
-      
-                </div>
+                  </div>
+                  <div class="filter-form__bottom">
+                    <button class="filter-form__btn" type="button" id="filterFormBtn">apply</button>
+                  </div>
+                </form>
                 <div class="filter__about">
                   <h3 class="filter__title">About Dresses</h3>
                   <p class="filter__text">

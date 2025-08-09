@@ -46,10 +46,196 @@
 }
 
 .filter {
+  &__form {
+    &:not(:last-child) {
+      margin-bottom: rem(60);
+    }
+  }
+
+  &__title {
+    @extend %Oswald-400;
+    font-size: rem(24);
+    text-transform: capitalize;
+
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+
+  &__text {
+    @extend %Roboto-300;
+    font-size: rem(18);
+    line-height: rem(28);
+    text-align: justify;
+  }
+}
+
+.filter-choice._close {
+  height: 0;
+  opacity: 0;
+  padding: 0;
+  transition: all 0.3s ease 0s;
+
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+.filter-form {
+
   &__item {
     &:not(:last-child) {
       margin-bottom: rem(60);
     }
+
+    &:has(._close) {
+      .filter-form__title {
+        margin-bottom: rem(20);
+      }
+
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @extend %Oswald-400;
+    font-size: rem(24);
+    text-transform: capitalize;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-bottom: rem(35);
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: rem(12);
+      height: rem(2);
+      background-color: #3F3F3F;
+    }
+  }
+
+  &__list._close,
+  &__grid._close,
+  &__grid-color._close,
+  .filter__range-slider._close {
+    height: 0;
+    opacity: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(25);
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    column-gap: rem(8);
+    @extend %Roboto-400;
+    font-size: rem(14);
+    text-transform: uppercase;
+    color: #3F3F3F;
+    cursor: pointer;
+
+    input[type=checkbox]:checked+.filter-form__checkbox {
+      background-color: $black;
+      border-color: $black;
+      background-image: url('../images/icons/check.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    input[type=checkbox]:checked+.filter-form__checkbox-square {
+      outline: 2px solid $black;
+    }
+
+    input[type=checkbox]:checked+.filter-form__checkbox-color {
+      outline: 2px solid $black;
+    }
+
+    &:has(input[type=checkbox]:checked) {
+      color: $black;
+    }
+  }
+
+  &__input {
+    @extend %checkbox-hidden;
+  }
+
+  &__checkbox {
+    display: inline-block;
+    width: rem(10);
+    height: rem(10);
+    border: 1px solid #828282;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(5, rem(46));
+    grid-auto-rows: rem(46);
+    gap: rem(10);
+  }
+
+  &__checkbox-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(46);
+    height: rem(46);
+    border: 1px solid #C4C4C4;
+    @extend %Oswald-400;
+    font-size: rem(14);
+    text-transform: uppercase;
+    color: #828282;
+  }
+
+  &__grid-color {
+    display: grid;
+    grid-template-columns: repeat(7, rem(23));
+    grid-auto-rows: rem(23);
+    gap: rem(18) rem(20);
+  }
+
+  &__checkbox-color {
+    width: rem(23);
+    height: rem(23);
+    border: 3px solid $white;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: rem(-34);
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(114);
+    height: rem(40);
+    border: 2px solid #C4C4C4;
+    @extend %Oswald-500;
+    font-size: rem(14);
+    text-transform: uppercase;
+    color: #828282;
+    background-color: #F0F2F2;
+  }
+}
+
+.filter-choice {
+  padding: rem(28) rem(22);
+  border: 1px solid $black;
+
+  &:not(:last-child) {
+    margin-bottom: rem(60);
   }
 
   &__top {
@@ -58,219 +244,80 @@
     align-items: center;
 
     &:not(:last-child) {
-      margin-bottom: rem(30);
+      margin-bottom: rem(40);
     }
   }
 
   &__title {
     @extend %Oswald-400;
-    font-size: rem(24);
-    text-transform: capitalize;
+    font-size: rem(32);
   }
 
   &__btn {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: rem(20);
-    height: rem(20);
-    padding: 0;
-    background-color: transparent;
+    padding-left: rem(17);
     border: none;
-    font-size: rem(0);
-
-    span {
-      width: rem(20);
-      height: rem(2);
-      background-color: #3F3F3F;
-      transition: all 0.3s ease 0s;
-
-      &::after {
-        content: '';
-        transition: all 0.3s ease 0s;
-      }
-    }
-
-    &._close {
-      span:after {
-        position: absolute;
-        top: rem(10);
-        right: 0;
-        display: block;
-        width: rem(20);
-        height: rem(2);
-        background-color: #3F3F3F;
-        transform: rotate(90deg);
-      }
-    }
-  }
-
-  &__form._close {
-    height: 0;
-    opacity: 0;
-  }
-
-  &__brands {}
-
-  &__brands-form {
-    display: flex;
-    flex-direction: column;
-    gap: rem(20);
-  }
-
-  &__brands-form-label {
-    display: flex;
-    align-items: center;
-    column-gap: rem(10);
-    @extend %Roboto-400;
-    font-size: rem(14);
-    text-transform: uppercase;
-    color: #3F3F3F;
-    cursor: pointer;
-
-    &:has(input[type=checkbox]:checked) {
-      color: $black;
-    }
-  }
-
-  &__brands-form-input {
-    @extend %checkbox-hidden;
-
-    &:checked+.filter__brands-form-checkbox {
-      background-color: $black;
-      border-color: $black;
-      background-image: url('../images/icons/check.svg');
-      @include bg;
-    }
-  }
-
-  &__brands-form-checkbox {
-    width: rem(10);
-    height: rem(10);
-    margin-top: rem(-2);
-    border: 1px solid #828282;
-  }
-
-  &__size {}
-
-  &__size-form {
-    display: grid;
-    grid-template-columns: repeat(5, rem(46));
-
-    gap: rem(10);
-  }
-
-  &__size-form-label {}
-
-  &__size-form-input {
-    @extend %checkbox-hidden;
-
-    &:checked+.filter__size-form-checkbox {
-      border-color: $black;
-      outline: 2px solid $black;
-      color: $black;
-    }
-  }
-
-  &__size-form-checkbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: rem(46);
-    height: rem(46);
-    border: 2px solid #C4C4C4;
     @extend %Oswald-400;
     font-size: rem(14);
     text-transform: uppercase;
-    color: #828282;
-    cursor: pointer;
+    background-color: transparent;
+    background-image: url('../images/icons/clean.svg');
+    background-repeat: no-repeat;
+    background-position: center left;
   }
 
-  &__length {}
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
 
-  &__length-form {
+  &__name {
+    @extend %Oswald-400;
+    font-size: rem(24);
+    text-transform: capitalize;
+
+    &:not(:last-child) {
+      margin-bottom: rem(16);
+    }
+  }
+
+  &__category {
     display: flex;
-    flex-direction: column;
-    gap: rem(20);
+    gap: rem(14);
+    flex-wrap: wrap;
+  }
+
+  &__category-item {
+    display: flex;
+    align-items: center;
+    column-gap: rem(8);
     @extend %Roboto-400;
     font-size: rem(14);
     text-transform: uppercase;
-    color: #3F3F3F;
-  }
 
-  &__length-label {
-    display: flex;
-    align-items: center;
-    column-gap: rem(10);
-    cursor: pointer;
-
-    &:has(input[type=checkbox]:checked) {
-      color: $black;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: rem(8);
+      height: rem(8);
+      background-image: url('../images/icons/clean.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left center;
     }
   }
 
-  &__length-input {
-    @extend %checkbox-hidden;
-
-    &:checked+.filter__length-checkbox {
-      border-color: $black;
-      background-color: $black;
-      background-image: url('../images/icons/check.svg');
-      @include bg;
-    }
-  }
-
-  &__length-checkbox {
-    width: rem(10);
-    height: rem(10);
-    margin-top: rem(-2);
-    border: 2px solid #828282;
-  }
-
-  &__color {}
-
-  &__color-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: rem(18) rem(17);
-  }
-
-  &__color-label {
-    cursor: pointer;
-  }
-
-  &__color-input {
-    @extend %checkbox-hidden;
-
-    &:checked+.filter__color-checkbox {
-      outline: 2px solid $black;
-    }
-  }
-
-  &__color-checkbox {
+  &__category-color {
     display: inline-block;
     width: rem(23);
     height: rem(23);
+    margin-left: rem(10);
     border: 3px solid $white;
+    outline: 1px solid #C4C4C4;
   }
-
-  &__range {}
-
-  &__about {}
-
-  &__text {}
 }
 
 .filter {
-  &__range {}
-
-  &__item {}
-
-  &__top {}
-
-  &__title {}
-
-  &__btn {}
 
   &__range-form {
     span {

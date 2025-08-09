@@ -40,14 +40,12 @@ const featureSlider = new Swiper(".slider-feature", {
   },
 });
 
-let filterBtns = document.querySelectorAll('.filter__btn');
+let filterTitles = document.querySelectorAll('.filter-form__title');
 
-if (filterBtns ) {
-  filterBtns.forEach(filterBtn => {
-    filterBtn.addEventListener('click', () => {
-      filterBtn.classList.toggle('_close');
-      filterTop = filterBtn.parentElement;
-      filterTop.nextElementSibling.classList.toggle('_close');
+if (filterTitles) {
+  filterTitles.forEach(filterTitle => {
+    filterTitle.addEventListener('click', () => {
+      filterTitle.nextElementSibling.classList.toggle('_close');
     });
   });
 }
@@ -98,4 +96,20 @@ if (rangeMin && rangeMax && minLabel && maxLabel && track) {
   updateTrack();
 }
 
+const filterChoiceBtn = document.querySelector('#filterChoiceBtn');
 
+if (filterChoiceBtn) {
+  filterChoiceBtn.addEventListener('click', () => {
+    const filterChoice = document.querySelector('.filter-choice');
+    filterChoice.classList.add('_close');
+  });
+}
+
+const filterFormBtn = document.querySelector('#filterFormBtn');
+
+if (filterFormBtn) {
+  filterFormBtn.addEventListener('click', () => {
+    const filterChoice = document.querySelector('.filter-choice');
+    filterChoice.classList.remove('_close');
+  });
+}
