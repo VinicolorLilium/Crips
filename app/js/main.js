@@ -1,10 +1,11 @@
+// поиск в шапке
 let searchBtn = document.querySelector('.search-form__btn');
 let searchForm = document.querySelector('.search-form');
 
 searchBtn.addEventListener('click', () => {
   searchForm.classList.toggle('_active');
 });
-
+// слайдер в секции hero
 let heroSlider = new Swiper(".hero__slider", {
   slidesPerView: 1,
   loop: true,
@@ -26,7 +27,7 @@ let heroSlider = new Swiper(".hero__slider", {
     disableOnInteraction: false,
   },
 });
-
+// слайдер в секции slider-feature
 const featureSlider = new Swiper(".slider-feature", {
   loop: true,
   slidesPerView: 5,
@@ -39,7 +40,7 @@ const featureSlider = new Swiper(".slider-feature", {
     prevEl: ".slider-feature-prev",
   },
 });
-
+// сворачивание секций в фильтре
 let filterTitles = document.querySelectorAll('.filter-form__title');
 
 if (filterTitles) {
@@ -49,7 +50,7 @@ if (filterTitles) {
     });
   });
 }
-
+// слайдер выбора цены
 const rangeMin = document.getElementById("range-min");
 const rangeMax = document.getElementById("range-max");
 const minLabel = document.getElementById("min-price-label");
@@ -95,7 +96,7 @@ if (rangeMin && rangeMax && minLabel && maxLabel && track) {
   // Отрисовка при загрузке с дефолтными значениями из HTML
   updateTrack();
 }
-
+// итоговый фильтр со всеми выборами, изначально не виден, появляется только при нажатии на кнопу в конце фильтров
 const filterChoiceBtn = document.querySelector('#filterChoiceBtn');
 
 if (filterChoiceBtn) {
@@ -113,10 +114,9 @@ if (filterFormBtn) {
     filterChoice.classList.remove('_close');
   });
 }
-
+// слайдер просмотра товара в карточке продукта
 const productSlidersVertical = new Swiper('.product-sliders__vertical', {
   observer: true,
-  // direction: "vertical",
   observeParents: true,
   speed: 800,
 });
@@ -136,4 +136,38 @@ if (productsNone) {
   productsNone.forEach(productNone => {
     productNone.previousElementSibling.setAttribute("disabled", "");
   });
+}
+// счетчик количества товара в карточке товара
+const productBox = document.querySelector(".product-details__form-quantity");
+
+if (productBox) {
+  const pricePerUnit = parseFloat(productBox.dataset.price); // цена из HTML
+  const qtyInput = productBox.querySelector("#quantity");
+  const totalPrice = productBox.querySelector(".quantity__total-price");
+  const btnMinus = productBox.querySelector(".minus");
+  const btnPlus = productBox.querySelector(".plus");
+
+  function formatPrice(value) {
+    return value.toLocaleString("de-DE", { minimumFractionDigits: 2 }) + " EUR";
+  }
+
+  function updateTotal() {
+    const qty = parseInt(qtyInput.value);
+    const total = qty * pricePerUnit;
+    totalPrice.textContent = formatPrice(total);
+  }
+
+  btnPlus.addEventListener("click", () => {
+    qtyInput.value = parseInt(qtyInput.value) + 1;
+    updateTotal();
+  });
+
+  btnMinus.addEventListener("click", () => {
+    if (parseInt(qtyInput.value) > 1) {
+      qtyInput.value = parseInt(qtyInput.value) - 1;
+      updateTotal();
+    }
+  });
+
+  updateTotal();
 }

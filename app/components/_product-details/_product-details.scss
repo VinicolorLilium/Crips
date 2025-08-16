@@ -222,6 +222,56 @@
     background-position: left center;
     background-repeat: no-repeat;
   }
+
+  &__form-quantity {
+    display: flex;
+    column-gap: rem(24);
+  }
+}
+
+.quantity {
+  &__text {
+    @extend %Oswald-400;
+    font-size: rem(14);
+    line-height: rem(21);
+    text-transform: uppercase;
+    margin-bottom: rem(10);
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: rem(120);
+    height: rem(43);
+    border: 1px solid #C4C4C4;
+  }
+
+  &__input {
+    width: rem(30);
+    height: 100%;
+    border: none;
+    text-align: center;
+    @extend %Oswald-400;
+    font-size: rem(16);
+    line-height: rem(24);
+  }
+
+  &__btn {
+    width: rem(45);
+    height: 100%;
+    border: none;
+    font-size: rem(20);
+    background-color: transparent;
+    color: #C4C4C4;
+  }
+
+  &__total-price {
+    margin-top: rem(15);
+    @extend %Oswald-500;
+    font-size: rem(26);
+    text-transform: uppercase;
+  }
 }
 
 .product-sliders {
