@@ -26,12 +26,6 @@
     text-transform: uppercase;
   }
 
-  &__social-item {}
-
-  &__social-link {}
-
-  &__content {}
-
   &__breadcrumbs {
     &:not(:last-child) {
       margin-bottom: rem(25);
