@@ -171,3 +171,31 @@ if (productBox) {
 
   updateTotal();
 }
+
+// акардеон в карточке товаров с информацией о товаре
+
+const accordion = document.querySelector(".product-spoilers");
+
+if (accordion) {
+  const items = accordion.querySelectorAll(".product-spoilers__item");
+
+  // Инициализация: открываем ту секцию, у которой есть data-open="true"
+  items.forEach(item => {
+    if (item.dataset.open === "true") {
+      item.classList.add("_active");
+    }
+  });
+
+  accordion.addEventListener("click", (e) => {
+    const header = e.target.closest(".product-spoilers__title");
+    if (!header) return;
+
+    const currentItem = header.parentElement;
+
+    // Закрываем все
+    items.forEach(item => item.classList.remove("_active"));
+
+    // Открываем только выбранную
+    currentItem.classList.add("_active");
+  });
+}
