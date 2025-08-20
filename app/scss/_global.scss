@@ -36,31 +36,18 @@ button {
   cursor: pointer;
 }
 
-.visually-hidden {
-  position: absolute;
+// .visually-hidden {
+//   position: absolute;
 
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
+//   width: 1px;
+//   height: 1px;
+//   margin: -1px;
+//   border: 0;
+//   padding: 0;
 
-  white-space: nowrap;
+//   white-space: nowrap;
 
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.page-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: rem(175);
-  min-height: rem(56);
-  border: 2px solid $black;
-  @extend %Oswald-500;
-  font-size: rem(18);
-  line-height: rem(27);
-  text-transform: uppercase;
-}
+//   clip-path: inset(100%);
+//   clip: rect(0 0 0 0);
+//   overflow: hidden;
+// }

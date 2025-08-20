@@ -1,42 +1,64 @@
 <header class="header">
   <div class="container">
-    <div class="header__inner">
-      <a class="header__logo logo" href="#">
-        <img src="images/logo.svg" alt="logo">
-      </a>
-      <nav class="header__menu menu">
-        <ul class="menu__list">
-          <li class="menu__item">
-            <a class="menu__link" href="#">home</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="#">Shop</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="#">blog</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="#">Sale</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="#">contact us</a>
-          </li>
-          <li class="menu__item">
-            <form class="header__form search-form" action="#">
-              <input type="search" placeholder="Search">
-              <button class="search-form__btn" type="button">search</button>
-            </form>
-          </li>
-        </ul>
-      </nav>
-      <div class="header__user-nav user-nav">
-        <a class="user-nav__login" href="#">SIGN IN</a>
-        <a class="user-nav__register" href="#">CREATE AN ACCOUNT</a>
-        <a class="user-nav__fivorite" href="#"><img src="images/icons/fav.svg" alt="favorite"></a>
-        <div class="user-nav__cart-box">
-          <a class="user-nav__cart" href="#"><img src="images/icons/cart.svg" alt="cart"></a>
-          <p class="user-nav__text">Shopping Cart</p>
-          <p class="user-nav__price">0,00 EUR</p>
+    <div class="header__wrapper">
+      <div class="header__column">
+        <a class="header__logo logo" href="#">
+          <picture class="logo__img">
+            <source type="image/avif" srcset="images/logo@3x.avif,
+                                              images/logo@2x.avif,
+                                              images/logo.avif">
+            <source type="image/webp" srcset="images/logo@3x.webp,
+                                              images/logo@2x.webp,
+                                              images/logo.webp">
+            <source type="image/png" srcset="images/logo@3x.png,
+                                             images/logo@2x.png">
+            <img src="images/logo.png" alt="grips">
+          </picture>
+        </a>
+      </div>
+      <div class="header__column header__menu">
+        <nav class="menu">
+          <button class="menu__btn" type="button"><span></span></button>
+          <ul class="menu__list">
+            <!-- класс активный только для ссылки на тукующую страницу -->
+            <li><a href="#" class="_active">главная</a></li>
+            <li><a href="#">магазин</a></li>
+            <li><a href="#">блог</a></li>
+            <li><a href="#">распродажа</a></li>
+            <li><a href="#">контакты</a></li>
+          </ul>
+        </nav>
+        <form class="header__form form-search" action="#" method="post">
+          <input class="form-search__input" type="search" name="searchInput" placeholder="Поиск">
+          <button class="form-search__btn" type="button" name="searchBtn">поиск</button>
+        </form>
+      </div>
+      <div class="header__column">
+        <div class="header__user-nav user-nav">
+          <a class="user-nav__link" href="#">логин</a>
+          <a class="user-nav__link" href="#">регистрация</a>
+          <a class="user-nav__favorite" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21.8" height="20.59" fill="none">
+              <path
+                d="M10.9 4.1a5.198 5.198 0 013.825-1.7c2.618 0 4.675 1.97 4.675 4.496 0 3.082-2.89 5.607-7.267 9.425L10.9 17.4l-1.232-1.08C5.29 12.504 2.4 9.979 2.4 6.897 2.4 4.37 4.457 2.4 7.075 2.4c1.479 0 2.899.662 3.825 1.7z" />
+              <path
+                d="M10.9 1.042a7.827 7.827 0 012.518-.928A7.48 7.48 0 0114.725 0a7.237 7.237 0 014.102 1.253 6.956 6.956 0 011.825 1.84 6.77 6.77 0 01.958 2.184 6.864 6.864 0 01.174 2.096 7.735 7.735 0 01-.728 2.77c-.412.887-1.018 1.801-1.82 2.744-.63.742-1.46 1.59-2.49 2.544-.613.569-1.624 1.467-3.033 2.696L10.9 20.59l-2.81-2.46a151.22 151.22 0 01-3.036-2.699c-1.03-.954-1.86-1.802-2.49-2.544-.802-.943-1.408-1.857-1.82-2.743a7.736 7.736 0 01-.728-2.772A6.865 6.865 0 01.19 5.276 6.782 6.782 0 012.092 1.97 6.952 6.952 0 014.35.519a7.234 7.234 0 012.725-.52 7.48 7.48 0 013.105.673c.25.113.49.236.72.37zm-.821 2.325A5.223 5.223 0 007.075 2.4C4.457 2.4 2.4 4.37 2.4 6.896c0 3.082 2.89 5.607 7.268 9.425L10.9 17.4l1.232-1.08C16.51 12.504 19.4 9.979 19.4 6.897c0-2.526-2.057-4.496-4.675-4.496a5.22 5.22 0 00-3.004.967 4.934 4.934 0 00-.821.733 4.934 4.934 0 00-.821-.733z"
+                fill="#FFF" fill-rule="evenodd" />
+            </svg>
+          </a>
+          <a class="user-nav__cart-box" href="#">
+            <div class="user-nav__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="21.2" fill="none">
+                <path d="M14.737 6.6l.718 12.2H2.545l.718-12.2h11.474zM17 4.2H1L.141 18.8 0 21.2h18l-.141-2.4L17 4.2z"
+                  fill="#FFF" fill-rule="evenodd" />
+                <path d="M5 4.2v-2a1 1 0 011-1h6a1 1 0 011 1v2" stroke="#FFF" stroke-width="2.4" />
+              </svg>
+              <!-- активировать если в корзине будут товары -->
+              <!-- <span>2</span> -->
+            </div>
+            <span class="user-nav__cart-text">Корзина</span>
+            <span class="user-nav__cart-price">0,00 руб</span>
+          </a>
         </div>
       </div>
     </div>

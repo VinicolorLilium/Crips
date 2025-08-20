@@ -1,8 +1,6 @@
-<svg width="16.848526" height="16.848389" viewBox="0 0 16.8485 16.8484" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<desc>
-			Created with Pixso.
-	</desc>
-	<defs/>
-	<circle id="Ellipse 2" cx="6.153839" cy="6.153809" r="4.953846" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="2.400000"/>
-	<path id="Vector" d="M11.48 11.48L16 16" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="2.400000"/>
+<svg viewBox="0 0 16.8485 16.8484" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16.848526" height="16.848389" fill="none" customFrame="#000000">
+	<g id="Group 3">
+		<circle id="Ellipse 2" cx="6.15384626" cy="6.15384626" r="4.95384598" stroke="rgb(255,255,255)" stroke-width="2.4000001" />
+		<path id="Vector" d="M11.4872 11.4871L16 15.9999" stroke="rgb(255,255,255)" stroke-width="2.4000001" />
+	</g>
 </svg>
