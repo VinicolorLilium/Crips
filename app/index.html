@@ -29,8 +29,8 @@
             </a>
           </div>
           <div class="header__column header__menu">
+            <button class="menu__btn" type="button"><span></span></button>
             <nav class="menu">
-              <button class="menu__btn" type="button"><span></span></button>
               <ul class="menu__list">
                 <!-- класс активный только для ссылки на тукующую страницу -->
                 <li><a href="#" class="_active">главная</a></li>
@@ -40,15 +40,15 @@
                 <li><a href="#">контакты</a></li>
               </ul>
             </nav>
-            <form class="header__form form-search" action="#" method="post">
+            <form class="header__form form-search" action="#" method="post" data-da=".user-nav, 1100, 0">
               <input class="form-search__input" type="search" name="searchInput" placeholder="Поиск">
               <button class="form-search__btn" type="button" name="searchBtn">поиск</button>
             </form>
           </div>
           <div class="header__column">
             <div class="header__user-nav user-nav">
-              <a class="user-nav__link" href="#">логин</a>
-              <a class="user-nav__link" href="#">регистрация</a>
+              <a class="user-nav__link" href="#" data-da=".menu__list, 1100">логин</a>
+              <a class="user-nav__link" href="#" data-da=".menu__list, 1100">регистрация</a>
               <a class="user-nav__favorite" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="21.8" height="20.59" fill="none">
                   <path
