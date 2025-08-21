@@ -1,0 +1,225 @@
+.footer {
+  background-color: $black;
+  color: $white;
+
+  &__content {
+    padding: rem(65) 0 rem(120);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: rem(10);
+
+    @media (max-width: em(1100)) {
+      row-gap: rem(20);
+    }
+
+    @media (max-width: em(900)) {
+      justify-content: center;
+      row-gap: 0;
+      padding: rem(40) 0;
+    }
+
+    @media (max-width: em(600)) {
+      padding: rem(27) 0 rem(23);
+    }
+  }
+
+  &__logo {
+    @media (max-width: em(600)) {
+      margin-bottom: rem(27);
+    }
+  }
+
+  &__column {
+
+    @media (max-width: em(1100)) {
+      flex: 0 1 calc(33.333% - rem(10));
+    }
+
+    @media (max-width: em(900)) {
+      flex: 1 1 100%;
+    }
+
+    @media (max-width: em(600)) {
+      &:has(.footer__logo) {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    li {
+      @extend %Roboto-500;
+      font-size: rem(13);
+      text-transform: uppercase;
+      color: $gray;
+
+      &:not(:last-child) {
+        margin-bottom: rem(5);
+      }
+    }
+
+    dl>div {
+      &:not(:last-child) {
+        margin-bottom: rem(5);
+      }
+    }
+
+    dl dt {
+      @extend %Oswald-500;
+      font-size: rem(12);
+      text-transform: uppercase;
+    }
+
+    dl dd {
+      @extend %Roboto-500;
+      font-size: rem(12);
+      text-transform: uppercase;
+      color: $gray;
+    }
+  }
+
+  &__title {
+    @extend %Oswald-500;
+    font-size: rem(18);
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-bottom: rem(35);
+    }
+
+    @media (max-width: em(900)) {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-bottom: rem(5);
+      border-bottom: 1px solid $dark-gray;
+      font-size: rem(14);
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        width: rem(19);
+        height: rem(2);
+        background-color: $dark-gray;
+      }
+
+      &::after {
+        transform: rotate(90deg);
+        transition: all 0.3s ease 0s;
+      }
+
+      &._active {
+        &::after {
+          transform: rotate(0);
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: rem(15);
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    column-gap: rem(18);
+
+    svg {
+      width: rem(21);
+      height: rem(21);
+
+      path {
+        fill: $white;
+      }
+    }
+  }
+
+  &__text {
+    @extend %Roboto-400;
+    font-size: rem(13);
+    text-transform: uppercase;
+    color: $gray;
+
+    @media (max-width: em(900)) {
+      font-size: rem(11);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__title-form {
+    @extend %Oswald-500;
+    font-size: rem(18);
+    text-transform: uppercase;
+
+    @media (max-width: em(900)) {
+      font-size: rem(14);
+    }
+  }
+
+  &__copy {
+    padding: rem(15) 0 rem(40);
+    border-top: 1px solid $dark-gray;
+    @extend %Roboto-500;
+    font-size: rem(12);
+    text-transform: uppercase;
+
+    @media (max-width: em(600)) {
+      border-top: none;
+      padding-bottom: rem(24);
+    }
+  }
+}
+
+.form-subscribe {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(7);
+  width: rem(280);
+
+  @media (max-width: em(900)) {
+    width: 100%;
+  }
+
+  &__input {
+    padding: rem(10) rem(15);
+    border: 1px solid $white;
+    @extend %Roboto-400;
+    font-size: rem(12);
+    text-transform: capitalize;
+    color: $white;
+    background-color: transparent;
+
+    &::placeholder {
+      @extend %Roboto-400;
+      font-size: rem(12);
+      text-transform: capitalize;
+      color: $white;
+    }
+  }
+
+  &__btn {
+    @include flex-center;
+    width: 100%;
+    height: rem(40);
+    border: none;
+    @extend %Oswald-400;
+    font-size: rem(14);
+    text-transform: uppercase;
+    color: $black-gray;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $accent;
+        color: $white;
+      }
+    }
+  }
+}
