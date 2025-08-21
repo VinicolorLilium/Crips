@@ -1,10 +1,11 @@
 "use strict";
 // поле поиска в шапке
+//===================================================
 const searchBtn = document.querySelector('.form-search__btn');
 const searchForm = document.querySelector('.form-search');
 
 if (searchBtn) {
-  searchBtn.addEventListener('click',() => {
+  searchBtn.addEventListener('click', () => {
     searchForm.classList.toggle('_active');
   });
 }
@@ -13,7 +14,7 @@ if (searchBtn) {
 const menuBtn = document.querySelector('.menu__btn');
 const menuList = document.querySelector('.menu');
 
-if(menuBtn) {
+if (menuBtn) {
   menuBtn.addEventListener('click', () => {
     menuBtn.classList.toggle('_active');
     if (menuList) {
@@ -21,8 +22,9 @@ if(menuBtn) {
     }
   });
 }
-
+//===================================================
 //динамический адаптив
+//===================================================
 function DynamicAdapt(type) {
   this.type = type;
 }
@@ -165,7 +167,7 @@ DynamicAdapt.prototype.arraySort = function (arr) {
 };
 const da = new DynamicAdapt("max");
 da.init();
-
+//===================================================
 //SPOLLERS
 //==========================================================================
 const spollersArray = document.querySelectorAll('[data-spollers]');
@@ -350,3 +352,27 @@ let _slideToggle = (target, duration = 500) => {
     return _slideUp(target, duration);
   }
 }
+//===================================================
+//слайдер в секции hero
+//===================================================
+
+const heroSlider = new Swiper('.hero-slider', {
+  slidesPerView: 1,
+  loop: true,
+  speed: 800,
+  observer: true,
+  observeParents: true,
+  fadeEffect: { crossFade: true },
+  effect: "fade",
+  navigation: {
+    nextEl: '.hero-slider__next',
+    prevEl: '.hero-slider__prev',
+  },
+  pagination: {
+    el: '.hero-slider__pagination',
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+});

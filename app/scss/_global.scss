@@ -51,3 +51,13 @@ button {
 //   clip: rect(0 0 0 0);
 //   overflow: hidden;
 // }
+
+.page-btn {
+  @include flex-center;
+  width: clamp(7.1875rem, 6.4173rem + 3.8511vw, 10.9375rem);
+  height: clamp(2.5625rem, 2.3699rem + 0.9628vw, 3.5rem);
+  border: 2px solid $black;
+  @extend %Oswald-500;
+  font-size: clamp(0.875rem, 0.8237rem + 0.2567vw, 1.125rem);
+  text-transform: uppercase;
+}
