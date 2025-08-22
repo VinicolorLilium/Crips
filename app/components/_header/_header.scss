@@ -47,7 +47,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    z-index: 10;
+    z-index: 50;
     flex-direction: column;
     row-gap: rem(10);
     justify-content: center;
@@ -74,7 +74,7 @@
     @media (max-width: em(1100)) {
       display: flex;
       position: relative;
-      z-index: 11;
+      z-index: 51;
       align-items: center;
       justify-content: center;
       width: rem(20);
