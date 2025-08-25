@@ -371,8 +371,8 @@ const heroSlider = new Swiper('.hero-slider', {
   pagination: {
     el: '.hero-slider__pagination',
   },
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
+  // autoplay: {
+  //   delay: 3000,
+  //   disableOnInteraction: false,
+  // },
 });
