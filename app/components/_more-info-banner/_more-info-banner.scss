@@ -1,0 +1,54 @@
+.more-info-banner {
+  &__title {
+    position: relative;
+    display: inline-block;
+    @extend %Oswald-500;
+    font-size: clamp(0.875rem, 0.3358rem + 2.6958vw, 3.5rem);
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-bottom: clamp(0rem, -0.1926rem + 0.9628vw, 0.9375rem);
+    }
+
+    &::before {
+      position: absolute;
+      top: rem(-17);
+      right: rem(-56);
+      content: '';
+      display: inline-block;
+      width: clamp(0rem, -7.7535rem + 38.7677vw, 37.75rem);
+      height: clamp(0rem, -1.3094rem + 6.5469vw, 6.375rem);
+      background-image: url('../images/icons/title-decor-black.svg');
+      background-size: cover;
+
+      @media (max-width: em(900)) {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    max-width: clamp(10.6875rem, 4.667rem + 30.1027vw, 40rem);
+    @extend %Roboto-300;
+    font-size: clamp(0.625rem, 0.4324rem + 0.9628vw, 1.5625rem);
+    line-height: 1.4;
+
+    &:not(:last-child) {
+      margin-bottom: clamp(0.5rem, 0.2946rem + 1.027vw, 1.5rem);
+    }
+  }
+
+  &__btn {}
+}
+
+.more-info-banner--left {
+  padding: clamp(1.0625rem, 0.2409rem + 4.1078vw, 5.0625rem) rem(10) clamp(1rem, 0.2555rem + 3.7227vw, 4.625rem) clamp(1.4375rem, -1.7332rem + 15.8537vw, 16.875rem);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top right;
+
+  @media (max-width: em(768)){
+    background-position: left bottom;      
+  }
+}
