@@ -61,3 +61,9 @@ button {
   font-size: clamp(0.875rem, 0.8237rem + 0.2567vw, 1.125rem);
   text-transform: uppercase;
 }
+
+.show-more {
+  border-color: $divider;
+  color: $gray;
+  background-color: transparent;
+}

@@ -1,0 +1,81 @@
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: rem(344);
+
+  &:nth-child(n + 9) {
+    display: none;
+  }
+
+  &._is-visible {
+    display: flex;
+  }
+
+  &__img {
+    width: 100%;
+    min-height: clamp(11.375rem, 7.9347rem + 17.2015vw, 28.125rem);
+    background-color: $gray;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1 / 1.308;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: clamp(0rem, -0.1797rem + 0.8986vw, 0.875rem);
+    }
+  }
+
+  &__category {
+    @extend %Oswald-600;
+    font-size: clamp(0.625rem, 0.5993rem + 0.1284vw, 0.75rem);
+    line-height: clamp(0.9375rem, 0.899rem + 0.1926vw, 1.125rem);
+    text-transform: uppercase;
+    color: #BDBDBD;
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    @extend %Oswald-300;
+    font-size: clamp(0.75rem, 0.673rem + 0.3851vw, 1.125rem);
+    line-height: clamp(1.125rem, 1.0095rem + 0.5777vw, 1.6875rem);
+  }
+
+  &__price {
+    @extend %Oswald-500;
+    font-size: clamp(0.875rem, 0.7723rem + 0.5135vw, 1.375rem);
+    line-height: clamp(1.3125rem, 1.1585rem + 0.7702vw, 2.0625rem);
+    text-transform: uppercase;
+  }
+
+  &__price--sale {
+    color: $accent;
+
+    span {
+      display: inline-block;
+      margin-left: clamp(0.4375rem, 0.3476rem + 0.4493vw, 0.875rem);
+      @extend %Oswald-400;
+      font-size: clamp(0.5rem, 0.423rem + 0.3851vw, 0.875rem);
+      line-height: clamp(0.75rem, 0.6345rem + 0.5777vw, 1.3125rem);
+      color: $gray;
+      text-decoration: line-through;
+    }
+  }
+
+  &__sale {
+    position: absolute;
+    top: clamp(0.625rem, 0.5608rem + 0.3209vw, 0.9375rem);
+    left: 0;
+    @include flex-center;
+    width: clamp(2.0625rem, 1.9726rem + 0.4493vw, 2.5rem);
+    height: clamp(1.0625rem, 1.024rem + 0.1926vw, 1.25rem);
+    @extend %Oswald-400;
+    font-size: clamp(0.75rem, 0.7243rem + 0.1284vw, 0.875rem);
+    line-height: clamp(1.125rem, 1.0865rem + 0.1926vw, 1.3125rem);
+    color: $white;
+    background-color: $black;
+  }
+}

@@ -376,3 +376,21 @@ const heroSlider = new Swiper('.hero-slider', {
   //   disableOnInteraction: false,
   // },
 });
+//===================================================
+//кнопка "показать еще" в блоке с товарами на главной странице
+//===================================================
+const showMore = document.querySelector('.show-more'); 
+const productsLength = document.querySelectorAll('.product-card').length;
+let items = 8;
+
+showMore.addEventListener('click', () => {
+  items += 4;
+  const array = Array.from(document.querySelector('.some-wear__content').children);
+  const visItems = array.slice(0, items);
+
+  visItems.forEach(el => el.classList.add('_is-visible')); 
+
+  if (visItems.length === productsLength) {
+    showMore.style.display = 'none';
+  }
+});
