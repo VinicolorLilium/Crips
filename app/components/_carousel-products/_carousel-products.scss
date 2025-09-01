@@ -1,0 +1,21 @@
+.carousel-products {
+  padding: rem(81) 0 rem(42);
+
+  @media (max-width: em(768)) {
+    padding: rem(15) 0 rem(14);
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: rem(80);
+
+      @media (max-width: em(1200)) {
+        margin-bottom: rem(50);
+      }
+
+      @media (max-width: em(768)) {
+        margin-bottom: rem(18);
+      }
+    }
+  }
+}

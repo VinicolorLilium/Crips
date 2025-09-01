@@ -13,11 +13,17 @@
   }
 
   &__img {
+    position: relative;
     width: 100%;
     min-height: clamp(11.375rem, 7.9347rem + 17.2015vw, 28.125rem);
     background-color: $gray;
 
     img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;

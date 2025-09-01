@@ -1,0 +1,55 @@
+.slider-products {
+
+  &__title {
+    @extend %Oswald-400;
+    font-size: rem(24);
+
+    @media (max-width: em(768)) {
+      font-size: rem(18);
+      max-width: rem(230);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: rem(34);
+    }
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    overflow-x: clip;
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+
+  &__slide {
+    flex: 1 0 calc(20% - rem(24));
+
+    @media (max-width: em(1200)) {
+      flex: 1 0 calc(25% - rem(24));
+    }
+
+    @media (max-width: em(768)) {
+      flex: 1 0 calc(50% - rem(7));
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: rem(-66);
+    right: 0;
+    z-index: 10;
+    @include flex-center;
+    width: rem(40);
+    height: rem(40);
+    border: 2px solid $divider;
+    background-color: transparent;
+  }
+
+  &__prev {
+    right: rem(44);
+  }
+}
