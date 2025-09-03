@@ -1,0 +1,44 @@
+.advantages {
+  background-color: #E6F1FA;
+
+  &__wrapper {
+    padding: clamp(1.25rem, 1.0574rem + 0.9628vw, 2.1875rem) rem(10);
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: rem(7);
+    flex-wrap: wrap;
+    width: 100%;
+
+
+    @media (max-width: em(768)) {
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+    }
+  }
+
+  &__list-link {
+    display: flex;
+    align-items: center;
+    column-gap: clamp(0.875rem, 0.7723rem + 0.5135vw, 1.375rem);
+    @extend %Oswald-400;
+    font-size: rem(14);
+    line-height: math.div(21, 14);
+    text-transform: capitalize;
+
+    @media (max-width: em(768)) {}
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: rem(14);
+      height: rem(9);
+      background-image: url('../images/icons/check-black.svg');
+      @include bg;
+    }
+  }
+}
