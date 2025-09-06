@@ -1,0 +1,38 @@
+@use 'sass:math';
+
+@import 'reset';
+@import 'fonts';
+@import 'vars';
+@import 'mixin';
+@import 'global';
+
+
+@import '../components/_header/header';
+
+@import '../components/_more-info-banner/more-info-banner';
+
+.more-info-banner {
+  margin: rem(15) 0 rem(21);
+}
+
+.catalog {
+  &__content {}
+}
+
+.catalog-content {
+  &__wrapper {
+    display: flex;
+  }
+
+  &__filter {
+    flex: 0 0 rem(395);
+    padding-right: rem(29);
+    border-right: 1px solid $divider;
+  }
+
+  &__cards {}
+}
+@import '../components/_catalog-filter/catalog-filter';
+
+
+@import '../components/_footer/footer';

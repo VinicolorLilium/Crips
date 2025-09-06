@@ -47,6 +47,12 @@
     height: rem(40);
     border: 2px solid $divider;
     background-color: transparent;
+
+    @media (any-hover: hover){
+      &:hover{
+        border-color: $gray;
+      }
+    }
   }
 
   &__prev {
