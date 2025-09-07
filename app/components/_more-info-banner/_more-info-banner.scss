@@ -2,6 +2,8 @@
 
   &__wrapper {
     width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   &__title {
@@ -124,5 +126,25 @@
 
   .more-info-banner__title::before {
     right: 0;
+  }
+}
+
+.more-info-banner--white {
+  color: $white;
+
+  .container {
+    padding: 0;
+  }
+
+  .more-info-banner__wrapper {
+    padding-left: rem(179);
+  }
+
+  .more-info-banner__title::before {
+    background-image: url('../images/icons/title-decor-white.svg')
+  }
+
+  .more-info-banner__btn {
+    border-color: $white;
   }
 }

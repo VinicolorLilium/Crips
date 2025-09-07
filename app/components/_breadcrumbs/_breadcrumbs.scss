@@ -1,0 +1,43 @@
+.breadcrumbs {
+  margin: rem(18) 0;
+
+  position: relative;
+  @extend %Roboto-400;
+  font-size: rem(14);
+  color: $gray;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+
+
+    &+& {
+      margin-left: rem(8);
+
+      &::before {
+        content: "/";
+        margin-right: rem(8);
+        color: $gray;
+      }
+    }
+  }
+
+  &__link {
+    transition: color .2s ease;
+
+    &:hover {
+      color: $black;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(0, 0, 0, .4);
+      outline-offset: 2px;
+    }
+  }
+}

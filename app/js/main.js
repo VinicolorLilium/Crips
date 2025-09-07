@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //кнопка "показать еще" в блоке с товарами на главной странице
   //===================================================
   const showMore = document.querySelector('.show-more');
-  const productsLength = document.querySelectorAll('.product-card').length;
+  const productsLength = document.querySelectorAll('.product-card--carousel').length;
   let items = 8;
 
   if (showMore) {

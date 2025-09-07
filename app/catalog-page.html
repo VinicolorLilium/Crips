@@ -91,9 +91,26 @@
           </div>
         </div>
       </section>
+      <!-- хлебные крошик -->
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <div class="container">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="/">Главная</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="/womens-dress">Женские платья</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <span class="breadcrumbs__current" aria-current="page">Лучшее</span>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <section class="catalog__content catalog-content">
         <div class="container">
           <div class="catalog-content__wrapper">
+            <!-- блок с фильтром -->
             <div class="catalog-content__filter">
               <aside class="filter" aria-label="Фильтры товаров">
                 <form class="filter__form" action="#" method="get">
@@ -107,8 +124,6 @@
               
                     </section>
                   </div>
-              
-              
                   <!-- Бренд -->
                   <fieldset class="filter__group filter__group--brand">
                     <legend class="filter__subtitle" >Бренд</legend>
@@ -127,7 +142,7 @@
                       </li>
                       <li class="filter__option">
                         <label class="filter__option-label">
-                          <input class="filter__option-input" type="checkbox" name="brand" value="bardot">
+                          <input class="filter__option-input" type="checkbox" name="brand" value="bardot" checked>
                           <span class="filter__option-checkbox"></span> bardot
                         </label>
                       </li>
@@ -200,7 +215,7 @@
                       </li>
                       <li class="filter__option">
                         <label class="filter__option-label">
-                          <input class="filter__option-input" type="checkbox" name="size" value="w32">
+                          <input class="filter__option-input" type="checkbox" name="size" value="w32" checked>
                           <span class="filter__option-checkbox-size">W32</span>
                         </label>
                       </li>
@@ -298,7 +313,7 @@
                       </li>
                       <li class="filter__option">
                         <label class="filter__option-label">
-                          <input class="filter__option-input" type="checkbox" name="length" value="Длинное">
+                          <input class="filter__option-input" type="checkbox" name="length" value="Длинное" checked>
                           <span class="filter__option-checkbox"></span>Длинное
                         </label>
                       </li>
@@ -335,7 +350,7 @@
                       </li>
                       <li class="filter__option">
                         <label class="filter__option-color filter__option-label">
-                          <input class="filter__option-input" type="checkbox" id="color-18574A" name="color" value="18574A">
+                          <input class="filter__option-input" type="checkbox" id="color-18574A" name="color" value="18574A" checked>
                           <span class="filter__option-checkbox-color" style="background-color: #18574A;"></span>
                         </label>
                       </li>
@@ -419,7 +434,791 @@
                 </section>
               </aside>
             </div>
-            <div class="catalog-content__cards"></div>
+            <!-- блок каталога товаров -->
+            <div class="catalog-content__cards catalog-cards">
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/01@3x.avif 3x,
+                                                      images/product-card/01@2x.avif 2x,
+                                                      images/product-card/01.avif">
+                    <source type="image/webp" srcset="images/product-card/01@3x.webp 3x,
+                                                      images/product-card/01@2x.webp 2x,
+                                                      images/product-card/01.webp">
+                    <source type="image/jpg" srcset="images/product-card/01@3x.jpg 3x,
+                                                     images/product-card/01@2x.jpg 2x">
+                    <img src="images/product-card/01.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #18574A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/02@3x.avif 3x,
+                                                      images/product-card/02@2x.avif 2x,
+                                                      images/product-card/02.avif">
+                    <source type="image/webp" srcset="images/product-card/02@3x.webp 3x,
+                                                      images/product-card/02@2x.webp 2x,
+                                                      images/product-card/02.webp">
+                    <source type="image/jpg" srcset="images/product-card/02@3x.jpg 3x,
+                                                     images/product-card/02@2x.jpg 2x">
+                    <img src="images/product-card/02.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #88ABCB;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #FACBCE;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #A75E5D;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/03@3x.avif 3x,
+                                                      images/product-card/03@2x.avif 2x,
+                                                      images/product-card/03.avif">
+                    <source type="image/webp" srcset="images/product-card/03@3x.webp 3x,
+                                                      images/product-card/03@2x.webp 2x,
+                                                      images/product-card/03.webp">
+                    <source type="image/jpg" srcset="images/product-card/03@3x.jpg 3x,
+                                                     images/product-card/03@2x.jpg 2x">
+                    <img src="images/product-card/03.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #C2BEB6;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #CBA13E;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/08@3x.avif 3x,
+                                                      images/product-card/08@2x.avif 2x,
+                                                      images/product-card/08.avif">
+                    <source type="image/webp" srcset="images/product-card/08@3x.webp 3x,
+                                                      images/product-card/08@2x.webp 2x,
+                                                      images/product-card/08.webp">
+                    <source type="image/jpg" srcset="images/product-card/08@3x.jpg 3x,
+                                                     images/product-card/08@2x.jpg 2x">
+                    <img src="images/product-card/08.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #F3ECE2;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/05@3x.avif 3x,
+                                                      images/product-card/05@2x.avif 2x,
+                                                      images/product-card/05.avif">
+                    <source type="image/webp" srcset="images/product-card/05@3x.webp 3x,
+                                                      images/product-card/05@2x.webp 2x,
+                                                      images/product-card/05.webp">
+                    <source type="image/jpg" srcset="images/product-card/05@3x.jpg 3x,
+                                                     images/product-card/05@2x.jpg 2x">
+                    <img src="images/product-card/05.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #2B9FA7;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #971E34;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/06@3x.avif 3x,
+                                                      images/product-card/06@2x.avif 2x,
+                                                      images/product-card/06.avif">
+                    <source type="image/webp" srcset="images/product-card/06@3x.webp 3x,
+                                                      images/product-card/06@2x.webp 2x,
+                                                      images/product-card/06.webp">
+                    <source type="image/jpg" srcset="images/product-card/06@3x.jpg 3x,
+                                                     images/product-card/06@2x.jpg 2x">
+                    <img src="images/product-card/06.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #292A2D;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #F3ECE2;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/02@3x.avif 3x,
+                                                      images/product-card/02@2x.avif 2x,
+                                                      images/product-card/02.avif">
+                    <source type="image/webp" srcset="images/product-card/02@3x.webp 3x,
+                                                      images/product-card/02@2x.webp 2x,
+                                                      images/product-card/02.webp">
+                    <source type="image/jpg" srcset="images/product-card/02@3x.jpg 3x,
+                                                     images/product-card/02@2x.jpg 2x">
+                    <img src="images/product-card/02.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #88ABCB;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #FACBCE;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #A75E5D;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/07@3x.avif 3x,
+                                                      images/product-card/07@2x.avif 2x,
+                                                      images/product-card/07.avif">
+                    <source type="image/webp" srcset="images/product-card/07@3x.webp 3x,
+                                                      images/product-card/07@2x.webp 2x,
+                                                      images/product-card/07.webp">
+                    <source type="image/jpg" srcset="images/product-card/07@3x.jpg 3x,
+                                                     images/product-card/07@2x.jpg 2x">
+                    <img src="images/product-card/07.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #F3ECE2;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #292A2D;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #AAABA7;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/08@3x.avif 3x,
+                                                      images/product-card/08@2x.avif 2x,
+                                                      images/product-card/08.avif">
+                    <source type="image/webp" srcset="images/product-card/08@3x.webp 3x,
+                                                      images/product-card/08@2x.webp 2x,
+                                                      images/product-card/08.webp">
+                    <source type="image/jpg" srcset="images/product-card/08@3x.jpg 3x,
+                                                     images/product-card/08@2x.jpg 2x">
+                    <img src="images/product-card/08.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #18574A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/02@3x.avif 3x,
+                                                      images/product-card/02@2x.avif 2x,
+                                                      images/product-card/02.avif">
+                    <source type="image/webp" srcset="images/product-card/02@3x.webp 3x,
+                                                      images/product-card/02@2x.webp 2x,
+                                                      images/product-card/02.webp">
+                    <source type="image/jpg" srcset="images/product-card/02@3x.jpg 3x,
+                                                     images/product-card/02@2x.jpg 2x">
+                    <img src="images/product-card/02.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #88ABCB;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #FACBCE;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #A75E5D;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/05@3x.avif 3x,
+                                                      images/product-card/05@2x.avif 2x,
+                                                      images/product-card/05.avif">
+                    <source type="image/webp" srcset="images/product-card/05@3x.webp 3x,
+                                                      images/product-card/05@2x.webp 2x,
+                                                      images/product-card/05.webp">
+                    <source type="image/jpg" srcset="images/product-card/05@3x.jpg 3x,
+                                                     images/product-card/05@2x.jpg 2x">
+                    <img src="images/product-card/05.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #C2BEB6;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #CBA13E;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/07@3x.avif 3x,
+                                                      images/product-card/07@2x.avif 2x,
+                                                      images/product-card/07.avif">
+                    <source type="image/webp" srcset="images/product-card/07@3x.webp 3x,
+                                                      images/product-card/07@2x.webp 2x,
+                                                      images/product-card/07.webp">
+                    <source type="image/jpg" srcset="images/product-card/07@3x.jpg 3x,
+                                                     images/product-card/07@2x.jpg 2x">
+                    <img src="images/product-card/07.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #F3ECE2;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <section class="more-info-banner more-info-banner--left more-info-banner--white">
+                <div class="container">
+                  <div class="more-info-banner__wrapper" style="background-image: url(images/more-info-banner/bg-04.jpg)">
+                    <h2 class="more-info-banner__title">шопинг без ограничений.</h2>
+                    <p class="more-info-banner__text">
+                      Вы можете выбрать оптимальный для вас вариант, и не имеет значения, находитесь ли вы в Праге или
+                      Сан-Франциско.
+                      Мы
+                      доставим вашу покупку в любое место!
+                    </p>
+                    <a class="more-info-banner__btn page-btn" href="#">к покупкам</a>
+                  </div>
+                </div>
+              </section>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/01@3x.avif 3x,
+                                                                    images/product-card/01@2x.avif 2x,
+                                                                    images/product-card/01.avif">
+                    <source type="image/webp" srcset="images/product-card/01@3x.webp 3x,
+                                                                    images/product-card/01@2x.webp 2x,
+                                                                    images/product-card/01.webp">
+                    <source type="image/jpg" srcset="images/product-card/01@3x.jpg 3x,
+                                                                   images/product-card/01@2x.jpg 2x">
+                    <img src="images/product-card/01.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #18574A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/02@3x.avif 3x,
+                                                                    images/product-card/02@2x.avif 2x,
+                                                                    images/product-card/02.avif">
+                    <source type="image/webp" srcset="images/product-card/02@3x.webp 3x,
+                                                                    images/product-card/02@2x.webp 2x,
+                                                                    images/product-card/02.webp">
+                    <source type="image/jpg" srcset="images/product-card/02@3x.jpg 3x,
+                                                                   images/product-card/02@2x.jpg 2x">
+                    <img src="images/product-card/02.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #88ABCB;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #FACBCE;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #A75E5D;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/03@3x.avif 3x,
+                                                                    images/product-card/03@2x.avif 2x,
+                                                                    images/product-card/03.avif">
+                    <source type="image/webp" srcset="images/product-card/03@3x.webp 3x,
+                                                                    images/product-card/03@2x.webp 2x,
+                                                                    images/product-card/03.webp">
+                    <source type="image/jpg" srcset="images/product-card/03@3x.jpg 3x,
+                                                                   images/product-card/03@2x.jpg 2x">
+                    <img src="images/product-card/03.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #C2BEB6;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #CBA13E;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/08@3x.avif 3x,
+                                                                    images/product-card/08@2x.avif 2x,
+                                                                    images/product-card/08.avif">
+                    <source type="image/webp" srcset="images/product-card/08@3x.webp 3x,
+                                                                    images/product-card/08@2x.webp 2x,
+                                                                    images/product-card/08.webp">
+                    <source type="image/jpg" srcset="images/product-card/08@3x.jpg 3x,
+                                                                   images/product-card/08@2x.jpg 2x">
+                    <img src="images/product-card/08.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #F3ECE2;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/05@3x.avif 3x,
+                                                                    images/product-card/05@2x.avif 2x,
+                                                                    images/product-card/05.avif">
+                    <source type="image/webp" srcset="images/product-card/05@3x.webp 3x,
+                                                                    images/product-card/05@2x.webp 2x,
+                                                                    images/product-card/05.webp">
+                    <source type="image/jpg" srcset="images/product-card/05@3x.jpg 3x,
+                                                                   images/product-card/05@2x.jpg 2x">
+                    <img src="images/product-card/05.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #2B9FA7;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #971E34;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/06@3x.avif 3x,
+                                                                    images/product-card/06@2x.avif 2x,
+                                                                    images/product-card/06.avif">
+                    <source type="image/webp" srcset="images/product-card/06@3x.webp 3x,
+                                                                    images/product-card/06@2x.webp 2x,
+                                                                    images/product-card/06.webp">
+                    <source type="image/jpg" srcset="images/product-card/06@3x.jpg 3x,
+                                                                   images/product-card/06@2x.jpg 2x">
+                    <img src="images/product-card/06.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #292A2D;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #F3ECE2;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/02@3x.avif 3x,
+                                                                    images/product-card/02@2x.avif 2x,
+                                                                    images/product-card/02.avif">
+                    <source type="image/webp" srcset="images/product-card/02@3x.webp 3x,
+                                                                    images/product-card/02@2x.webp 2x,
+                                                                    images/product-card/02.webp">
+                    <source type="image/jpg" srcset="images/product-card/02@3x.jpg 3x,
+                                                                   images/product-card/02@2x.jpg 2x">
+                    <img src="images/product-card/02.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #88ABCB;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #FACBCE;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #A75E5D;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/07@3x.avif 3x,
+                                                                    images/product-card/07@2x.avif 2x,
+                                                                    images/product-card/07.avif">
+                    <source type="image/webp" srcset="images/product-card/07@3x.webp 3x,
+                                                                    images/product-card/07@2x.webp 2x,
+                                                                    images/product-card/07.webp">
+                    <source type="image/jpg" srcset="images/product-card/07@3x.jpg 3x,
+                                                                   images/product-card/07@2x.jpg 2x">
+                    <img src="images/product-card/07.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #F3ECE2;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #292A2D;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #AAABA7;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/08@3x.avif 3x,
+                                                                    images/product-card/08@2x.avif 2x,
+                                                                    images/product-card/08.avif">
+                    <source type="image/webp" srcset="images/product-card/08@3x.webp 3x,
+                                                                    images/product-card/08@2x.webp 2x,
+                                                                    images/product-card/08.webp">
+                    <source type="image/jpg" srcset="images/product-card/08@3x.jpg 3x,
+                                                                   images/product-card/08@2x.jpg 2x">
+                    <img src="images/product-card/08.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #18574A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/02@3x.avif 3x,
+                                                                    images/product-card/02@2x.avif 2x,
+                                                                    images/product-card/02.avif">
+                    <source type="image/webp" srcset="images/product-card/02@3x.webp 3x,
+                                                                    images/product-card/02@2x.webp 2x,
+                                                                    images/product-card/02.webp">
+                    <source type="image/jpg" srcset="images/product-card/02@3x.jpg 3x,
+                                                                   images/product-card/02@2x.jpg 2x">
+                    <img src="images/product-card/02.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #88ABCB;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #FACBCE;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #A75E5D;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/05@3x.avif 3x,
+                                                                    images/product-card/05@2x.avif 2x,
+                                                                    images/product-card/05.avif">
+                    <source type="image/webp" srcset="images/product-card/05@3x.webp 3x,
+                                                                    images/product-card/05@2x.webp 2x,
+                                                                    images/product-card/05.webp">
+                    <source type="image/jpg" srcset="images/product-card/05@3x.jpg 3x,
+                                                                   images/product-card/05@2x.jpg 2x">
+                    <img src="images/product-card/05.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #C2BEB6;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #CBA13E;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+              <div class="catalog-cards__item">
+                <a class="product-card" href="#">
+                  <picture class="product-card__img">
+                    <source type="image/avif" srcset="images/product-card/07@3x.avif 3x,
+                                                                    images/product-card/07@2x.avif 2x,
+                                                                    images/product-card/07.avif">
+                    <source type="image/webp" srcset="images/product-card/07@3x.webp 3x,
+                                                                    images/product-card/07@2x.webp 2x,
+                                                                    images/product-card/07.webp">
+                    <source type="image/jpg" srcset="images/product-card/07@3x.jpg 3x,
+                                                                   images/product-card/07@2x.jpg 2x">
+                    <img src="images/product-card/07.jpg" alt="платье">
+                  </picture>
+                  <p class="product-card__category">топ женское</p>
+                  <p class="product-card__text">Джинсы Angels malu на молнии узкие черные б/у</p>
+                  <p class="product-card__price">90,00 EUR</p>
+                  <form class="product-card__form" action="#" method="post">
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #24426A;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color" checked>
+                      <span class="product-card__form-ckecbox" style="background-color: #F3ECE2;"></span>
+                    </label>
+                    <label class="product-card__form-label">
+                      <input class="product-card__form-input" type="checkbox" name="color">
+                      <span class="product-card__form-ckecbox" style="background-color: #666689;"></span>
+                    </label>
+                  </form>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

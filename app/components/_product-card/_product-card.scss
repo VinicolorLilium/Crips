@@ -84,4 +84,28 @@
     color: $white;
     background-color: $black;
   }
+
+  &__form {
+    display: flex;
+    column-gap: rem(10);
+  }
+
+  &__form-label {
+    cursor: pointer;
+  }
+
+  &__form-input {
+    @extend %checkbox-hidden;
+
+    &:checked + .product-card__form-ckecbox {
+      outline: 2px solid $black;
+    }
+  }
+
+  &__form-ckecbox {
+    display: inline-block;
+    width: rem(26);
+    height: rem(26);
+    border: 3px solid $white;
+  }
 }
