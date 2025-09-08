@@ -96,11 +96,11 @@
 
   .more-info-banner__wrapper {
     padding: clamp(1.0625rem, 0.2409rem + 4.1078vw, 5.0625rem) rem(10) clamp(1rem, 0.2555rem + 3.7227vw, 4.625rem) clamp(1.4375rem, -1.7332rem + 15.8537vw, 16.875rem);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top right;
   }
 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top right;
 
   @media (max-width: em(768)) {
     background-position: left bottom;

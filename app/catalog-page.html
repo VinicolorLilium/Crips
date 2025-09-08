@@ -119,14 +119,26 @@
                       <h2 class="filter__title filter__title--big">Фильтр</h2>
                       <button class="filter__reset" type="reset">Сбросить всё</button>
                     </header>
+              
+              
                     <!-- Активные выбранные фильтры -->
                     <section class="filter__active">
               
                     </section>
                   </div>
+                  <!-- Мобильный контрол (один выпадающий список) -->
+                  <div class="filter__mobile" aria-hidden="true">
+                    <button type="button" class="filter__mobile-toggle" aria-haspopup="listbox" aria-expanded="false"
+                      aria-controls="filterMobileMenu">
+                      <span class="filter__mobile-label">Filter</span>
+                      <span class="filter__mobile-caret" aria-hidden="true"></span>
+                    </button>
+              
+                    <ul class="filter__mobile-menu" id="filterMobileMenu" role="listbox" hidden></ul>
+                  </div>
                   <!-- Бренд -->
                   <fieldset class="filter__group filter__group--brand">
-                    <legend class="filter__subtitle" >Бренд</legend>
+                    <legend class="filter__subtitle">Бренд</legend>
                     <ul class="filter__options">
                       <li class="filter__option">
                         <label class="filter__option-label">
@@ -169,7 +181,7 @@
               
                   <!-- Размер -->
                   <fieldset class="filter__group filter__group--size">
-                    <legend class="filter__subtitle" >Размер (дюймы)</legend>
+                    <legend class="filter__subtitle">Размер (дюймы)</legend>
                     <ul class="filter__options filter__options--grid">
                       <li class="filter__option">
                         <label class="filter__option-label">
@@ -296,7 +308,7 @@
               
                   <!-- Длина платья -->
                   <fieldset class="filter__group filter__group--dress-length">
-                    <legend class="filter__subtitle" >Длина платья</legend>
+                    <legend class="filter__subtitle">Длина платья</legend>
                     <ul class="filter__options">
                       <li class="filter__option">
                         <label class="filter__option-label">
@@ -328,7 +340,7 @@
               
                   <!-- Цвет -->
                   <fieldset class="filter__group filter__group--color">
-                    <legend class="filter__subtitle" >Цвет</legend>
+                    <legend class="filter__subtitle">Цвет</legend>
                     <ul class="filter__options filter__options--colors">
                       <li class="filter__option">
                         <label class="filter__option-color filter__option-label">

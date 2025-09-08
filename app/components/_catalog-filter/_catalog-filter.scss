@@ -1,5 +1,4 @@
 .filter {
-
   &__form {
     position: relative;
     display: flex;
@@ -355,6 +354,89 @@
       }
     }
   }
+
+    &__mobile {
+      display: none; // по умолчанию скрыт (на десктопе)
+      position: relative;
+      margin-bottom: rem(20);
+  
+      &.is-open .filter__mobile-caret {
+        transform: rotate(180deg);
+      }
+    }
+  
+    &__mobile-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: rem(10);
+      padding: rem(12) rem(14);
+      border: 1px solid $divider;
+      background: $white;
+      color: $black;
+      cursor: pointer;
+      @extend %Oswald-400;
+      font-size: rem(18);
+      text-transform: uppercase;
+    }
+  
+    &__mobile-caret {
+      width: rem(16);
+      height: rem(16);
+      flex: 0 0 rem(16);
+      position: relative;
+      transition: transform .2s ease;
+  
+      // простая "галочка"
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: rem(8);
+        height: rem(8);
+        border-right: 2px solid $black;
+        border-bottom: 2px solid $black;
+        transform: rotate(45deg);
+      }
+    }
+  
+    &__mobile-menu {
+      position: absolute;
+      z-index: 10;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: $white;
+      border: 1px solid $divider;
+      border-top: none;
+      padding: rem(6) 0;
+      list-style: none;
+      margin: 0;
+      max-height: 50vh;
+      overflow: auto;
+    }
+  
+    &__mobile-option {
+      padding: rem(10) rem(14);
+      @extend %Roboto-400;
+      font-size: rem(16);
+      text-transform: uppercase;
+      color: $black-gray;
+      cursor: pointer;
+  
+      &[aria-selected="true"] {
+        color: $black;
+        background: #f6f7f8;
+      }
+  
+      @media (any-hover: hover) {
+        &:hover {
+          background: #f6f7f8;
+        }
+      }
+    }
 }
 
 .price-range {
@@ -434,5 +516,55 @@
       border: none;
       cursor: pointer;
     }
+  }
+}
+
+// Адаптивное поведение
+@media (max-width: 899.98px) {
+  .filter {
+
+    // показать мобильный контрол
+    &__mobile {
+      display: block;
+    }
+
+    // скрыть все группы, кроме выбранной
+    &__group {
+      display: none;
+    }
+
+    &__group.is-selected {
+      display: block;
+    }
+
+    // компактнее отступы
+    &__group:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+
+    // сетка размеров — не фиксируем ширину
+    &__options--grid {
+      max-width: 100%;
+      grid-template-columns: repeat(4, auto);
+    }
+
+    &__apply {
+      margin-top: rem(20);
+    }
+  }
+}
+
+// На десктопе — все группы видны, мобильный контрол скрыт
+@media (min-width: 900px) {
+  .filter {
+    &__mobile {
+      display: none;
+    }
+
+    &__group {
+      display: block;
+    }
+
+    // перекрываем is-selected
   }
 }
