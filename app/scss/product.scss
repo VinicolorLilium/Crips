@@ -1,0 +1,77 @@
+@use 'sass:math';
+
+@import 'reset';
+@import 'fonts';
+@import 'vars';
+@import 'mixin';
+@import 'global';
+
+
+@import '../components/_header/header';
+
+@import '../components/_product-gallery/product-gallery';
+@import '../components/_breadcrumbs/breadcrumbs';
+
+.product-page {
+
+  &__brand {
+    display: inline-block;
+    padding: rem(11);
+    background-color: #F0F2F2;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    max-width: rem(500);
+    @extend %Oswald-500;
+    font-size: rem(48);
+    line-height: math.div(56, 48);
+    text-transform: capitalize;
+
+    &:not(:last-child) {
+      margin-bottom: rem(28);
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: center;
+    column-gap: rem(70);
+    margin: rem(60) 0 rem(38);
+    padding: 0 rem(15);
+
+    .product-gallery {
+      flex: 1 1 auto;
+    }
+
+    .container {
+      padding: 0;
+    }
+  }
+
+  &__info {
+    max-width: rem(1242);
+    margin: 0 auto;
+    padding: 0 rem(10);
+    margin-bottom: rem(112);
+  }
+
+  &__slider {
+    margin-bottom: rem(42);
+  }
+}
+
+
+
+@import '../components/_product-form/product-form';
+@import '../components/_product-info/product-info';
+@import '../components/_slider-products/slider-products';
+@import '../components/_product-card/product-card';
+
+
+@import '../components/_footer/footer';

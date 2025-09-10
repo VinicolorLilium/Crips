@@ -1,0 +1,108 @@
+.product-gallery {
+  display: flex;
+  column-gap: rem(20);
+  max-width: rem(730);
+
+  // Основной слайдер
+  &__main {
+    position: relative;
+    flex: 0 1 rem(624);
+    overflow: hidden;
+  }
+
+  &__main-wrapper {
+    display: flex;
+  }
+
+  &__slide {
+    position: relative;
+    flex: 1 0 100%;
+    aspect-ratio: 1 / 1.26;
+    cursor: zoom-in;
+    overflow: hidden;
+    // для зума
+    transform-origin: var(--pg-x, 50%) var(--pg-y, 50%);
+    transform: scale(var(--pg-scale, 1));
+    transition: transform .18s ease-out;
+    will-change: transform;
+  }
+
+  &__image img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #f7f7f7;
+  }
+
+  // Состояние активного зума
+  &__slide.is-zoomed {
+    cursor: zoom-out;
+    touch-action: none; // на тачах — чтобы панорамировать, а не скроллить страницу
+  }
+
+  // Кнопка/ярлык "2× zoom"
+  &__zoom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: rem(7);
+    padding: rem(13);
+    border: none;
+    @extend %Oswald-400;
+    font-size: rem(13);
+    text-transform: uppercase;
+    color: $black;
+    background-color: $white;
+    cursor: pointer;
+    transition: opacity .2s ease;
+  }
+
+  // Превью
+  &__thumbs {
+    flex: 1 0 auto;
+    user-select: none;
+  }
+
+  &__thumbs-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(16);
+  }
+
+  &__thumb {
+    width: 100%;
+    height: rem(106);
+  }
+
+  &__thumb-btn {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 2px solid $white;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  &__thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #f2f2f2;
+  }
+
+  // Активный превью-слайд от Swiper
+  .swiper-slide-thumb-active .product-gallery__thumb-btn {
+    outline: 2px solid $black;
+  }
+
+}

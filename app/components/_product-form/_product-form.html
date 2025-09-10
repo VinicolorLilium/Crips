@@ -1,0 +1,163 @@
+<form class="product-form product-page__form" id="productForm" action="#" method="post" novalidate>
+  <!-- Цвет -->
+  <div class="product-form__group product-form__group--colors">
+    <h3 class="product-form__label">Выберите цвет</h3>
+    <ul class="swatches product-form__colors" role="list">
+      <li class="swatches__item">
+        <input class="swatches__radio" type="radio" name="color" id="color-navy" value="#F3ECE2" checked>
+        <label class="swatches__label swatches__label--navy" for="color-navy" aria-label="Темно-синий"
+          style="background-color: #24426A ;"></label>
+      </li>
+      <li class="swatches__item">
+        <input class="swatches__radio" type="radio" name="color" id="color-ivory" value="#F3ECE2" checked>
+        <label class="swatches__label swatches__label--ivory" for="color-ivory" aria-label="Молочный"
+          style="background-color: #F3ECE2;"></label>
+      </li>
+      <li class="swatches__item">
+        <input class="swatches__radio" type="radio" name="color" id="color-lavender" value="#666689">
+        <label class="swatches__label swatches__label--lavender" for="color-lavender" aria-label="Лавандовый"
+          style="background-color: #666689;"></label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Размеры -->
+  <div class="product-form__group product-form__group--sizes">
+    <div class="product-form__label-row">
+      <h3 class="product-form__label">Выберите размер (дюймы)</h3>
+      <a class="product-form__link" href="#" aria-label="Открыть таблицу размеров">Таблица размеров</a>
+    </div>
+
+    <div class="sizes product-form__sizes" role="listbox" aria-label="Выбор размера">
+      <!-- OSFA -->
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-osfa" value="OSFA">
+        <label class="sizes__label" for="size-osfa" title="OSFA">OSFA</label>
+      </div>
+
+      <!-- Ряд размеров W26–W52 (часть недоступна и перечеркнута) -->
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w26" value="W26">
+        <label class="sizes__label" for="size-w26">W26</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w27" value="W27">
+        <label class="sizes__label" for="size-w27">W27</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w28" value="W28">
+        <label class="sizes__label" for="size-w28">W28</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w29" value="W29" disabled>
+        <label class="sizes__label" for="size-w29" title="Нет в наличии">W29</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w30" value="W30">
+        <label class="sizes__label" for="size-w30">W30</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w31" value="W31">
+        <label class="sizes__label" for="size-w31">W31</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w32" value="W32" checked>
+        <label class="sizes__label" for="size-w32">W32</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w33" value="W33" disabled>
+        <label class="sizes__label" for="size-w33" title="Нет в наличии">W33</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w34" value="W34" disabled>
+        <label class="sizes__label" for="size-w34" title="Нет в наличии">W34</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w35" value="W35">
+        <label class="sizes__label" for="size-w35">W35</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w36" value="W36">
+        <label class="sizes__label" for="size-w36">W36</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w38" value="W38" disabled>
+        <label class="sizes__label" for="size-w38" title="Нет в наличии">W38</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w40" value="W40">
+        <label class="sizes__label" for="size-w40">W40</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w42" value="W42" disabled>
+        <label class="sizes__label" for="size-w42" title="Нет в наличии">W42</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w44" value="W44" disabled>
+        <label class="sizes__label" for="size-w44" title="Нет в наличии">W44</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w46" value="W46" disabled>
+        <label class="sizes__label" for="size-w46" title="Нет в наличии">W46</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w48" value="W48" disabled>
+        <label class="sizes__label" for="size-w48" title="Нет в наличии">W48</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w50" value="W50" disabled>
+        <label class="sizes__label" for="size-w50" title="Нет в наличии">W50</label>
+      </div>
+      <div class="sizes__item">
+        <input class="sizes__input" type="radio" name="size" id="size-w52" value="W52" disabled>
+        <label class="sizes__label" for="size-w52" title="Нет в наличии">W52</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Количество и цена -->
+  <div class="product-form__group product-form__group--summary">
+    <div class="quantity product-form__quantity">
+      <span class="quantity__label">Количество</span>
+      <div class="quantity__control">
+        <button class="quantity__btn quantity__btn--minus" type="button" aria-label="Уменьшить количество">−</button>
+        <input class="quantity__input" id="qty" name="qty" type="number" min="1" max="10" value="1" inputmode="numeric"
+          pattern="[0-9]*" aria-live="off">
+        <button class="quantity__btn quantity__btn--plus" type="button" aria-label="Увеличить количество">+</button>
+      </div>
+    </div>
+
+    <div class="price product-form__price">
+      <span class="price__label">Итого</span>
+      <div class="price__total" aria-live="polite" data-price="90">
+        <span class="price__value" id="priceTotal">90,00 EUR</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="product-form__group product-form__group--cta">
+    <button class="product-form__btn product-form__btn--primary product-form__btn-add" type="submit">Добавить в корзину</button>
+    <button class="product-form__btn product-form__btn--secondary product-form__btn-save" type="button" aria-pressed="false"
+      title="Сохранить в избранное">
+      <svg xmlns="http://www.w3.org/2000/svg" width="21.8" height="20.59" fill="none">
+        <path
+          d="M10.9 4.1a5.198 5.198 0 013.825-1.7c2.618 0 4.675 1.97 4.675 4.496 0 3.082-2.89 5.607-7.267 9.425L10.9 17.4l-1.232-1.08C5.29 12.504 2.4 9.979 2.4 6.897 2.4 4.37 4.457 2.4 7.075 2.4c1.479 0 2.899.662 3.825 1.7z" />
+        <path
+          d="M10.9 1.042a7.827 7.827 0 012.518-.928A7.48 7.48 0 0114.725 0a7.237 7.237 0 014.102 1.253 6.956 6.956 0 011.825 1.84 6.77 6.77 0 01.958 2.184 6.864 6.864 0 01.174 2.096 7.735 7.735 0 01-.728 2.77c-.412.887-1.018 1.801-1.82 2.744-.63.742-1.46 1.59-2.49 2.544-.613.569-1.624 1.467-3.033 2.696L10.9 20.59l-2.81-2.46a151.22 151.22 0 01-3.036-2.699c-1.03-.954-1.86-1.802-2.49-2.544-.802-.943-1.408-1.857-1.82-2.743a7.736 7.736 0 01-.728-2.772A6.865 6.865 0 01.19 5.276 6.782 6.782 0 012.092 1.97 6.952 6.952 0 014.35.519a7.234 7.234 0 012.725-.52 7.48 7.48 0 013.105.673c.25.113.49.236.72.37zm-.821 2.325A5.223 5.223 0 007.075 2.4C4.457 2.4 2.4 4.37 2.4 6.896c0 3.082 2.89 5.607 7.268 9.425L10.9 17.4l1.232-1.08C16.51 12.504 19.4 9.979 19.4 6.897c0-2.526-2.057-4.496-4.675-4.496a5.22 5.22 0 00-3.004.967 4.934 4.934 0 00-.821.733 4.934 4.934 0 00-.821-.733z"
+          fill="#3F3F3F" fill-rule="evenodd" />
+      </svg>
+      В избранное</button>
+  </div>
+
+  <!-- Мета -->
+  <div class="product-form__meta">
+    <span class="product-form__meta-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13.697" height="9.546" fill="none">
+        <path d="M.849 2.849l5 5 7-7" stroke="#828282" stroke-width="2.4" />
+      </svg>
+      Бесплатная доставка</span>
+    <span class="product-form__meta-item">Код товара: RFKK1024</span>
+    <span class="product-form__meta-item">Теги: новинки, женская коллекция</span>
+  </div>
+</form>

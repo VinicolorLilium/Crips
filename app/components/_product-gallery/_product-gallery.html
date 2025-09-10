@@ -1,0 +1,105 @@
+<section class="product-gallery" id="product-gallery">
+  <!-- Превью -->
+  <div class="product-gallery__thumbs swiper" aria-label="Миниатюры товара">
+    <div class="product-gallery__thumbs-wrapper swiper-wrapper">
+      <div class="product-gallery__thumb swiper-slide">
+        <button class="product-gallery__thumb-btn" type="button" aria-label="Показать фото 1">
+          <picture class="product-gallery__img">
+            <source type="image/avif" srcset="images/product/01@3x.avif 3x,
+                                                        images/product/01@2x.avif 2x,
+                                                        images/product/01.avif">
+            <source type="image/webp" srcset="images/product/01@3x.webp 3x,
+                                                        images/product/01@2x.webp 2x,
+                                                        images/product/01.webp">
+            <source type="image/jpg" srcset="images/product/01@3x.jpg 3x,
+                                                       images/product/01@2x.jpg 2x">
+            <img src="images/product/01.jpg" alt="платье вид сзади">
+          </picture>
+        </button>
+      </div>
+      <div class="product-gallery__thumb swiper-slide">
+        <button class="product-gallery__thumb-btn" type="button" aria-label="Показать фото 2">
+          <picture class="product-gallery__img">
+            <source type="image/avif" srcset="images/product/21@3x.avif 3x,
+                                                        images/product/02@2x.avif 2x,
+                                                        images/product/02.avif">
+            <source type="image/webp" srcset="images/product/02@3x.webp 3x,
+                                                        images/product/02@2x.webp 2x,
+                                                        images/product/02.webp">
+            <source type="image/jpg" srcset="images/product/02@3x.jpg 3x,
+                                                       images/product/02@2x.jpg 2x">
+            <img src="images/product/02.jpg" alt="платье">
+          </picture>
+        </button>
+      </div>
+      <div class="product-gallery__thumb swiper-slide">
+        <button class="product-gallery__thumb-btn" type="button" aria-label="Показать фото 3">
+          <picture class="product-gallery__img">
+            <source type="image/avif" srcset="images/product/03@3x.avif 3x,
+                                                        images/product/03@2x.avif 2x,
+                                                        images/product/03.avif">
+            <source type="image/webp" srcset="images/product/03@3x.webp 3x,
+                                                        images/product/03@2x.webp 2x,
+                                                        images/product/03.webp">
+            <source type="image/jpg" srcset="images/product/03@3x.jpg 3x,
+                                                       images/product/03@2x.jpg 2x">
+            <img src="images/product/03.jpg" alt="платье">
+          </picture>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Основной слайдер -->
+  <div class="product-gallery__main swiper" aria-label="Галерея товара">
+    <div class="product-gallery__main-wrapper swiper-wrapper">
+      <div class="product-gallery__slide swiper-slide">
+        <picture class="product-gallery__image">
+          <source type="image/avif" srcset="images/product/01@3x.avif 3x,
+                                                      images/product/01@2x.avif 2x,
+                                                      images/product/01.avif">
+          <source type="image/webp" srcset="images/product/01@3x.webp 3x,
+                                                      images/product/01@2x.webp 2x,
+                                                       images/product/01.webp">
+          <source type="image/jpg" srcset="images/product/01@3x.jpg 3x,
+                                                     images/product/01@2x.jpg 2x">
+          <img src="images/product/01.jpg" alt="Платье — вид спереди">
+        </picture>
+      </div>
+      <div class="product-gallery__slide swiper-slide">
+        <picture class="product-gallery__image">
+          <source type="image/avif" srcset="images/product/02@3x.avif 3x,
+                                                      images/product/02@2x.avif 2x,
+                                                      images/product/02.avif">
+          <source type="image/webp" srcset="images/product/02@3x.webp 3x,
+                                                      images/product/02@2x.webp 2x,
+                                                      images/product/02.webp">
+          <source type="image/jpg" srcset="images/product/02@3x.jpg 3x,
+                                                     images/product/02@2x.jpg 2x">
+          <img src="images/product/02.jpg" alt="Платье — вид спереди">
+        </picture>
+      </div>
+      <div class="product-gallery__slide swiper-slide">
+        <picture class="product-gallery__image">
+          <source type="image/avif" srcset="images/product/03@3x.avif 3x,
+                                                      images/product/03@2x.avif 2x,
+                                                      images/product/03.avif">
+          <source type="image/webp" srcset="images/product/03@3x.webp 3x,
+                                                      images/product/03@2x.webp 2x,
+                                                      images/product/03.webp">
+          <source type="image/jpg" srcset="images/product/03@3x.jpg 3x,
+                                                     images/product/03@2x.jpg 2x">
+          <img src="images/product/03.jpg" alt="Платье — вид спереди">
+        </picture>
+      </div>
+    </div>
+    <button class="product-gallery__zoom" type="button" aria-label="Увеличить изображение">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+        <g stroke="#000">
+          <path d="M.5 6.5v4h4m-4-6v-4h4m2 0h4v4m0 2v4h-4M.5.5l10 10" />
+          <path d="M10.5.5l-10 10" stroke-width="1.4" />
+        </g>
+      </svg>
+      zoom</button>
+  </div>
+</section>

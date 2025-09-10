@@ -435,270 +435,667 @@ document.addEventListener('DOMContentLoaded', () => {
   //фильтр в каталоге
   //===================================================
   const form = document.querySelector(".filter__form");
-  const activeBlock = form.querySelector(".filter__active");
-  const filterResult = form.querySelector(".filter__result");
-  const resetBtn = form.querySelector(".filter__reset");
-  const applyBtn = form.querySelector(".filter__apply");
 
-  const rangeInputs = document.querySelectorAll(".price-range__input");
-  const progress = document.querySelector(".price-range__progress");
-  const minLabel = document.querySelector(".price-range__min-label");
-  const maxLabel = document.querySelector(".price-range__max-label");
+  if (form) {
+    const activeBlock = document.querySelector(".filter__active");
+    const filterResult = document.querySelector(".filter__result");
+    const resetBtn = document.querySelector(".filter__reset");
+    const applyBtn = document.querySelector(".filter__apply");
 
-  const maxRange = parseInt(rangeInputs[0].max, 10);
+    const rangeInputs = document.querySelectorAll(".price-range__input");
+    const progress = document.querySelector(".price-range__progress");
+    const minLabel = document.querySelector(".price-range__min-label");
+    const maxLabel = document.querySelector(".price-range__max-label");
+    if (!rangeInputs.length) {
+      return;
+    }
+    const maxRange = rangeInputs[0].max
+    const defaultMinValue = parseInt(rangeInputs[0].value, 10);
+    const defaultMaxValue = parseInt(rangeInputs[1].value, 10);
 
-  const defaultMinValue = parseInt(rangeInputs[0].value, 10);
-  const defaultMaxValue = parseInt(rangeInputs[1].value, 10);
+    const labelsMap = {
+      brand: "Бренд",
+      size: "Размер",
+      length: "Длина платья",
+      color: "Цвет",
+      "price-range__min-label": "Цена",
+    };
 
-  const labelsMap = {
-    brand: "Бренд",
-    size: "Размер",
-    length: "Длина платья",
-    color: "Цвет",
-    "price-range__min-label": "Цена",
-  };
+    // -------- Цена --------
+    const fmt = (num) => `${Number(num).toFixed(2)} EUR`;
 
-  // -------- Цена --------
-  const fmt = (num) => `${Number(num).toFixed(2)} EUR`;
+    function updateSlider() {
+      let minVal = parseInt(rangeInputs[0].value, 10);
+      let maxVal = parseInt(rangeInputs[1].value, 10);
 
-  function updateSlider() {
-    let minVal = parseInt(rangeInputs[0].value, 10);
-    let maxVal = parseInt(rangeInputs[1].value, 10);
+      if (minVal > maxVal) {
+        [minVal, maxVal] = [maxVal, minVal];
+        rangeInputs[0].value = minVal;
+        rangeInputs[1].value = maxVal;
+      }
 
-    if (minVal > maxVal) {
-      [minVal, maxVal] = [maxVal, minVal];
-      rangeInputs[0].value = minVal;
-      rangeInputs[1].value = maxVal;
+      const minPercent = (minVal / maxRange) * 100;
+      const maxPercent = (maxVal / maxRange) * 100;
+
+      progress.style.left = `${minPercent}%`;
+      progress.style.width = `${maxPercent - minPercent}%`;
+
+      minLabel.textContent = fmt(minVal);
+      maxLabel.textContent = fmt(maxVal);
     }
 
-    const minPercent = (minVal / maxRange) * 100;
-    const maxPercent = (maxVal / maxRange) * 100;
-
-    progress.style.left = `${minPercent}%`;
-    progress.style.width = `${maxPercent - minPercent}%`;
-
-    minLabel.textContent = fmt(minVal);
-    maxLabel.textContent = fmt(maxVal);
-  }
-
-  rangeInputs.forEach((input) => {
-    input.addEventListener("input", updateSlider);
-  });
-
-  updateSlider();
-
-  // -------- Активные фильтры --------
-  function updateActiveFilters() {
-    activeBlock.innerHTML = "";
-
-    const formData = new FormData(form);
-    const grouped = {};
-
-    formData.forEach((value, key) => {
-      if (key === "price-range__min-label" || key === "price-range__max-label") return;
-      if (!grouped[key]) grouped[key] = [];
-      grouped[key].push(value);
+    rangeInputs.forEach((input) => {
+      input.addEventListener("input", updateSlider);
     });
 
-    const currentMin = parseInt(rangeInputs[0].value, 10);
-    const currentMax = parseInt(rangeInputs[1].value, 10);
+    updateSlider();
 
-    grouped["price-range__min-label"] = [`${fmt(currentMin)} – ${fmt(currentMax)}`];
+    // -------- Активные фильтры --------
+    function updateActiveFilters() {
+      activeBlock.innerHTML = "";
 
-    Object.keys(grouped).forEach((groupKey) => {
-      const wrapper = document.createElement("div");
-      wrapper.className = "filter__active-group";
+      const formData = new FormData(form);
+      const grouped = {};
 
-      const groupTitle = document.createElement("div");
-      groupTitle.className = "filter__active-title";
-      groupTitle.textContent = (labelsMap[groupKey] || groupKey) + ":";
-      wrapper.appendChild(groupTitle);
+      formData.forEach((value, key) => {
+        if (key === "price-range__min-label" || key === "price-range__max-label") return;
+        if (!grouped[key]) grouped[key] = [];
+        grouped[key].push(value);
+      });
 
-      const valuesContainer = document.createElement("div");
-      valuesContainer.className = "filter__active-values";
+      const currentMin = parseInt(rangeInputs[0].value, 10);
+      const currentMax = parseInt(rangeInputs[1].value, 10);
 
-      grouped[groupKey].forEach((val) => {
-        const item = document.createElement("span");
-        item.className = "filter__active-item";
+      grouped["price-range__min-label"] = [`${fmt(currentMin)} – ${fmt(currentMax)}`];
 
-        if (groupKey === "color") {
-          item.innerHTML = `
+      Object.keys(grouped).forEach((groupKey) => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "filter__active-group";
+
+        const groupTitle = document.createElement("div");
+        groupTitle.className = "filter__active-title";
+        groupTitle.textContent = (labelsMap[groupKey] || groupKey) + ":";
+        wrapper.appendChild(groupTitle);
+
+        const valuesContainer = document.createElement("div");
+        valuesContainer.className = "filter__active-values";
+
+        grouped[groupKey].forEach((val) => {
+          const item = document.createElement("span");
+          item.className = "filter__active-item";
+
+          if (groupKey === "color") {
+            item.innerHTML = `
           <span class="filter__color" style="background-color: #${val};"></span>
           <button type="button" class="filter__remove" data-key="${groupKey}" data-value="${val}"></button>
         `;
-        } else {
-          item.innerHTML = `
+          } else {
+            item.innerHTML = `
           <span class="filter__active-name">${val}</span>
           <button type="button" class="filter__remove" data-key="${groupKey}" data-value="${val}"></button>
         `;
-        }
-        valuesContainer.appendChild(item);
-      });
-
-      wrapper.appendChild(valuesContainer);
-      activeBlock.appendChild(wrapper);
-    });
-  }
-
-  // -------- Удаление --------
-  activeBlock.addEventListener("click", (e) => {
-    if (e.target.classList.contains("filter__remove")) {
-      const key = e.target.dataset.key;
-      const value = e.target.dataset.value;
-
-      if (key === "price-range__min-label" || key === "price-range__max-label") {
-        rangeInputs[0].value = defaultMinValue;
-        rangeInputs[1].value = defaultMaxValue;
-        updateSlider();
-      } else {
-        const inputs = form.querySelectorAll(`[name="${key}"]`);
-        inputs.forEach((input) => {
-          if (input.type === "checkbox" && input.value === value) {
-            input.checked = false;
           }
+          valuesContainer.appendChild(item);
         });
-      }
-      updateActiveFilters();
-    }
-  });
 
-  // -------- Кнопка "Применить" --------
-  applyBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    updateActiveFilters();
-    filterResult.classList.add("filter__result--visible"); // показываем блок
-  });
-
-  // -------- Слушатели --------
-  form.addEventListener("input", (e) => {
-    if (e.target.classList && e.target.classList.contains("price-range__input")) {
-      updateSlider();
-    }
-  });
-
-  resetBtn.addEventListener("click", () => {
-    form.reset();
-    updateSlider();
-    activeBlock.innerHTML = "";
-    filterResult.classList.remove("filter__result--visible");
-  });
-
-  //===================================================
-  //акардеон в фильтре
-  //===================================================
-
-  const filterTitles = document.querySelectorAll('.filter__subtitle');
-
-  if (filterTitles) {
-    filterTitles.forEach(filterTitle => {
-      filterTitle.addEventListener('click', () => {
-        filterTitle.classList.toggle('_active');
+        wrapper.appendChild(valuesContainer);
+        activeBlock.appendChild(wrapper);
       });
-    });
-  }
+    }
 
-  const mq = window.matchMedia('(max-width: 899.98px)');
-  // const form = document.querySelector('.filter__form');
-  if (!form) return;
+    // -------- Удаление --------
+    activeBlock.addEventListener("click", (e) => {
+      if (e.target.classList.contains("filter__remove")) {
+        const key = e.target.dataset.key;
+        const value = e.target.dataset.value;
 
-  const mobile = form.querySelector('.filter__mobile');
-  const toggleBtn = mobile.querySelector('.filter__mobile-toggle');
-  const menu = mobile.querySelector('.filter__mobile-menu');
-  const label = mobile.querySelector('.filter__mobile-label');
-
-  const groups = Array.from(form.querySelectorAll('.filter__group'));
-
-  // получаем id из модификатора класса .filter__group--XXX
-  const getGroupId = (group, i) => {
-    const m = group.className.match(/filter__group--([^\s]+)/);
-    return m ? m[1] : `group-${i + 1}`;
-  };
-
-  // подготовка меню
-  const buildMenu = () => {
-    if (!menu) return;
-    menu.innerHTML = '';
-    groups.forEach((group, i) => {
-      const legend = group.querySelector('.filter__subtitle');
-      const id = getGroupId(group, i);
-      group.dataset.group = id;
-
-      const item = document.createElement('li');
-      item.className = 'filter__mobile-option';
-      item.role = 'option';
-      item.dataset.group = id;
-      item.textContent = legend ? legend.textContent.trim() : id;
-      menu.appendChild(item);
-    });
-  };
-
-  // показать одну категорию, остальные скрыть (только на мобильном)
-  const showGroup = (id) => {
-    groups.forEach(g => g.classList.toggle('is-selected', g.dataset.group === id));
-    // подпись на кнопке
-    const activeItem = menu.querySelector(`.filter__mobile-option[data-group="${id}"]`);
-    menu.querySelectorAll('.filter__mobile-option').forEach(li => li.setAttribute('aria-selected', 'false'));
-    if (activeItem) activeItem.setAttribute('aria-selected', 'true');
-    if (label && activeItem) label.textContent = activeItem.textContent;
-  };
-
-  // выбрать первую подходящую (где есть checked), иначе первую
-  const chooseInitial = () => {
-    const withChecked = groups.find(g => g.querySelector('input:checked'));
-    const target = withChecked || groups[0];
-    if (target) showGroup(target.dataset.group);
-  };
-
-  // открыть/закрыть меню
-  const openMenu = () => {
-    menu.hidden = false;
-    toggleBtn.setAttribute('aria-expanded', 'true');
-    mobile.classList.add('is-open');
-  };
-  const closeMenu = () => {
-    menu.hidden = true;
-    toggleBtn.setAttribute('aria-expanded', 'false');
-    mobile.classList.remove('is-open');
-  };
-
-  // события
-  if (toggleBtn && menu) {
-    toggleBtn.addEventListener('click', () => {
-      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      expanded ? closeMenu() : openMenu();
+        if (key === "price-range__min-label" || key === "price-range__max-label") {
+          rangeInputs[0].value = defaultMinValue;
+          rangeInputs[1].value = defaultMaxValue;
+          updateSlider();
+        } else {
+          const inputs = form.querySelectorAll(`[name="${key}"]`);
+          inputs.forEach((input) => {
+            if (input.type === "checkbox" && input.value === value) {
+              input.checked = false;
+            }
+          });
+        }
+        updateActiveFilters();
+      }
     });
 
-    menu.addEventListener('click', (e) => {
-      const li = e.target.closest('.filter__mobile-option');
-      if (!li) return;
-      showGroup(li.dataset.group);
+    // -------- Кнопка "Применить" --------
+    applyBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      updateActiveFilters();
+      filterResult.classList.add("filter__result--visible"); // показываем блок
+    });
+
+    // -------- Слушатели --------
+    form.addEventListener("input", (e) => {
+      if (e.target.classList && e.target.classList.contains("price-range__input")) {
+        updateSlider();
+      }
+    });
+
+    resetBtn.addEventListener("click", () => {
+      form.reset();
+      updateSlider();
+      activeBlock.innerHTML = "";
+      filterResult.classList.remove("filter__result--visible");
+    });
+
+    //===================================================
+    //акардеон в фильтре
+    //===================================================
+
+    const filterTitles = document.querySelectorAll('.filter__subtitle');
+
+    if (filterTitles) {
+      filterTitles.forEach(filterTitle => {
+        filterTitle.addEventListener('click', () => {
+          filterTitle.classList.toggle('_active');
+        });
+      });
+    }
+
+    const mq = window.matchMedia('(max-width: 899.98px)');
+    // const form = document.querySelector('.filter__form');
+    if (!form) return;
+
+    const mobile = form.querySelector('.filter__mobile');
+    const toggleBtn = mobile.querySelector('.filter__mobile-toggle');
+    const menu = mobile.querySelector('.filter__mobile-menu');
+    const label = mobile.querySelector('.filter__mobile-label');
+
+    const groups = Array.from(form.querySelectorAll('.filter__group'));
+
+    // получаем id из модификатора класса .filter__group--XXX
+    const getGroupId = (group, i) => {
+      const m = group.className.match(/filter__group--([^\s]+)/);
+      return m ? m[1] : `group-${i + 1}`;
+    };
+
+    // подготовка меню
+    const buildMenu = () => {
+      if (!menu) return;
+      menu.innerHTML = '';
+      groups.forEach((group, i) => {
+        const legend = group.querySelector('.filter__subtitle');
+        const id = getGroupId(group, i);
+        group.dataset.group = id;
+
+        const item = document.createElement('li');
+        item.className = 'filter__mobile-option';
+        item.role = 'option';
+        item.dataset.group = id;
+        item.textContent = legend ? legend.textContent.trim() : id;
+        menu.appendChild(item);
+      });
+    };
+
+    // показать одну категорию, остальные скрыть (только на мобильном)
+    const showGroup = (id) => {
+      groups.forEach(g => g.classList.toggle('is-selected', g.dataset.group === id));
+      // подпись на кнопке
+      const activeItem = menu.querySelector(`.filter__mobile-option[data-group="${id}"]`);
+      menu.querySelectorAll('.filter__mobile-option').forEach(li => li.setAttribute('aria-selected', 'false'));
+      if (activeItem) activeItem.setAttribute('aria-selected', 'true');
+      if (label && activeItem) label.textContent = activeItem.textContent;
+    };
+
+    // выбрать первую подходящую (где есть checked), иначе первую
+    const chooseInitial = () => {
+      const withChecked = groups.find(g => g.querySelector('input:checked'));
+      const target = withChecked || groups[0];
+      if (target) showGroup(target.dataset.group);
+    };
+
+    // открыть/закрыть меню
+    const openMenu = () => {
+      menu.hidden = false;
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      mobile.classList.add('is-open');
+    };
+    const closeMenu = () => {
+      menu.hidden = true;
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      mobile.classList.remove('is-open');
+    };
+
+    // события
+    if (toggleBtn && menu) {
+      toggleBtn.addEventListener('click', () => {
+        const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        expanded ? closeMenu() : openMenu();
+      });
+
+      menu.addEventListener('click', (e) => {
+        const li = e.target.closest('.filter__mobile-option');
+        if (!li) return;
+        showGroup(li.dataset.group);
+        closeMenu();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!mobile.contains(e.target)) closeMenu();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+    }
+
+    // применение адаптива
+    const enableMobile = () => {
+      if (!mobile) return;
+      mobile.removeAttribute('aria-hidden');
+      buildMenu();
+      chooseInitial();
+    };
+    const disableMobile = () => {
+      if (!mobile) return;
+      mobile.setAttribute('aria-hidden', 'true');
       closeMenu();
-    });
+      groups.forEach(g => g.classList.remove('is-selected')); // показать все
+    };
 
-    document.addEventListener('click', (e) => {
-      if (!mobile.contains(e.target)) closeMenu();
-    });
+    const apply = () => (mq.matches ? enableMobile() : disableMobile());
+    apply();
+    mq.addEventListener('change', apply);
+  }
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+  //========================================
+  // галерея товара на странице товара
+  //========================================
+  const thumbs = document.querySelector('.product-gallery__thumbs');
+  const main = document.querySelector('.product-gallery__main');
+
+  // Превью
+  if (thumbs && main) {
+    const thumbsSlider = new Swiper(thumbs, {
+      freeMode: true,
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
+    });
+    // Основной
+    const mainSlider = new Swiper(main, {
+      spaceBetween: 0,
+      slidesPerView: 1,
+      speed: 500,
+      effect: 'slide',
+      allowTouchMove: true,
+      thumbs: { swiper: thumbsSlider }
     });
   }
 
-  // применение адаптива
-  const enableMobile = () => {
-    if (!mobile) return;
-    mobile.removeAttribute('aria-hidden');
-    buildMenu();
-    chooseInitial();
-  };
-  const disableMobile = () => {
-    if (!mobile) return;
-    mobile.setAttribute('aria-hidden', 'true');
-    closeMenu();
-    groups.forEach(g => g.classList.remove('is-selected')); // показать все
+  //====================================================================
+  //зум изображения в главном слайдере в карточке товара
+  //====================================================================
+  const mainGallery = document.querySelector('.product-gallery__main');
+  if (!mainGallery) return;
+
+  // Создаём кнопку "2× zoom", если её нет в разметке
+  let zoomBtn = mainGallery.querySelector('.product-gallery__zoom');
+  if (!zoomBtn) {
+    zoomBtn = document.createElement('button');
+    zoomBtn.type = 'button';
+    zoomBtn.className = 'product-gallery__zoom';
+    zoomBtn.setAttribute('aria-label', 'Увеличить изображение');
+    zoomBtn.textContent = '2× zoom';
+    mainGallery.appendChild(zoomBtn);
+
+    // Базовые инлайн-стили, чтобы кнопка была видна без правок SCSS
+    Object.assign(zoomBtn.style, {
+      position: 'absolute',
+      right: '8px',
+      bottom: '8px',
+      zIndex: '3',
+      padding: '6px 10px',
+      fontSize: '12px',
+      lineHeight: '1',
+      color: '#111',
+      background: 'rgba(255,255,255,.92)',
+      border: '1px solid rgba(0,0,0,.12)',
+      borderRadius: '12px',
+      cursor: 'pointer',
+      boxShadow: '0 1px 2px rgba(0,0,0,.08)'
+    });
+  }
+
+  const defaults = {
+    startScale: 2,
+    minScale: 1.4,
+    maxScale: 3,
+    step: 0.16
   };
 
-  const apply = () => (mq.matches ? enableMobile() : disableMobile());
-  apply();
-  mq.addEventListener('change', apply);
+  let scale = defaults.startScale;
+  let zoomOn = false;
+  let lastTap = 0;
+
+  // Состояние пинчи-зум на тачах
+  const pinch = {
+    active: false,
+    startDist: 0,
+    startScale: defaults.startScale
+  };
+
+  function clamp(v, min, max) {
+    return Math.min(max, Math.max(min, v));
+  }
+
+  function getActiveSlide() {
+    return mainGallery.querySelector('.swiper-slide-active') || mainGallery.querySelector('.product-gallery__slide');
+  }
+
+  function getActiveImg() {
+    const slide = getActiveSlide();
+    return slide ? slide.querySelector('.product-gallery__image img') : null;
+  }
+
+  function prepareImg(img) {
+    if (!img) return;
+    // Гарантируем корректную анимацию трансформаций
+    if (!img.style.transition) img.style.transition = 'transform 180ms ease-out';
+    img.style.willChange = 'transform';
+    // Базовое состояние
+    if (!zoomOn) {
+      img.style.transform = 'scale(1)';
+      img.style.transformOrigin = '50% 50%';
+    }
+  }
+
+  function setOriginFromPoint(point) {
+    const slide = getActiveSlide();
+    const img = getActiveImg();
+    if (!slide || !img) return;
+
+    const rect = slide.getBoundingClientRect();
+    const x = ((point.x - rect.left) / rect.width) * 100;
+    const y = ((point.y - rect.top) / rect.height) * 100;
+
+    img.style.transformOrigin = `${x}% ${y}%`;
+  }
+
+  function setOriginFromEvent(e) {
+    const slide = getActiveSlide();
+    if (!slide) return;
+
+    const rect = slide.getBoundingClientRect();
+
+    // Мышь / одиночный тап
+    if (e && e.touches && e.touches.length === 1) {
+      setOriginFromPoint({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+      return;
+    }
+    if (e && e.clientX != null) {
+      setOriginFromPoint({ x: e.clientX, y: e.clientY });
+      return;
+    }
+
+    // Центр по умолчанию
+    setOriginFromPoint({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+  }
+
+  function applyScale() {
+    const img = getActiveImg();
+    if (!img) return;
+    img.style.transform = `scale(${scale})`;
+  }
+
+  function enableZoom(e) {
+    const slide = getActiveSlide();
+    const img = getActiveImg();
+    if (!slide || !img) return;
+
+    prepareImg(img);
+
+    zoomOn = true;
+    mainGallery.dataset.zoom = 'on';
+
+    slide.style.overflow = 'hidden';
+    slide.style.cursor = 'zoom-out';
+    slide.style.touchAction = 'none'; // разрешаем панорамирование на тачах
+
+    setOriginFromEvent(e);
+    scale = clamp(scale || defaults.startScale, defaults.minScale, defaults.maxScale);
+    applyScale();
+
+    if (zoomBtn) {
+      zoomBtn.style.opacity = '0';
+      zoomBtn.style.pointerEvents = 'none';
+    }
+  }
+
+  function disableZoom() {
+    const slide = getActiveSlide();
+    const img = getActiveImg();
+
+    zoomOn = false;
+    mainGallery.dataset.zoom = 'off';
+
+    if (img) {
+      img.style.transform = 'scale(1)';
+      img.style.transformOrigin = '50% 50%';
+    }
+    if (slide) {
+      slide.style.cursor = 'zoom-in';
+      slide.style.touchAction = '';
+    }
+
+    scale = defaults.startScale;
+
+    if (zoomBtn) {
+      zoomBtn.style.opacity = '';
+      zoomBtn.style.pointerEvents = '';
+    }
+  }
+
+  function toggleZoom(e) {
+    zoomOn ? disableZoom() : enableZoom(e);
+  }
+
+  function onMove(e) {
+    if (!zoomOn) return;
+
+    // Пинч-режим обрабатывается отдельно
+    if (pinch.active && e.touches && e.touches.length === 2) return;
+
+    setOriginFromEvent(e);
+    if (e.cancelable) e.preventDefault();
+  }
+
+  function onWheel(e) {
+    if (!zoomOn) return;
+    e.preventDefault();
+    scale = clamp(
+      parseFloat((scale + (e.deltaY < 0 ? defaults.step : -defaults.step)).toFixed(2)),
+      defaults.minScale,
+      defaults.maxScale
+    );
+    applyScale();
+  }
+
+  function onKey(e) {
+    if (e.key === 'Escape') disableZoom();
+  }
+
+  function initCursors() {
+    const slide = getActiveSlide();
+    if (slide && !zoomOn) {
+      slide.style.cursor = 'zoom-in';
+    }
+    const img = getActiveImg();
+    if (img) prepareImg(img);
+  }
+
+  function attachSwiperHandler(swiperInstance) {
+    if (!swiperInstance || attachSwiperHandler._attached) return;
+    swiperInstance.on('slideChange', () => {
+      disableZoom();
+      // подготовить курсор/стили для нового слайда
+      setTimeout(initCursors, 0);
+    });
+    attachSwiperHandler._attached = true;
+  }
+
+  // Инициализация начальных стилей
+  initCursors();
+
+  // Клики
+  mainGallery.addEventListener('click', function (e) {
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+
+    if (target.closest('.product-gallery__zoom')) {
+      e.preventDefault();
+      toggleZoom(e);
+      return;
+    }
+
+    if (target.closest('.product-gallery__slide')) {
+      toggleZoom(e);
+    }
+  });
+
+  // Панорамирование
+  mainGallery.addEventListener('mousemove', onMove);
+  mainGallery.addEventListener('touchmove', onMove, { passive: false });
+
+  // Масштаб колесом
+  mainGallery.addEventListener('wheel', onWheel, { passive: false });
+
+  // Esc для выхода
+  document.addEventListener('keydown', onKey);
+
+  // Двойной тап — переключить зум
+  mainGallery.addEventListener('touchstart', function (e) {
+    const now = Date.now();
+
+    // Пинч старт
+    if (e.touches && e.touches.length === 2) {
+      const [t1, t2] = e.touches;
+      pinch.active = true;
+      pinch.startDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+      pinch.startScale = zoomOn ? scale : defaults.startScale;
+
+      // Точка между пальцами как origin
+      const mid = {
+        x: (t1.clientX + t2.clientX) / 2,
+        y: (t1.clientY + t2.clientY) / 2
+      };
+      if (!zoomOn) enableZoom({ clientX: mid.x, clientY: mid.y });
+      setOriginFromPoint(mid);
+      return;
+    }
+
+    // Двойной тап
+    if (now - lastTap < 320) {
+      toggleZoom(e);
+      if (e.cancelable) e.preventDefault();
+    }
+    lastTap = now;
+  }, { passive: true });
+
+  // Пинч-обновление масштаба
+  mainGallery.addEventListener('touchmove', function (e) {
+    if (!pinch.active || !e.touches || e.touches.length !== 2) return;
+
+    const [t1, t2] = e.touches;
+    const dist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+    const factor = dist / (pinch.startDist || dist);
+    scale = clamp(parseFloat((pinch.startScale * factor).toFixed(2)), defaults.minScale, defaults.maxScale);
+
+    const mid = { x: (t1.clientX + t2.clientX) / 2, y: (t1.clientY + t2.clientY) / 2 };
+    setOriginFromPoint(mid);
+    applyScale();
+
+    if (e.cancelable) e.preventDefault();
+  }, { passive: false });
+
+  mainGallery.addEventListener('touchend', function () {
+    if (pinch.active) {
+      pinch.active = false;
+    }
+  });
+
+  mainGallery.addEventListener('touchcancel', function () {
+    if (pinch.active) {
+      pinch.active = false;
+    }
+  });
+
+  // Привязка к Swiper (когда он появится)
+  if (mainGallery.swiper) {
+    attachSwiperHandler(mainGallery.swiper);
+  } else {
+    const checkSwiper = setInterval(() => {
+      if (mainGallery.swiper) {
+        attachSwiperHandler(mainGallery.swiper);
+        clearInterval(checkSwiper);
+      }
+    }, 120);
+    setTimeout(() => clearInterval(checkSwiper), 10000); // страховка, чтобы не крутилось бесконечно
+  }
+
+  // На ресайз — освежить стили и курсоры
+  window.addEventListener('resize', () => {
+    initCursors();
+    if (zoomOn) applyScale();
+  });
+
+
+  //========================================================
+  //форма в карточке товара
+  //========================================================
+  const product = document.querySelector('.product-form');
+
+  if (product) {
+    const productForm = document.getElementById('productForm');
+    const qtyInput = productForm.querySelector('.quantity__input');
+    const minusBtn = productForm.querySelector('.quantity__btn--minus');
+    const plusBtn = productForm.querySelector('.quantity__btn--plus');
+
+    // Блок, где теперь хранится атрибут data-price
+    const priceTotalBox = productForm.querySelector('.price__total');
+    const priceEl = document.getElementById('priceTotal');
+
+    const unitPrice = Number(priceTotalBox?.dataset.price ?? 0); // читаем цену отсюда
+    const min = Number(qtyInput.min || 1);
+    const max = Number(qtyInput.max || 99);
+
+    const formatPrice = (value) =>
+      `${value.toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} EUR`;
+
+    const updatePrice = () => {
+      const qty = Number(qtyInput.value || 1);
+      priceEl.textContent = formatPrice(unitPrice * qty);
+      minusBtn.disabled = qty <= min;
+      plusBtn.disabled = qty >= max;
+    };
+
+    minusBtn.addEventListener('click', () => {
+      const current = Math.max(min, Number(qtyInput.value) - 1);
+      qtyInput.value = current;
+      updatePrice();
+    });
+
+    plusBtn.addEventListener('click', () => {
+      const current = Math.min(max, Number(qtyInput.value) + 1);
+      qtyInput.value = current;
+      updatePrice();
+    });
+
+    qtyInput.addEventListener('input', () => {
+      let v = parseInt((qtyInput.value || '').replace(/[^\d]/g, ''), 10);
+      if (Number.isNaN(v)) v = min;
+      v = Math.min(max, Math.max(min, v));
+      qtyInput.value = v;
+      updatePrice();
+    });
+
+    updatePrice();
+  }
 });

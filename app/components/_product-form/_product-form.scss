@@ -1,0 +1,291 @@
+.product-form {
+  &__label {
+    @extend %Oswald-400;
+    font-size: rem(14);
+    line-height: math.div(21, 14);
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__label-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: rem(16);
+  }
+
+  &__link {
+    @extend %Roboto-400;
+    font-size: rem(14);
+    line-height: math.div(16, 14);
+    text-decoration: underline;
+    color: #0F6DB1;
+    text-underline-offset: 2px;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(15);
+    margin-top: rem(15);
+    @extend %Oswald-500;
+    font-size: rem(12);
+    color: $gray;
+    text-transform: uppercase;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      column-gap: rem(5);
+    }
+  }
+
+  &__group--colors {
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__group--sizes {
+    &:not(:last-child) {
+      margin-bottom: rem(35);
+    }
+  }
+
+  &__group--summary {
+    display: flex;
+    column-gap: rem(24);
+
+    &:not(:last-child) {
+      margin-bottom: rem(36);
+    }
+  }
+
+  &__group--cta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(18);
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(8);
+    width: 100%;
+    height: rem(50);
+    padding: 0 rem(10);
+    border: 2px solid transparent;
+    @extend %Oswald-500;
+    font-size: rem(14);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__btn--primary {
+    background: $black;
+    color: $white;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover){
+      &:hover{
+        background-color: $accent;
+        border-color: $accent;
+      }
+    }
+  }
+
+  &__btn--secondary {
+    background: $white;
+    color: $black-gray;
+    border-color: $divider;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover){
+      &:hover{
+        border-color: $gray;
+        color: $gray;
+      }
+    }
+  }
+}
+
+// Swatches (colors)
+.swatches {
+  display: flex;
+  column-gap: rem(10);
+
+  &__item {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__radio {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+  }
+
+  &__label {
+    display: inline-block;
+    width: rem(23);
+    height: rem(23);
+    border: 3px solid $white;
+  }
+
+  &__radio:focus-visible+.swatches__label {
+    outline: 2px solid $black;
+  }
+
+  &__radio:checked+.swatches__label {
+    outline: 2px solid $black;
+  }
+}
+
+// Sizes
+.sizes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(rem(46), 1fr));
+  gap: rem(9);
+
+  &__item {
+    position: relative;
+  }
+
+  &__input {
+    @extend %checkbox-hidden;
+  }
+
+  &__label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(46);
+    height: rem(46);
+    padding: 0 rem(5);
+    border: 2px solid $divider;
+    background: $white;
+    @extend %Oswald-600;
+    font-size: rem(14);
+    color: $divider;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        border-color: $black;
+        color: $black;
+      }
+    }
+  }
+
+  &_input:focus-visible+.sizes__label {
+    border-color: $black;
+  }
+
+  &__input:checked+.sizes__label {
+    border-color: $black;
+    color: $black;
+  }
+
+  &__input:disabled+.sizes__label {
+    cursor: not-allowed;
+  }
+
+  /* Диагональная перечёркивающая линия для недоступных размеров */
+  &__input:disabled+.sizes__label::after {
+    content: "";
+    position: absolute;
+    right: rem(20);
+    bottom: rem(-10);
+    display: inline-block;
+    width: 1px;
+    height: rem(60);
+    background-color: $divider;
+    transform: rotate(45deg);
+  }
+}
+
+
+// Quantity
+.quantity__label,
+.price__label {
+  display: block;
+  @extend %Oswald-400;
+  font-size: rem(14);
+  line-height: math.div(21, 14);
+  text-transform: uppercase;
+
+  &:not(:last-child) {
+    margin-bottom: rem(10);
+  }
+}
+
+.quantity {
+  &__control {
+    display: inline-flex;
+    align-items: stretch;
+    height: rem(43);
+    border: 1px solid $divider;
+    background: $white;
+  }
+
+  &__btn {
+    width: rem(44);
+    border: 0;
+    font-size: rem(20);
+    color: $divider;
+    background: $white;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover){
+      &:hover{
+        background-color: #F0F2F2;
+      }
+    }
+  }
+
+  &__btn:disabled {
+    cursor: not-allowed;
+  }
+
+  &__input {
+    width: rem(30);
+    border: 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    outline: none;
+
+    // Скрытие дефолтных стрелок у числового инпута
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+    // Для WebKit браузеров
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+// Price
+.price {
+  &__total {
+    @extend %Oswald-500;
+    font-size: rem(26);
+    line-height: math.div(39, 26);
+  }
+
+  &__value {
+    white-space: nowrap;
+  }
+}
