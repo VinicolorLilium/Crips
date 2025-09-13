@@ -21,6 +21,10 @@ body {
   max-width: $mw;
   margin: 0 auto;
   padding: 0 15px;
+
+  &--small {
+    max-width: rem(1242);
+  }
 }
 
 body {
