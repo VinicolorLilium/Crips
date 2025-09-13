@@ -90,8 +90,8 @@
     color: $white;
     transition: all 0.3s ease 0s;
 
-    @media (any-hover: hover){
-      &:hover{
+    @media (any-hover: hover) {
+      &:hover {
         background-color: $accent;
         border-color: $accent;
       }
@@ -104,8 +104,8 @@
     border-color: $divider;
     transition: all 0.3s ease 0s;
 
-    @media (any-hover: hover){
-      &:hover{
+    @media (any-hover: hover) {
+      &:hover {
         border-color: $gray;
         color: $gray;
       }
@@ -244,8 +244,8 @@
     cursor: pointer;
     transition: all 0.3s ease 0s;
 
-    @media (any-hover: hover){
-      &:hover{
+    @media (any-hover: hover) {
+      &:hover {
         background-color: #F0F2F2;
       }
     }
@@ -287,5 +287,98 @@
 
   &__value {
     white-space: nowrap;
+  }
+}
+
+/* Мобильный select для размеров */
+.sizes__select-wrap {
+  display: none;
+  position: relative;
+}
+
+.sizes__select {
+  width: 100%;
+  height: rem(46);
+  padding: 0 rem(40) 0 rem(12);
+  border: 2px solid $divider;
+  background: $white;
+  @extend %Oswald-600;
+  font-size: rem(14);
+  text-transform: uppercase;
+  color: $black;
+  outline: none;
+  appearance: none; // убираем системную стрелку
+  transition: border-color 0.3s ease;
+
+  @media (any-hover: hover) {
+    &:hover {
+      border-color: $black;
+    }
+  }
+
+  &:focus {
+    border-color: $black;
+  }
+}
+
+/* Рисуем стрелку */
+.sizes__select-wrap::after {
+  content: "";
+  position: absolute;
+  right: rem(14);
+  top: 50%;
+  transform: translateY(-25%);
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  border-left: rem(6) solid transparent;
+  border-right: rem(6) solid transparent;
+  border-top: rem(6) solid $black;
+}
+
+
+
+@media (max-width: em(1100)) {
+  .product-form {
+    display: flex;
+    flex-direction: column;
+
+    &__group--summary {
+      order: -1;
+      display: grid;
+      grid-template-columns: rem(120) rem(130);
+      gap: rem(6) rem(34);
+      align-items: center;
+    }
+
+    &__quantity {
+      grid-row: span 2;
+    }
+
+    .price__label {
+      display: none;
+    }
+
+    .product-form__group--sizes:not(:last-child),
+    .product-form__group--summary:not(:last-child) {
+      margin-bottom: rem(15);
+    }
+  }
+
+  .product-page__top {
+    margin: 0 0 rem(20);
+  }
+
+  /* Прячем сетку и показываем select только если JS инициализировал блок */
+  @media (max-width: em(600)) {
+    .product-form__group--sizes.js-has-select {
+      .product-form__sizes {
+        display: none;
+      }
+
+      .sizes__select-wrap {
+        display: block;
+      }
+    }
   }
 }

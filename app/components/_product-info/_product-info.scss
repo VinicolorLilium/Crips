@@ -95,3 +95,18 @@
     }
   }
 }
+
+@media (max-width: em(600)) {
+  .product-info__item {
+    padding: rem(15);
+    border-bottom: 1px solid #F0F2F2;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+
+  .product-info__title {
+    font-size: rem(16);
+  }
+}

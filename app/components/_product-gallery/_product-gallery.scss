@@ -3,11 +3,21 @@
   column-gap: rem(20);
   max-width: rem(730);
 
+
+
   // Основной слайдер
   &__main {
     position: relative;
     flex: 0 1 rem(624);
     overflow: hidden;
+
+    @media (max-width: em(1250)) {
+      flex-basis: rem(500);
+    }
+
+    // @media (max-width: em(1100)) {
+    //   flex-basis: rem(320);
+    // }
   }
 
   &__main-wrapper {
@@ -25,6 +35,10 @@
     transform: scale(var(--pg-scale, 1));
     transition: transform .18s ease-out;
     will-change: transform;
+
+    @media (max-width: em(1100)) {
+      aspect-ratio: 1 / 0.79;
+    }
   }
 
   &__image img {
@@ -68,6 +82,10 @@
   &__thumbs {
     flex: 1 0 auto;
     user-select: none;
+
+    @media (max-width: em(1100)) {
+      display: none;
+    }
   }
 
   &__thumbs-wrapper {
@@ -105,4 +123,28 @@
     outline: 2px solid $black;
   }
 
+  &__pagination {
+    display: none;
+
+    @media (max-width: em(1100)) {
+      display: flex;
+      align-items: center;
+      column-gap: rem(5);
+      justify-content: center;
+      margin-top: rem(9);
+
+      span {
+        width: rem(11);
+        height: rem(11);
+        border: 2px solid $gray;
+      }
+
+      .swiper-pagination-bullet-active {
+        width: rem(13);
+        height: rem(13);
+        border-color: $black;
+        background-color: $black;
+      }
+    }
+  }
 }

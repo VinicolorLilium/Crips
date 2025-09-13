@@ -174,6 +174,7 @@
                   </picture>
                 </div>
               </div>
+              <div class="product-gallery__pagination swiper-pagination"></div>
               <button class="product-gallery__zoom" type="button" aria-label="Увеличить изображение">
                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
                   <g stroke="#000">
@@ -185,7 +186,7 @@
             </div>
           </section>
           <div class="product-page__details">
-            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки" data-da=".product-page__top, 1100, 0">
               <div class="container">
                 <ul class="breadcrumbs__list">
                   <li class="breadcrumbs__item">
@@ -206,7 +207,7 @@
             <h2 class="product-page__title">Женское черное платье-клеш в клетку Dress</h2>
             <form class="product-form product-page__form" id="productForm" action="#" method="post" novalidate>
               <!-- Цвет -->
-              <div class="product-form__group product-form__group--colors">
+              <div class="product-form__group product-form__group--colors" data-da=".product-form__group--summary, 1100">
                 <h3 class="product-form__label">Выберите цвет</h3>
                 <ul class="swatches product-form__colors" role="list">
                   <li class="swatches__item">
@@ -267,7 +268,7 @@
                     <label class="sizes__label" for="size-w31">W31</label>
                   </div>
                   <div class="sizes__item">
-                    <input class="sizes__input" type="radio" name="size" id="size-w32" value="W32" checked>
+                    <input class="sizes__input" type="radio" name="size" id="size-w32" value="W32">
                     <label class="sizes__label" for="size-w32">W32</label>
                   </div>
                   <div class="sizes__item">
@@ -343,7 +344,7 @@
             
               <!-- CTA -->
               <div class="product-form__group product-form__group--cta">
-                <button class="product-form__btn product-form__btn--primary product-form__btn-add" type="submit">Добавить в корзину</button>
+                <button class="product-form__btn product-form__btn--primary product-form__btn-add" type="submit">в корзину</button>
                 <button class="product-form__btn product-form__btn--secondary product-form__btn-save" type="button" aria-pressed="false"
                   title="Сохранить в избранное">
                   <svg xmlns="http://www.w3.org/2000/svg" width="21.8" height="20.59" fill="none">
@@ -372,7 +373,7 @@
         <div class="product-page__info">
           <ul class="product-info">
             <li class="product-info__item" data-spollers data-one-spoller>
-              <h3 class="product-info__title _active" data-spoller>детали</h3>
+              <h3 class="product-info__title" data-spoller>детали</h3>
               <div class="product-info__content">
                 <h4>О ТОВАРЕ</h4>
                 <p>

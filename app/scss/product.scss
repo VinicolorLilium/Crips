@@ -45,6 +45,18 @@
     margin: rem(60) 0 rem(38);
     padding: 0 rem(15);
 
+    @media (max-width: em(1250)) {
+      column-gap: rem(15);
+    }
+
+    @media (max-width: em(1100)) {
+      flex-direction: column;
+
+      .product-gallery {
+        margin: 0 auto rem(24);
+      }
+    }
+
     .product-gallery {
       flex: 1 1 auto;
     }
@@ -64,8 +76,52 @@
   &__slider {
     margin-bottom: rem(42);
   }
+
+  @media (max-width: em(1100)) {
+    &__details {
+      position: relative;
+    }
+
+    &__brand {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: rem(7);
+
+      img {
+        width: rem(32);
+        height: auto;
+      }
+    }
+
+    &__title {
+      max-width: rem(216);
+      font-size: rem(18);
+      line-height: math.div(23, 18);
+
+      &:not(:last-child) {
+        margin-bottom: rem(20);
+      }
+    }
+
+    &__info {
+      margin-bottom: rem(20);
+    }
+  }
 }
 
+@media (max-width: em(600)) {
+  .product-page {
+    .product-page__slider {
+      margin-bottom: rem(80);
+    }
+
+    .slider-products__btn {
+      top: auto;
+      bottom: rem(-64);
+    }
+  }
+}
 
 
 @import '../components/_product-form/product-form';
