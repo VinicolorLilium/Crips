@@ -1,0 +1,204 @@
+.account-form {
+  max-width: rem(560);
+  margin: 0 auto;
+
+  &__section {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__legend {
+    @extend %Oswald-400;
+    font-size: clamp(0.875rem, 0.7466rem + 0.6418vw, 1.5rem);
+    text-transform: capitalize;
+
+    &:not(:last-child) {
+      margin-bottom: clamp(0.625rem, 0.2399rem + 1.9255vw, 2.5rem);
+    }
+  }
+
+  &__checkbox {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__back {
+    @extend %Oswald-500;
+    font-size: rem(14);
+    line-height: math.div(21, 14);
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $gray;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(8.6875rem, 7.0059rem + 8.4082vw, 16.875rem);
+    margin-top: clamp(1.6875rem, 1.2639rem + 2.1181vw, 3.75rem);
+    padding: rem(15);
+    border: 0;
+    @extend %Oswald-500;
+    font-size: clamp(0.75rem, 0.7243rem + 0.1284vw, 0.875rem);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: $white;
+    background-color: $black;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $accent;
+      }
+    }
+  }
+}
+
+.field {
+  display: grid;
+  grid-template-columns: auto minmax(rem(290), rem(443));
+  row-gap: rem(15);
+
+  &__label {
+    display: flex;
+    column-gap: rem(10);
+    @extend %Roboto-400;
+    font-size: clamp(0.75rem, 0.6987rem + 0.2567vw, 1rem);
+    line-height: math.div(20, 16);
+    color: $black-gray;
+
+    &::after {
+      content: '*';
+      margin-left: rem(-6);
+      color: $accent;
+    }
+  }
+
+  &__mark {
+    display: none;
+    color: $accent;
+  }
+
+  &__input {
+    padding: clamp(0.625rem, 0.5608rem + 0.3209vw, 0.9375rem) rem(15);
+    border: 1px solid $divider;
+    @extend %Roboto-400;
+    font-size: clamp(0.75rem, 0.6987rem + 0.2567vw, 1rem);
+    color: $black-gray;
+
+    &::placeholder {
+      @extend %Roboto-400;
+      font-size: clamp(0.75rem, 0.6987rem + 0.2567vw, 1rem);
+      color: $black-gray;
+    }
+  }
+
+  &__hint {
+    grid-column: 2 / 3;
+    margin-top: rem(-15);
+    padding: rem(16);
+    @extend %Roboto-400;
+    font-size: clamp(0.75rem, 0.7243rem + 0.1284vw, 0.875rem);
+    line-height: math.div(20, 14);
+    text-transform: capitalize;
+    background-color: #F0F2F2;
+  }
+
+  /* States */
+  &--invalid .field__input {
+    border-color: red;
+  }
+
+  &--valid .field__input {
+    border-color: green;
+  }
+}
+
+/* Password strength colorization */
+.password-strength {
+  font-weight: 600;
+
+  &[data-level="0"] {
+    color: #9a9a9a;
+  }
+
+  &[data-level="1"] {
+    color: #c0392b;
+  }
+
+  &[data-level="2"] {
+    color: #d35400;
+  }
+
+  &[data-level="3"] {
+    color: #f39c12;
+  }
+
+  &[data-level="4"] {
+    color: #27ae60;
+  }
+
+  &[data-level="5"] {
+    color: #118a39;
+  }
+}
+
+
+.checkbox {
+  position: relative;
+  display: flex;
+  column-gap: rem(10);
+  margin-bottom: clamp(1.625rem, 1.2784rem + 1.733vw, 3.3125rem);
+  cursor: pointer;
+  user-select: none;
+
+
+  &__input {
+    @extend %checkbox-hidden;
+  }
+
+  &__box {
+    display: inline-block;
+    width: rem(10);
+    height: rem(10);
+    border: 1px solid $gray;
+    background: #fff;
+  }
+
+  &__label {
+    @extend %Roboto-400;
+    font-size: clamp(0.625rem, 0.5737rem + 0.2567vw, 0.875rem);
+    line-height: math.div(20, 14);
+    color: $gray;
+  }
+}
+
+@media (max-width: em(768)) {
+  .field {
+    display: block;
+
+    &__label,
+    &__input {
+      margin-bottom: rem(10);
+    }
+
+    &__input {
+      width: 100%;
+    }
+  }
+}

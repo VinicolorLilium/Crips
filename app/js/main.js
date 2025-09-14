@@ -735,319 +735,321 @@ document.addEventListener('DOMContentLoaded', () => {
   //зум изображения в главном слайдере в карточке товара
   //====================================================================
   const mainGallery = document.querySelector('.product-gallery__main');
-  if (!mainGallery) return;
+  if (mainGallery) {
 
-  // Создаём кнопку "2× zoom", если её нет в разметке
-  let zoomBtn = mainGallery.querySelector('.product-gallery__zoom');
-  if (!zoomBtn) {
-    zoomBtn = document.createElement('button');
-    zoomBtn.type = 'button';
-    zoomBtn.className = 'product-gallery__zoom';
-    zoomBtn.setAttribute('aria-label', 'Увеличить изображение');
-    zoomBtn.textContent = '2× zoom';
-    mainGallery.appendChild(zoomBtn);
 
-    // Базовые инлайн-стили, чтобы кнопка была видна без правок SCSS
-    Object.assign(zoomBtn.style, {
-      position: 'absolute',
-      right: '8px',
-      bottom: '8px',
-      zIndex: '3',
-      padding: '6px 10px',
-      fontSize: '12px',
-      lineHeight: '1',
-      color: '#111',
-      background: 'rgba(255,255,255,.92)',
-      border: '1px solid rgba(0,0,0,.12)',
-      borderRadius: '12px',
-      cursor: 'pointer',
-      boxShadow: '0 1px 2px rgba(0,0,0,.08)'
-    });
-  }
 
-  const defaults = {
-    startScale: 2,
-    minScale: 1.4,
-    maxScale: 3,
-    step: 0.16
-  };
+    // Создаём кнопку "2× zoom", если её нет в разметке
+    let zoomBtn = mainGallery.querySelector('.product-gallery__zoom');
+    if (!zoomBtn) {
+      zoomBtn = document.createElement('button');
+      zoomBtn.type = 'button';
+      zoomBtn.className = 'product-gallery__zoom';
+      zoomBtn.setAttribute('aria-label', 'Увеличить изображение');
+      zoomBtn.textContent = '2× zoom';
+      mainGallery.appendChild(zoomBtn);
 
-  let scale = defaults.startScale;
-  let zoomOn = false;
-  let lastTap = 0;
-
-  // Состояние пинчи-зум на тачах
-  const pinch = {
-    active: false,
-    startDist: 0,
-    startScale: defaults.startScale
-  };
-
-  function clamp(v, min, max) {
-    return Math.min(max, Math.max(min, v));
-  }
-
-  function getActiveSlide() {
-    return mainGallery.querySelector('.swiper-slide-active') || mainGallery.querySelector('.product-gallery__slide');
-  }
-
-  function getActiveImg() {
-    const slide = getActiveSlide();
-    return slide ? slide.querySelector('.product-gallery__image img') : null;
-  }
-
-  function prepareImg(img) {
-    if (!img) return;
-    // Гарантируем корректную анимацию трансформаций
-    if (!img.style.transition) img.style.transition = 'transform 180ms ease-out';
-    img.style.willChange = 'transform';
-    // Базовое состояние
-    if (!zoomOn) {
-      img.style.transform = 'scale(1)';
-      img.style.transformOrigin = '50% 50%';
-    }
-  }
-
-  function setOriginFromPoint(point) {
-    const slide = getActiveSlide();
-    const img = getActiveImg();
-    if (!slide || !img) return;
-
-    const rect = slide.getBoundingClientRect();
-    const x = ((point.x - rect.left) / rect.width) * 100;
-    const y = ((point.y - rect.top) / rect.height) * 100;
-
-    img.style.transformOrigin = `${x}% ${y}%`;
-  }
-
-  function setOriginFromEvent(e) {
-    const slide = getActiveSlide();
-    if (!slide) return;
-
-    const rect = slide.getBoundingClientRect();
-
-    // Мышь / одиночный тап
-    if (e && e.touches && e.touches.length === 1) {
-      setOriginFromPoint({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-      return;
-    }
-    if (e && e.clientX != null) {
-      setOriginFromPoint({ x: e.clientX, y: e.clientY });
-      return;
+      // Базовые инлайн-стили, чтобы кнопка была видна без правок SCSS
+      Object.assign(zoomBtn.style, {
+        position: 'absolute',
+        right: '8px',
+        bottom: '8px',
+        zIndex: '3',
+        padding: '6px 10px',
+        fontSize: '12px',
+        lineHeight: '1',
+        color: '#111',
+        background: 'rgba(255,255,255,.92)',
+        border: '1px solid rgba(0,0,0,.12)',
+        borderRadius: '12px',
+        cursor: 'pointer',
+        boxShadow: '0 1px 2px rgba(0,0,0,.08)'
+      });
     }
 
-    // Центр по умолчанию
-    setOriginFromPoint({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
-  }
+    const defaults = {
+      startScale: 2,
+      minScale: 1.4,
+      maxScale: 3,
+      step: 0.16
+    };
 
-  function applyScale() {
-    const img = getActiveImg();
-    if (!img) return;
-    img.style.transform = `scale(${scale})`;
-  }
+    let scale = defaults.startScale;
+    let zoomOn = false;
+    let lastTap = 0;
 
-  function enableZoom(e) {
-    const slide = getActiveSlide();
-    const img = getActiveImg();
-    if (!slide || !img) return;
+    // Состояние пинчи-зум на тачах
+    const pinch = {
+      active: false,
+      startDist: 0,
+      startScale: defaults.startScale
+    };
 
-    prepareImg(img);
-
-    zoomOn = true;
-    mainGallery.dataset.zoom = 'on';
-
-    slide.style.overflow = 'hidden';
-    slide.style.cursor = 'zoom-out';
-    slide.style.touchAction = 'none'; // разрешаем панорамирование на тачах
-
-    setOriginFromEvent(e);
-    scale = clamp(scale || defaults.startScale, defaults.minScale, defaults.maxScale);
-    applyScale();
-
-    if (zoomBtn) {
-      zoomBtn.style.opacity = '0';
-      zoomBtn.style.pointerEvents = 'none';
-    }
-  }
-
-  function disableZoom() {
-    const slide = getActiveSlide();
-    const img = getActiveImg();
-
-    zoomOn = false;
-    mainGallery.dataset.zoom = 'off';
-
-    if (img) {
-      img.style.transform = 'scale(1)';
-      img.style.transformOrigin = '50% 50%';
-    }
-    if (slide) {
-      slide.style.cursor = 'zoom-in';
-      slide.style.touchAction = '';
+    function clamp(v, min, max) {
+      return Math.min(max, Math.max(min, v));
     }
 
-    scale = defaults.startScale;
-
-    if (zoomBtn) {
-      zoomBtn.style.opacity = '';
-      zoomBtn.style.pointerEvents = '';
-    }
-  }
-
-  function toggleZoom(e) {
-    zoomOn ? disableZoom() : enableZoom(e);
-  }
-
-  function onMove(e) {
-    if (!zoomOn) return;
-
-    // Пинч-режим обрабатывается отдельно
-    if (pinch.active && e.touches && e.touches.length === 2) return;
-
-    setOriginFromEvent(e);
-    if (e.cancelable) e.preventDefault();
-  }
-
-  function onWheel(e) {
-    if (!zoomOn) return;
-    e.preventDefault();
-    scale = clamp(
-      parseFloat((scale + (e.deltaY < 0 ? defaults.step : -defaults.step)).toFixed(2)),
-      defaults.minScale,
-      defaults.maxScale
-    );
-    applyScale();
-  }
-
-  function onKey(e) {
-    if (e.key === 'Escape') disableZoom();
-  }
-
-  function initCursors() {
-    const slide = getActiveSlide();
-    if (slide && !zoomOn) {
-      slide.style.cursor = 'zoom-in';
-    }
-    const img = getActiveImg();
-    if (img) prepareImg(img);
-  }
-
-  function attachSwiperHandler(swiperInstance) {
-    if (!swiperInstance || attachSwiperHandler._attached) return;
-    swiperInstance.on('slideChange', () => {
-      disableZoom();
-      // подготовить курсор/стили для нового слайда
-      setTimeout(initCursors, 0);
-    });
-    attachSwiperHandler._attached = true;
-  }
-
-  // Инициализация начальных стилей
-  initCursors();
-
-  // Клики
-  mainGallery.addEventListener('click', function (e) {
-    const target = e.target;
-    if (!(target instanceof Element)) return;
-
-    if (target.closest('.product-gallery__zoom')) {
-      e.preventDefault();
-      toggleZoom(e);
-      return;
+    function getActiveSlide() {
+      return mainGallery.querySelector('.swiper-slide-active') || mainGallery.querySelector('.product-gallery__slide');
     }
 
-    if (target.closest('.product-gallery__slide')) {
-      toggleZoom(e);
-    }
-  });
-
-  // Панорамирование
-  mainGallery.addEventListener('mousemove', onMove);
-  mainGallery.addEventListener('touchmove', onMove, { passive: false });
-
-  // Масштаб колесом
-  mainGallery.addEventListener('wheel', onWheel, { passive: false });
-
-  // Esc для выхода
-  document.addEventListener('keydown', onKey);
-
-  // Двойной тап — переключить зум
-  mainGallery.addEventListener('touchstart', function (e) {
-    const now = Date.now();
-
-    // Пинч старт
-    if (e.touches && e.touches.length === 2) {
-      const [t1, t2] = e.touches;
-      pinch.active = true;
-      pinch.startDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
-      pinch.startScale = zoomOn ? scale : defaults.startScale;
-
-      // Точка между пальцами как origin
-      const mid = {
-        x: (t1.clientX + t2.clientX) / 2,
-        y: (t1.clientY + t2.clientY) / 2
-      };
-      if (!zoomOn) enableZoom({ clientX: mid.x, clientY: mid.y });
-      setOriginFromPoint(mid);
-      return;
+    function getActiveImg() {
+      const slide = getActiveSlide();
+      return slide ? slide.querySelector('.product-gallery__image img') : null;
     }
 
-    // Двойной тап
-    if (now - lastTap < 320) {
-      toggleZoom(e);
+    function prepareImg(img) {
+      if (!img) return;
+      // Гарантируем корректную анимацию трансформаций
+      if (!img.style.transition) img.style.transition = 'transform 180ms ease-out';
+      img.style.willChange = 'transform';
+      // Базовое состояние
+      if (!zoomOn) {
+        img.style.transform = 'scale(1)';
+        img.style.transformOrigin = '50% 50%';
+      }
+    }
+
+    function setOriginFromPoint(point) {
+      const slide = getActiveSlide();
+      const img = getActiveImg();
+      if (!slide || !img) return;
+
+      const rect = slide.getBoundingClientRect();
+      const x = ((point.x - rect.left) / rect.width) * 100;
+      const y = ((point.y - rect.top) / rect.height) * 100;
+
+      img.style.transformOrigin = `${x}% ${y}%`;
+    }
+
+    function setOriginFromEvent(e) {
+      const slide = getActiveSlide();
+      if (!slide) return;
+
+      const rect = slide.getBoundingClientRect();
+
+      // Мышь / одиночный тап
+      if (e && e.touches && e.touches.length === 1) {
+        setOriginFromPoint({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+        return;
+      }
+      if (e && e.clientX != null) {
+        setOriginFromPoint({ x: e.clientX, y: e.clientY });
+        return;
+      }
+
+      // Центр по умолчанию
+      setOriginFromPoint({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+    }
+
+    function applyScale() {
+      const img = getActiveImg();
+      if (!img) return;
+      img.style.transform = `scale(${scale})`;
+    }
+
+    function enableZoom(e) {
+      const slide = getActiveSlide();
+      const img = getActiveImg();
+      if (!slide || !img) return;
+
+      prepareImg(img);
+
+      zoomOn = true;
+      mainGallery.dataset.zoom = 'on';
+
+      slide.style.overflow = 'hidden';
+      slide.style.cursor = 'zoom-out';
+      slide.style.touchAction = 'none'; // разрешаем панорамирование на тачах
+
+      setOriginFromEvent(e);
+      scale = clamp(scale || defaults.startScale, defaults.minScale, defaults.maxScale);
+      applyScale();
+
+      if (zoomBtn) {
+        zoomBtn.style.opacity = '0';
+        zoomBtn.style.pointerEvents = 'none';
+      }
+    }
+
+    function disableZoom() {
+      const slide = getActiveSlide();
+      const img = getActiveImg();
+
+      zoomOn = false;
+      mainGallery.dataset.zoom = 'off';
+
+      if (img) {
+        img.style.transform = 'scale(1)';
+        img.style.transformOrigin = '50% 50%';
+      }
+      if (slide) {
+        slide.style.cursor = 'zoom-in';
+        slide.style.touchAction = '';
+      }
+
+      scale = defaults.startScale;
+
+      if (zoomBtn) {
+        zoomBtn.style.opacity = '';
+        zoomBtn.style.pointerEvents = '';
+      }
+    }
+
+    function toggleZoom(e) {
+      zoomOn ? disableZoom() : enableZoom(e);
+    }
+
+    function onMove(e) {
+      if (!zoomOn) return;
+
+      // Пинч-режим обрабатывается отдельно
+      if (pinch.active && e.touches && e.touches.length === 2) return;
+
+      setOriginFromEvent(e);
       if (e.cancelable) e.preventDefault();
     }
-    lastTap = now;
-  }, { passive: true });
 
-  // Пинч-обновление масштаба
-  mainGallery.addEventListener('touchmove', function (e) {
-    if (!pinch.active || !e.touches || e.touches.length !== 2) return;
-
-    const [t1, t2] = e.touches;
-    const dist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
-    const factor = dist / (pinch.startDist || dist);
-    scale = clamp(parseFloat((pinch.startScale * factor).toFixed(2)), defaults.minScale, defaults.maxScale);
-
-    const mid = { x: (t1.clientX + t2.clientX) / 2, y: (t1.clientY + t2.clientY) / 2 };
-    setOriginFromPoint(mid);
-    applyScale();
-
-    if (e.cancelable) e.preventDefault();
-  }, { passive: false });
-
-  mainGallery.addEventListener('touchend', function () {
-    if (pinch.active) {
-      pinch.active = false;
+    function onWheel(e) {
+      if (!zoomOn) return;
+      e.preventDefault();
+      scale = clamp(
+        parseFloat((scale + (e.deltaY < 0 ? defaults.step : -defaults.step)).toFixed(2)),
+        defaults.minScale,
+        defaults.maxScale
+      );
+      applyScale();
     }
-  });
 
-  mainGallery.addEventListener('touchcancel', function () {
-    if (pinch.active) {
-      pinch.active = false;
+    function onKey(e) {
+      if (e.key === 'Escape') disableZoom();
     }
-  });
 
-  // Привязка к Swiper (когда он появится)
-  if (mainGallery.swiper) {
-    attachSwiperHandler(mainGallery.swiper);
-  } else {
-    const checkSwiper = setInterval(() => {
-      if (mainGallery.swiper) {
-        attachSwiperHandler(mainGallery.swiper);
-        clearInterval(checkSwiper);
+    function initCursors() {
+      const slide = getActiveSlide();
+      if (slide && !zoomOn) {
+        slide.style.cursor = 'zoom-in';
       }
-    }, 120);
-    setTimeout(() => clearInterval(checkSwiper), 10000); // страховка, чтобы не крутилось бесконечно
-  }
+      const img = getActiveImg();
+      if (img) prepareImg(img);
+    }
 
-  // На ресайз — освежить стили и курсоры
-  window.addEventListener('resize', () => {
+    function attachSwiperHandler(swiperInstance) {
+      if (!swiperInstance || attachSwiperHandler._attached) return;
+      swiperInstance.on('slideChange', () => {
+        disableZoom();
+        // подготовить курсор/стили для нового слайда
+        setTimeout(initCursors, 0);
+      });
+      attachSwiperHandler._attached = true;
+    }
+
+    // Инициализация начальных стилей
     initCursors();
-    if (zoomOn) applyScale();
-  });
 
+    // Клики
+    mainGallery.addEventListener('click', function (e) {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
 
+      if (target.closest('.product-gallery__zoom')) {
+        e.preventDefault();
+        toggleZoom(e);
+        return;
+      }
+
+      if (target.closest('.product-gallery__slide')) {
+        toggleZoom(e);
+      }
+    });
+
+    // Панорамирование
+    mainGallery.addEventListener('mousemove', onMove);
+    mainGallery.addEventListener('touchmove', onMove, { passive: false });
+
+    // Масштаб колесом
+    mainGallery.addEventListener('wheel', onWheel, { passive: false });
+
+    // Esc для выхода
+    document.addEventListener('keydown', onKey);
+
+    // Двойной тап — переключить зум
+    mainGallery.addEventListener('touchstart', function (e) {
+      const now = Date.now();
+
+      // Пинч старт
+      if (e.touches && e.touches.length === 2) {
+        const [t1, t2] = e.touches;
+        pinch.active = true;
+        pinch.startDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+        pinch.startScale = zoomOn ? scale : defaults.startScale;
+
+        // Точка между пальцами как origin
+        const mid = {
+          x: (t1.clientX + t2.clientX) / 2,
+          y: (t1.clientY + t2.clientY) / 2
+        };
+        if (!zoomOn) enableZoom({ clientX: mid.x, clientY: mid.y });
+        setOriginFromPoint(mid);
+        return;
+      }
+
+      // Двойной тап
+      if (now - lastTap < 320) {
+        toggleZoom(e);
+        if (e.cancelable) e.preventDefault();
+      }
+      lastTap = now;
+    }, { passive: true });
+
+    // Пинч-обновление масштаба
+    mainGallery.addEventListener('touchmove', function (e) {
+      if (!pinch.active || !e.touches || e.touches.length !== 2) return;
+
+      const [t1, t2] = e.touches;
+      const dist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+      const factor = dist / (pinch.startDist || dist);
+      scale = clamp(parseFloat((pinch.startScale * factor).toFixed(2)), defaults.minScale, defaults.maxScale);
+
+      const mid = { x: (t1.clientX + t2.clientX) / 2, y: (t1.clientY + t2.clientY) / 2 };
+      setOriginFromPoint(mid);
+      applyScale();
+
+      if (e.cancelable) e.preventDefault();
+    }, { passive: false });
+
+    mainGallery.addEventListener('touchend', function () {
+      if (pinch.active) {
+        pinch.active = false;
+      }
+    });
+
+    mainGallery.addEventListener('touchcancel', function () {
+      if (pinch.active) {
+        pinch.active = false;
+      }
+    });
+
+    // Привязка к Swiper (когда он появится)
+    if (mainGallery.swiper) {
+      attachSwiperHandler(mainGallery.swiper);
+    } else {
+      const checkSwiper = setInterval(() => {
+        if (mainGallery.swiper) {
+          attachSwiperHandler(mainGallery.swiper);
+          clearInterval(checkSwiper);
+        }
+      }, 120);
+      setTimeout(() => clearInterval(checkSwiper), 10000); // страховка, чтобы не крутилось бесконечно
+    }
+
+    // На ресайз — освежить стили и курсоры
+    window.addEventListener('resize', () => {
+      initCursors();
+      if (zoomOn) applyScale();
+    });
+
+  }
   //========================================================
   //форма в карточке товара
   //========================================================
@@ -1113,108 +1115,192 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   //==================================================================
+  //преобразование сетки размеров в выпадающий список на тачпаде
+  //===============================================================
   const groupSizes = document.querySelector('.product-form__group--sizes');
-  if (!groupSizes) return;
+  if (groupSizes) {
 
-  const listSize = groupSizes.querySelector('.product-form__sizes');
-  const radiosSizeInput = Array.from(groupSizes.querySelectorAll('.sizes__input'));
-  if (!listSize || !radiosSizeInput.length) return;
+    const listSize = groupSizes.querySelector('.product-form__sizes');
+    const radiosSizeInput = Array.from(groupSizes.querySelectorAll('.sizes__input'));
+    if (!listSize || !radiosSizeInput.length) return;
 
-  // Сохраняем исходные disabled-состояния, чтобы корректно восстанавливать на десктопе
-  const originalDisabled = new WeakMap();
-  radiosSizeInput.forEach(r => originalDisabled.set(r, r.disabled));
+    // Сохраняем исходные disabled-состояния, чтобы корректно восстанавливать на десктопе
+    const originalDisabled = new WeakMap();
+    radiosSizeInput.forEach(r => originalDisabled.set(r, r.disabled));
 
-  // Линкуем select с заголовком
-  const heading = groupSizes.querySelector('.product-form__label-row .product-form__label, .product-form__label');
-  if (heading && !heading.id) heading.id = 'sizeHeading';
+    // Линкуем select с заголовком
+    const heading = groupSizes.querySelector('.product-form__label-row .product-form__label, .product-form__label');
+    if (heading && !heading.id) heading.id = 'sizeHeading';
 
-  // Строим select из радио
-  const wrap = document.createElement('div');
-  wrap.className = 'sizes__select-wrap';
+    // Строим select из радио
+    const wrap = document.createElement('div');
+    wrap.className = 'sizes__select-wrap';
 
-  const select = document.createElement('select');
-  select.className = 'sizes__select';
-  if (heading) select.setAttribute('aria-labelledby', heading.id);
-  select.setAttribute('aria-label', 'Выбор размера');
+    const select = document.createElement('select');
+    select.className = 'sizes__select';
+    if (heading) select.setAttribute('aria-labelledby', heading.id);
+    select.setAttribute('aria-label', 'Выбор размера');
 
-  radiosSizeInput.forEach(input => {
-    const option = document.createElement('option');
-    option.value = input.value;
+    radiosSizeInput.forEach(input => {
+      const option = document.createElement('option');
+      option.value = input.value;
 
-    const label = groupSizes.querySelector(`label[for="${input.id}"]`);
-    option.textContent = label ? label.textContent.trim() : input.value;
+      const label = groupSizes.querySelector(`label[for="${input.id}"]`);
+      option.textContent = label ? label.textContent.trim() : input.value;
 
-    if (input.disabled) {
-      option.disabled = true;
-      option.textContent += ' — нет в наличии';
-    }
-    if (input.checked) option.selected = true;
+      if (input.disabled) {
+        option.disabled = true;
+        option.textContent += ' — нет в наличии';
+      }
+      if (input.checked) option.selected = true;
 
-    select.appendChild(option);
-  });
-
-  wrap.appendChild(select);
-  listSize.insertAdjacentElement('afterend', wrap);
-
-  // Синхронизация select -> radios
-  select.addEventListener('change', () => {
-    const val = select.value;
-    const target = radiosSizeInput.find(r => r.value === val);
-    if (!target) return;
-
-    // временно включаем, чтобы корректно сработали возможные слушатели
-    const wasDisabled = target.disabled;
-    const originallyDisabled = originalDisabled.get(target);
-
-    if (wasDisabled && !originallyDisabled) target.disabled = false;
-    target.checked = true;
-    target.dispatchEvent(new Event('change', { bubbles: true }));
-    // возвращаем управление disabled состоянием
-    const mql = window.matchMedia('(max-width: 600px)');
-    if (mql.matches && !originallyDisabled) target.disabled = true;
-    if (!mql.matches) target.disabled = originallyDisabled;
-  });
-
-  // Синхронизация radios -> select (на десктопе)
-  radiosSizeInput.forEach(r => {
-    r.addEventListener('change', () => {
-      const checked = radiosSizeInput.find(i => i.checked);
-      if (checked) select.value = checked.value;
+      select.appendChild(option);
     });
-  });
 
-  // Переключение режимов по брейкпоинту
-  const mql = window.matchMedia('(max-width: 600px)');
+    wrap.appendChild(select);
+    listSize.insertAdjacentElement('afterend', wrap);
 
-  function enableMobile() {
-    groupSizes.classList.add('js-has-select');
-    // избегаем дубля формы: отключаем все радио
-    radiosSizeInput.forEach(r => r.disabled = true);
-    // submit идёт из select под тем же именем
-    select.name = 'size';
-  }
+    // Синхронизация select -> radios
+    select.addEventListener('change', () => {
+      const val = select.value;
+      const target = radiosSizeInput.find(r => r.value === val);
+      if (!target) return;
 
-  function disableMobile() {
-    groupSizes.classList.remove('js-has-select');
-    // возвращаем исходные disabled-состояния
-    radiosSizeInput.forEach(r => r.disabled = originalDisabled.get(r));
-    // name убираем, чтобы не дублировать поле, но select оставляем синхронизированным
-    select.removeAttribute('name');
+      // временно включаем, чтобы корректно сработали возможные слушатели
+      const wasDisabled = target.disabled;
+      const originallyDisabled = originalDisabled.get(target);
 
-    // на всякий случай синхронизируем текущее значение обратно в радио
-    const current = radiosSizeInput.find(r => r.value === select.value);
-    if (current && !current.disabled) {
-      current.checked = true;
-      current.dispatchEvent(new Event('change', { bubbles: true }));
+      if (wasDisabled && !originallyDisabled) target.disabled = false;
+      target.checked = true;
+      target.dispatchEvent(new Event('change', { bubbles: true }));
+      // возвращаем управление disabled состоянием
+      const mql = window.matchMedia('(max-width: 600px)');
+      if (mql.matches && !originallyDisabled) target.disabled = true;
+      if (!mql.matches) target.disabled = originallyDisabled;
+    });
+
+    // Синхронизация radios -> select (на десктопе)
+    radiosSizeInput.forEach(r => {
+      r.addEventListener('change', () => {
+        const checked = radiosSizeInput.find(i => i.checked);
+        if (checked) select.value = checked.value;
+      });
+    });
+
+    // Переключение режимов по брейкпоинту
+    const mql = window.matchMedia('(max-width: 600px)');
+
+    function enableMobile() {
+      groupSizes.classList.add('js-has-select');
+      // избегаем дубля формы: отключаем все радио
+      radiosSizeInput.forEach(r => r.disabled = true);
+      // submit идёт из select под тем же именем
+      select.name = 'size';
     }
+
+    function disableMobile() {
+      groupSizes.classList.remove('js-has-select');
+      // возвращаем исходные disabled-состояния
+      radiosSizeInput.forEach(r => r.disabled = originalDisabled.get(r));
+      // name убираем, чтобы не дублировать поле, но select оставляем синхронизированным
+      select.removeAttribute('name');
+
+      // на всякий случай синхронизируем текущее значение обратно в радио
+      const current = radiosSizeInput.find(r => r.value === select.value);
+      if (current && !current.disabled) {
+        current.checked = true;
+        current.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    }
+
+    function apply() {
+      if (mql.matches) enableMobile();
+      else disableMobile();
+    }
+
+    if (mql.addEventListener) mql.addEventListener('change', apply);
+    else mql.addListener(apply); // поддержка старых браузеров
+    apply();
   }
 
-  function apply() {
-    if (mql.matches) enableMobile();
-    else disableMobile();
-  }
+  //===================================================================
+  //валидация формы создания аккаунта
+  //===================================================================
+  const accountForm = document.getElementById('createAccount');
+  console.log(accountForm);
+  if (accountForm) {
 
-  if (mql.addEventListener) mql.addEventListener('change', apply);
-  else mql.addListener(apply); // поддержка старых браузеров
-  apply();
+    const passwordField__inputNode = accountForm.querySelector('#password');
+    const passwordField__hintNode = accountForm.querySelector('#passwordHint');
+    const passwordField__strengthNode = passwordField__hintNode?.querySelector('.password-strength');
+
+    if (!passwordField__inputNode || !passwordField__hintNode || !passwordField__strengthNode) return;
+
+    // Защита от двойной инициализации
+    if (passwordField__inputNode.dataset.jsPasswordHintBound === 'true') return;
+    passwordField__inputNode.dataset.jsPasswordHintBound = 'true';
+
+    // Делаем подсказку "живой" для скринридеров
+    if (!passwordField__hintNode.hasAttribute('aria-live')) {
+      passwordField__hintNode.setAttribute('aria-live', 'polite');
+    }
+
+    const passwordStrength__labelsRU = {
+      0: 'нет пароля',
+      1: 'очень слабый',
+      2: 'слабый',
+      3: 'средний',
+      4: 'хороший',
+      5: 'отличный'
+    };
+
+    function passwordStrength__computeLevel(pwd) {
+      const v = (pwd || '').trim();
+      if (!v) return 0;
+
+      let score = 0;
+
+      // Длина (до +3)
+      if (v.length >= 8) score += 1;
+      if (v.length >= 10) score += 1;
+      if (v.length >= 12) score += 1;
+
+      // Разнообразие (до +3)
+      const hasLower = /[a-zа-яё]/.test(v);
+      const hasUpper = /[A-ZА-ЯЁ]/.test(v);
+      const hasDigit = /\d/.test(v);
+      const hasSymbol = /[^A-Za-zА-Яа-яЁё0-9]/.test(v);
+      const diversity = [hasLower, hasUpper, hasDigit, hasSymbol].filter(Boolean).length;
+      if (diversity >= 2) score += 1;
+      if (diversity >= 3) score += 1;
+      if (diversity === 4) score += 1;
+
+      // Штрафы
+      let penalty = 0;
+      const lower = v.toLowerCase();
+      if (/^(.)\1+$/.test(v)) penalty += 3;           // один и тот же символ
+      if (/(.)\1{2,}/.test(v)) penalty += 1;          // тройные повторы
+      if (/0123|1234|2345|3456|4567|5678|6789|7890|9876|8765|7654|6543|5432|4321|3210|abcd|bcde|cdef|defg|efgh|fghi|ghij|hijk|ijkl|jklm|klmn|lmno|mnop|nopq|opqr|pqrs|qrst|rstu|stuv|tuvw|uvwx|vwxy|wxyz|qwer|wert|erty|rtyu|tyui|yuio|uiop|asdf|sdfg|dfgh|fghj|ghjk|hjkl|zxcv|xcvb|cvbn|vbnm/i.test(lower)) {
+        penalty += 1;                                  // последовательности
+      }
+      const commonPwds = ['123456', 'qwerty', 'password', '111111', '123123', 'qwertyuiop', 'abc123', 'letmein', 'admin', 'welcome', 'monkey', 'dragon', 'football', 'iloveyou', '000000', '1q2w3e4r', 'zaq12wsx'];
+      if (commonPwds.includes(lower)) penalty += 2;    // частые пароли
+      if (/^\d+$/.test(v) || /^[A-Za-zА-Яа-яЁё]+$/.test(v)) penalty += 1; // только цифры или только буквы
+
+      const level = Math.max(0, Math.min(5, score - penalty));
+      return level;
+    }
+
+    function passwordStrength__renderToHint(pwd) {
+      const level = passwordStrength__computeLevel(pwd);
+      passwordField__strengthNode.dataset.level = String(level);
+      passwordField__strengthNode.textContent = passwordStrength__labelsRU[level];
+    }
+
+    // Инициализация и live-обновление
+    passwordStrength__renderToHint(passwordField__inputNode.value || '');
+    passwordField__inputNode.addEventListener('input', (ev) => {
+      passwordStrength__renderToHint(ev.currentTarget.value);
+    });
+  }
 });

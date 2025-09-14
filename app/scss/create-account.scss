@@ -1,0 +1,55 @@
+@use 'sass:math';
+
+@import 'reset';
+@import 'fonts';
+@import 'vars';
+@import 'mixin';
+@import 'global';
+
+
+@import '../components/_header/header';
+
+@import '../components/_breadcrumbs/breadcrumbs';
+@import '../components/_account-form/account-form';
+
+.create-account {
+  .breadcrumbs__list {
+    justify-content: center;
+  }
+
+  &__title {
+    margin-bottom: clamp(0.625rem, 0.4453rem + 0.8986vw, 1.5rem);
+    @extend %Oswald-400;
+    font-size: clamp(1.125rem, 0.7399rem + 1.9255vw, 3rem);
+    line-height: math.div(64, 48);
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  &__form {
+    max-width: clamp(20rem, 5.4429rem + 72.7856vw, 90.875rem);
+    margin: 0 auto clamp(0.9375rem, 0.3598rem + 2.8883vw, 3.75rem);
+    padding: clamp(0.9375rem, -0.1922rem + 5.6483vw, 6.4375rem) rem(10) clamp(0.625rem, -0.8384rem + 7.3171vw, 7.75rem);
+    border: 1px solid $divider;
+  }
+}
+
+
+@import '../components/_footer/footer';
+
+@media (max-width: em(768)) {
+  .create-account {
+    .breadcrumbs__list {
+      justify-content: start;
+    }
+  }
+  .create-account__form {
+    border: none;
+    border-top: 1px solid $divider;
+  }
+
+  .create-account__title {
+    text-align: left;
+    padding-left: rem(10);
+  }
+}

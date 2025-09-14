@@ -31,11 +31,13 @@ function styles() {
 }
 
 function scripts() {
-  return src([
-    'node_modules/swiper/swiper-bundle.min.js',
-    'app/js/main.js'
-  ])
-    .pipe(concat('main.min.js'))
+  return src(['app/js/*.js', '!app/js/*.min.js'])
+    .pipe(include({
+      includePaths: 'app/js/components'
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(uglify())
     .pipe(dest('app/js'))
     .pipe(browserSync.stream());
@@ -97,7 +99,7 @@ function watching() {
     }
   });
   watch(['app/**/*.scss'], styles)
-  watch(['app/js/main.js'], scripts)
+  watch(['app/js/*.js', '!app/js/*.min.js', 'app/js/components/**/*.js'], scripts)
   watch(['app/images/src'], images)
   watch(['app/components/**/*', 'app/pages/**/*'], pages)
   watch(['app/*.html']).on('change', browserSync.reload)
@@ -111,7 +113,7 @@ function cleanDist() {
 function building() {
   return src([
     'app/css/*.*',
-    'app/js/main.min.js',
+    'app/js/*.min.js',
     'app/images/**/*.*',
     'app/**/*.html',
     'app/fonts/*.*'

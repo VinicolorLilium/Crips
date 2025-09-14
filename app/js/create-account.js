@@ -1,13 +1,8 @@
 "use strict";
 document.addEventListener('DOMContentLoaded', () => {
-  //= include swiper-bundle.js
   //= include search_header.js
   //= include burger_menu.js
   //= include dynamic_adapt.js
-  //= include product_gallery.js
-  //= include product_form.js
-  //= include grid_in_section.js
+  //= include form_account_create.js
   //= include spoilers.js
-  //= include product_slider.js
-  //= include zoom_img.js
 });

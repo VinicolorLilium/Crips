@@ -1,0 +1,71 @@
+<form class="account-form" method="post" id="createAccount" action="#">
+  <fieldset class="account-form__section">
+    <legend class="account-form__legend">персональная информация</legend>
+
+
+    <div class="field field--required">
+      <label class="field__label" for="firstName">
+        Имя <span class="field__mark" aria-hidden="true">*</span>
+      </label>
+      <input class="field__input" id="firstName" name="firstName" type="text" placeholder="Ваше имя"
+        autocomplete="given-name" required />
+      <p class="field__error" aria-live="polite"></p>
+    </div>
+
+    <div class="field field--required">
+      <label class="field__label" for="lastName">
+        Фамилия <span class="field__mark" aria-hidden="true">*</span>
+      </label>
+      <input class="field__input" id="lastName" name="lastName" type="text" placeholder="Ваша фамилия"
+        autocomplete="family-name" required />
+      <p class="field__error" aria-live="polite"></p>
+    </div>
+
+    <label class="checkbox account-form__checkbox" for="newsletter">
+      <input class="checkbox__input" type="checkbox" id="newsletter" name="newsletter" />
+      <span class="checkbox__box" aria-hidden="true"></span>
+      <span class="checkbox__label">Подпишитесь на рассылку новостей</span>
+    </label>
+  </fieldset>
+
+  <fieldset class="account-form__section">
+    <legend class="account-form__legend">Подпишитесь на рассылку новостей</legend>
+
+    <div class="field field--required">
+      <label class="field__label" for="email">
+        Почта <span class="field__mark" aria-hidden="true">*</span>
+      </label>
+      <input class="field__input" id="email" name="email" type="email" placeholder="Ваша почта" autocomplete="email"
+        required />
+      <p class="field__error" aria-live="polite"></p>
+    </div>
+
+    <div class="field field--required">
+      <label class="field__label" for="password">
+        Пароль <span class="field__mark" aria-hidden="true">*</span>
+      </label>
+      <input class="field__input" id="password" name="password" type="password" placeholder="Придумайте пароль"
+        minlength="8" autocomplete="new-password" required aria-describedby="passwordHint" />
+      <div class="field__hint" id="passwordHint">
+        Надежность пароля: <span class="password-strength" data-level="0">нет пароля</span>
+      </div>
+      <p class="field__error" aria-live="polite"></p>
+    </div>
+
+    <div class="field field--required">
+      <label class="field__label" for="confirmPassword">
+        Повторите<span class="field__mark" aria-hidden="true">*</span>
+      </label>
+      <input class="field__input" id="confirmPassword" name="confirmPassword" type="password" minlength="8"
+        autocomplete="new-password" required />
+      <p class="field__error" id="confirmError" aria-live="polite"></p>
+    </div>
+  </fieldset>
+
+  <div class="account-form__actions">
+    <button class="button button--primary account-form__submit" type="submit">
+      создать аккаунт
+    </button>
+    <a class="account-form__back" href="#">назад</a>
+  </div>
+</form>

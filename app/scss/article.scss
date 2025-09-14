@@ -11,6 +11,7 @@
 
 @import '../components/_breadcrumbs/breadcrumbs';
 @import '../components/_slider-products/slider-products';
+@import '../components/_product-card/product-card';
 
 
 .article-page {
@@ -78,7 +79,7 @@
       }
     }
   }
-  
+
   &__link {
     display: inline-block;
     width: 100%;
