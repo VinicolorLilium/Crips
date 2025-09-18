@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRIPS</title>
+  <link rel="stylesheet" href="css/cart.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <!--=include _header/_header.html -->
+    <main class="main">
+      <div class="cart-page">
+        <!-- хлебные крошки -->
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <div class="container">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="/">Главная</a>
+              </li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current" aria-current="page">Корзина</span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- заголовок -->
+        <h2 class="cart-page__title">
+          Корзина
+        </h2>
+        <!-- основная часть -->
+        <div class="cart-page__content cart-content">
+          <div class="cart-content__products">
+            <!-- блок товаров в корзине -->
+            <!--=include _cart-table/_cart-table.html -->
+          </div>
+          <div class="cart-content__pay">
+            <section class="cart-form">
+              <div class="cart-form__content">
+                <!-- Блок с дисконтом -->
+                <div class="cart-form__section cart-form__section--discount">
+                  <h2 class="cart-form__title">Apply Discount Code</h2>
+                  <form class="cart-form__discount-form" action="#" method="post">
+                    <input type="text" class="cart-form__input" placeholder="Enter discount code" name="discount-code">
+                    <button type="submit" class="cart-form__button">Apply Discount</button>
+                  </form>
+                </div>
+
+                <!-- Блок с доставкой -->
+                <div class="cart-form__section cart-form__section--shipping" data-spollers>
+                  <h2 class="cart-form__title cart-form__title--spoller" data-spoller>Estimate Shipping and Tax</h2>
+
+                  <form class="cart-form__shipping-form" action="#" method="post">
+                    <p class="cart-form__note">Enter your destination to get a shipping estimate.</p>
+                    <label class="cart-form__label">
+                      <span class="cart-form__required">Country</span>
+                      <select name="country" class="cart-form__select">
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="de">Germany</option>
+                      </select>
+                    </label>
+
+                    <label class="cart-form__label">
+                      <span class="cart-form__required">State/Province</span>
+                      <select name="state" class="cart-form__select">
+                        <option value="alaska">Alaska</option>
+                        <option value="california">California</option>
+                        <option value="ny">New York</option>
+                      </select>
+                    </label>
+
+                    <label class="cart-form__label">
+                      Zip/Postal Code
+                      <input type="text" name="zipcode" class="cart-form__input">
+                    </label>
+
+                    <!-- Варианты доставки -->
+                    <fieldset class="cart-form__shipping-options">
+                      <legend class="cart-form__legend">Flat Rate</legend>
+                      <label class="cart-form__radio">
+                        <input class="cart-form__radio-input" type="radio" name="shipping" value="5" checked>
+                        <span class="cart-form__radio-check"></span>
+                        Fixed 5.00 EUR
+                      </label>
+                    </fieldset>
+
+                    <fieldset class="cart-form__shipping-options">
+                      <legend class="cart-form__legend">Best Way</legend>
+                      <label class="cart-form__radio">
+                        <input class="cart-form__radio-input" type="radio" name="shipping" value="10">
+                        <span class="cart-form__radio-check"></span>
+                        Table Rate 10.00 EUR
+                      </label>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+              <!-- Итоги -->
+              <div class="cart-form__section cart-form__section--summary">
+                <div class="cart-form__section-content">
+                  <div class="cart-form__summary-row">
+                    <span class="cart-form__summary-label">Subtotal</span>
+                    <span class="cart-form__summary-value">120.00 EUR</span>
+                  </div>
+                  <div class="cart-form__summary-row">
+                    <span class="cart-form__summary-label">Tax</span>
+                    <span class="cart-form__summary-value">0.00 EUR</span>
+                  </div>
+                  <div class="cart-form__summary-row cart-form__summary-row--total">
+                    <span class="cart-form__summary-label">Order Total</span>
+                    <span class="cart-form__summary-value">120.00 EUR</span>
+                  </div>
+                  <p class="cart-form__summary-text">Check Out with Multiple Addresses</p>
+                </div>
+                <button type="button" class="cart-form__checkout-button">
+                  Proceed to Checkout
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--=include _advantages/_advantages.html -->
+    <!-- =include _footer/_footer.html -->
+  </div>
+  <script src="js/cart.min.js"></script>
+</body>
+
+</html>

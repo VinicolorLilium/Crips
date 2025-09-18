@@ -1,0 +1,96 @@
+<table class="cart-table">
+  <!-- наименования столбоц по категориям -->
+  <thead class="cart-table__head">
+    <tr class="cart-table__row">
+      <th class="cart-table__cell cart-table__cell--head">Товар</th>
+      <th class="cart-table__cell cart-table__cell--head">Цена</th>
+      <th class="cart-table__cell cart-table__cell--head">Размер</th>
+      <th class="cart-table__cell cart-table__cell--head">Кол-во</th>
+      <th class="cart-table__cell cart-table__cell--head">Итого</th>
+      <th class="cart-table__cell cart-table__cell--head"></th>
+    </tr>
+  </thead>
+  <tbody class="cart-table__body">
+    <!-- единица товара -->
+    <tr class="cart-table__row cart-item">
+      <td class="cart-table__cell cart-item__info">
+        <div class="cart-item__product">
+          <picture class="cart-item__image">
+            <source type="image/avif" srcset="images/cart/01.avif">
+            <source type="image/webp" srcset="images/cart/01.webp">
+            <img src="images/cart/01.jpeg" alt="платье">
+          </picture>
+          <div class="cart-item__details">
+            <div class="cart-item__title">
+              Джинсы Angels malu на молнии узкие черные б/у
+            </div>
+            <div class="cart-item__color" style="background-color: #5884AA;"></div>
+          </div>
+        </div>
+      </td>
+      <td class="cart-table__cell cart-item__price">120,00 EUR</td>
+      <td class="cart-table__cell cart-item__size">W32</td>
+      <td class="cart-table__cell cart-item__quantity">
+        <div class="quantity">
+          <button class="quantity__btn">−</button>
+          <span class="quantity__value">1</span>
+          <button class="quantity__btn">+</button>
+        </div>
+      </td>
+      <td class="cart-table__cell cart-item__total">120,00 EUR</td>
+      <td class="cart-table__cell cart-item__actions">
+        <button class="cart-item__action cart-item__action--wishlist" title="Add to Wishlist">
+          <img src="images/icons/fav-black.png" alt="">
+        </button>
+        <button class="cart-item__action cart-item__action--edit" title="Edit">
+          <img src="images/icons/reducts.svg" alt="">
+        </button>
+        <button class="cart-item__action cart-item__action--remove" title="Remove">✖</button>
+      </td>
+    </tr>
+
+    <!-- единица товара -->
+    <tr class="cart-table__row cart-item">
+      <td class="cart-table__cell cart-item__info">
+        <div class="cart-item__product">
+          <picture class="cart-item__image">
+            <source type="image/avif" srcset="images/cart/02.avif">
+            <source type="image/webp" srcset="images/cart/02.webp">
+            <img src="images/cart/02.jpeg" alt="платье">
+          </picture>
+          <div class="cart-item__details">
+            <div class="cart-item__title">
+              Джинсы Angels malu на молнии узкие черные б/у
+            </div>
+            <div class="cart-item__color" style="background-color: #C35C71;"></div>
+          </div>
+        </div>
+      </td>
+      <td class="cart-table__cell cart-item__price">120,00 EUR</td>
+      <td class="cart-table__cell cart-item__size">W32</td>
+      <td class="cart-table__cell cart-item__quantity">
+        <div class="quantity">
+          <button class="quantity__btn">−</button>
+          <span class="quantity__value">1</span>
+          <button class="quantity__btn">+</button>
+        </div>
+      </td>
+      <td class="cart-table__cell cart-item__total">120,00 EUR</td>
+      <td class="cart-table__cell cart-item__actions">
+        <button class="cart-item__action cart-item__action--wishlist" title="Add to Wishlist">
+          <img src="images/icons/fav-black.png" alt="">
+        </button>
+        <button class="cart-item__action cart-item__action--edit" title="Edit">
+          <img src="images/icons/reducts.svg" alt="">
+        </button>
+        <button class="cart-item__action cart-item__action--remove" title="Remove">✖</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div class="cart-controls">
+  <button class="cart-controls__btn cart-controls__btn--continue">Продолжить</button>
+  <button class="cart-controls__btn cart-controls__btn--clear">Очистить корзину</button>
+</div>

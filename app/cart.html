@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRIPS</title>
+  <link rel="stylesheet" href="css/cart.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="header__column">
+            <a class="header__logo logo" href="#">
+              <picture class="logo__img">
+                <source type="image/avif" srcset="images/logo@3x.avif,
+                                                  images/logo@2x.avif,
+                                                  images/logo.avif">
+                <source type="image/webp" srcset="images/logo@3x.webp,
+                                                  images/logo@2x.webp,
+                                                  images/logo.webp">
+                <source type="image/png" srcset="images/logo@3x.png,
+                                                 images/logo@2x.png">
+                <img src="images/logo.png" alt="grips">
+              </picture>
+            </a>
+          </div>
+          <div class="header__column header__menu">
+            <button class="menu__btn" type="button"><span></span></button>
+            <nav class="menu">
+              <ul class="menu__list">
+                <!-- класс активный только для ссылки на тукующую страницу -->
+                <li><a href="#" class="_active">главная</a></li>
+                <li><a href="#">магазин</a></li>
+                <li><a href="#">блог</a></li>
+                <li><a href="#">распродажа</a></li>
+                <li><a href="#">контакты</a></li>
+              </ul>
+            </nav>
+            <form class="header__form form-search" action="#" method="post" data-da=".user-nav, 1100, 0">
+              <input class="form-search__input" type="search" name="searchInput" placeholder="Поиск">
+              <button class="form-search__btn" type="button" name="searchBtn">поиск</button>
+            </form>
+          </div>
+          <div class="header__column">
+            <div class="header__user-nav user-nav">
+              <a class="user-nav__link" href="#" data-da=".menu__list, 1100">логин</a>
+              <a class="user-nav__link" href="#" data-da=".menu__list, 1100">регистрация</a>
+              <a class="user-nav__favorite" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21.8" height="20.59" fill="none">
+                  <path
+                    d="M10.9 4.1a5.198 5.198 0 013.825-1.7c2.618 0 4.675 1.97 4.675 4.496 0 3.082-2.89 5.607-7.267 9.425L10.9 17.4l-1.232-1.08C5.29 12.504 2.4 9.979 2.4 6.897 2.4 4.37 4.457 2.4 7.075 2.4c1.479 0 2.899.662 3.825 1.7z" />
+                  <path
+                    d="M10.9 1.042a7.827 7.827 0 012.518-.928A7.48 7.48 0 0114.725 0a7.237 7.237 0 014.102 1.253 6.956 6.956 0 011.825 1.84 6.77 6.77 0 01.958 2.184 6.864 6.864 0 01.174 2.096 7.735 7.735 0 01-.728 2.77c-.412.887-1.018 1.801-1.82 2.744-.63.742-1.46 1.59-2.49 2.544-.613.569-1.624 1.467-3.033 2.696L10.9 20.59l-2.81-2.46a151.22 151.22 0 01-3.036-2.699c-1.03-.954-1.86-1.802-2.49-2.544-.802-.943-1.408-1.857-1.82-2.743a7.736 7.736 0 01-.728-2.772A6.865 6.865 0 01.19 5.276 6.782 6.782 0 012.092 1.97 6.952 6.952 0 014.35.519a7.234 7.234 0 012.725-.52 7.48 7.48 0 013.105.673c.25.113.49.236.72.37zm-.821 2.325A5.223 5.223 0 007.075 2.4C4.457 2.4 2.4 4.37 2.4 6.896c0 3.082 2.89 5.607 7.268 9.425L10.9 17.4l1.232-1.08C16.51 12.504 19.4 9.979 19.4 6.897c0-2.526-2.057-4.496-4.675-4.496a5.22 5.22 0 00-3.004.967 4.934 4.934 0 00-.821.733 4.934 4.934 0 00-.821-.733z"
+                    fill="#FFF" fill-rule="evenodd" />
+                </svg>
+              </a>
+              <a class="user-nav__cart-box" href="#">
+                <div class="user-nav__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="21.2" fill="none">
+                    <path d="M14.737 6.6l.718 12.2H2.545l.718-12.2h11.474zM17 4.2H1L.141 18.8 0 21.2h18l-.141-2.4L17 4.2z"
+                      fill="#FFF" fill-rule="evenodd" />
+                    <path d="M5 4.2v-2a1 1 0 011-1h6a1 1 0 011 1v2" stroke="#FFF" stroke-width="2.4" />
+                  </svg>
+                  <!-- активировать если в корзине будут товары -->
+                  <!-- <span>2</span> -->
+                </div>
+                <span class="user-nav__cart-text">Корзина</span>
+                <span class="user-nav__cart-price">0,00 руб</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="cart-page">
+        <!-- хлебные крошки -->
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <div class="container">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="/">Главная</a>
+              </li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current" aria-current="page">Корзина</span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- заголовок -->
+        <h2 class="cart-page__title">
+          Корзина
+        </h2>
+        <!-- основная часть -->
+        <div class="cart-page__content cart-content">
+          <div class="cart-content__products">
+            <!-- блок товаров в корзине -->
+            <table class="cart-table">
+              <!-- наименования столбоц по категориям -->
+              <thead class="cart-table__head">
+                <tr class="cart-table__row">
+                  <th class="cart-table__cell cart-table__cell--head">Товар</th>
+                  <th class="cart-table__cell cart-table__cell--head">Цена</th>
+                  <th class="cart-table__cell cart-table__cell--head">Размер</th>
+                  <th class="cart-table__cell cart-table__cell--head">Кол-во</th>
+                  <th class="cart-table__cell cart-table__cell--head">Итого</th>
+                  <th class="cart-table__cell cart-table__cell--head"></th>
+                </tr>
+              </thead>
+              <tbody class="cart-table__body">
+                <!-- единица товара -->
+                <tr class="cart-table__row cart-item">
+                  <td class="cart-table__cell cart-item__info">
+                    <div class="cart-item__product">
+                      <picture class="cart-item__image">
+                        <source type="image/avif" srcset="images/cart/01.avif">
+                        <source type="image/webp" srcset="images/cart/01.webp">
+                        <img src="images/cart/01.jpeg" alt="платье">
+                      </picture>
+                      <div class="cart-item__details">
+                        <div class="cart-item__title">
+                          Джинсы Angels malu на молнии узкие черные б/у
+                        </div>
+                        <div class="cart-item__color" style="background-color: #5884AA;"></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="cart-table__cell cart-item__price">120,00 EUR</td>
+                  <td class="cart-table__cell cart-item__size">W32</td>
+                  <td class="cart-table__cell cart-item__quantity">
+                    <div class="quantity">
+                      <button class="quantity__btn">−</button>
+                      <span class="quantity__value">1</span>
+                      <button class="quantity__btn">+</button>
+                    </div>
+                  </td>
+                  <td class="cart-table__cell cart-item__total">120,00 EUR</td>
+                  <td class="cart-table__cell cart-item__actions">
+                    <button class="cart-item__action cart-item__action--wishlist" title="Add to Wishlist">
+                      <img src="images/icons/fav-black.png" alt="">
+                    </button>
+                    <button class="cart-item__action cart-item__action--edit" title="Edit">
+                      <img src="images/icons/reducts.svg" alt="">
+                    </button>
+                    <button class="cart-item__action cart-item__action--remove" title="Remove">✖</button>
+                  </td>
+                </tr>
+            
+                <!-- единица товара -->
+                <tr class="cart-table__row cart-item">
+                  <td class="cart-table__cell cart-item__info">
+                    <div class="cart-item__product">
+                      <picture class="cart-item__image">
+                        <source type="image/avif" srcset="images/cart/02.avif">
+                        <source type="image/webp" srcset="images/cart/02.webp">
+                        <img src="images/cart/02.jpeg" alt="платье">
+                      </picture>
+                      <div class="cart-item__details">
+                        <div class="cart-item__title">
+                          Джинсы Angels malu на молнии узкие черные б/у
+                        </div>
+                        <div class="cart-item__color" style="background-color: #C35C71;"></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="cart-table__cell cart-item__price">120,00 EUR</td>
+                  <td class="cart-table__cell cart-item__size">W32</td>
+                  <td class="cart-table__cell cart-item__quantity">
+                    <div class="quantity">
+                      <button class="quantity__btn">−</button>
+                      <span class="quantity__value">1</span>
+                      <button class="quantity__btn">+</button>
+                    </div>
+                  </td>
+                  <td class="cart-table__cell cart-item__total">120,00 EUR</td>
+                  <td class="cart-table__cell cart-item__actions">
+                    <button class="cart-item__action cart-item__action--wishlist" title="Add to Wishlist">
+                      <img src="images/icons/fav-black.png" alt="">
+                    </button>
+                    <button class="cart-item__action cart-item__action--edit" title="Edit">
+                      <img src="images/icons/reducts.svg" alt="">
+                    </button>
+                    <button class="cart-item__action cart-item__action--remove" title="Remove">✖</button>
+                  </td>
+                </tr>
+            
+              </tbody>
+            </table>
+            
+            <div class="cart-controls">
+              <button class="cart-controls__btn cart-controls__btn--continue">Продолжить</button>
+              <button class="cart-controls__btn cart-controls__btn--clear">Очистить корзину</button>
+            </div>
+          </div>
+          <div class="cart-content__pay">
+            <section class="cart-form">
+              <div class="cart-form__content">
+                <!-- Блок с дисконтом -->
+                <div class="cart-form__section cart-form__section--discount">
+                  <h2 class="cart-form__title">Apply Discount Code</h2>
+                  <form class="cart-form__discount-form" action="#" method="post">
+                    <input type="text" class="cart-form__input" placeholder="Enter discount code" name="discount-code">
+                    <button type="submit" class="cart-form__button">Apply Discount</button>
+                  </form>
+                </div>
+
+                <!-- Блок с доставкой -->
+                <div class="cart-form__section cart-form__section--shipping" data-spollers>
+                  <h2 class="cart-form__title cart-form__title--spoller" data-spoller>Estimate Shipping and Tax</h2>
+
+                  <form class="cart-form__shipping-form" action="#" method="post">
+                    <p class="cart-form__note">Enter your destination to get a shipping estimate.</p>
+                    <label class="cart-form__label">
+                      <span class="cart-form__required">Country</span>
+                      <select name="country" class="cart-form__select">
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="de">Germany</option>
+                      </select>
+                    </label>
+
+                    <label class="cart-form__label">
+                      <span class="cart-form__required">State/Province</span>
+                      <select name="state" class="cart-form__select">
+                        <option value="alaska">Alaska</option>
+                        <option value="california">California</option>
+                        <option value="ny">New York</option>
+                      </select>
+                    </label>
+
+                    <label class="cart-form__label">
+                      Zip/Postal Code
+                      <input type="text" name="zipcode" class="cart-form__input">
+                    </label>
+
+                    <!-- Варианты доставки -->
+                    <fieldset class="cart-form__shipping-options">
+                      <legend class="cart-form__legend">Flat Rate</legend>
+                      <label class="cart-form__radio">
+                        <input class="cart-form__radio-input" type="radio" name="shipping" value="5" checked>
+                        <span class="cart-form__radio-check"></span>
+                        Fixed 5.00 EUR
+                      </label>
+                    </fieldset>
+
+                    <fieldset class="cart-form__shipping-options">
+                      <legend class="cart-form__legend">Best Way</legend>
+                      <label class="cart-form__radio">
+                        <input class="cart-form__radio-input" type="radio" name="shipping" value="10">
+                        <span class="cart-form__radio-check"></span>
+                        Table Rate 10.00 EUR
+                      </label>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+              <!-- Итоги -->
+              <div class="cart-form__section cart-form__section--summary">
+                <div class="cart-form__section-content">
+                  <div class="cart-form__summary-row">
+                    <span class="cart-form__summary-label">Subtotal</span>
+                    <span class="cart-form__summary-value">120.00 EUR</span>
+                  </div>
+                  <div class="cart-form__summary-row">
+                    <span class="cart-form__summary-label">Tax</span>
+                    <span class="cart-form__summary-value">0.00 EUR</span>
+                  </div>
+                  <div class="cart-form__summary-row cart-form__summary-row--total">
+                    <span class="cart-form__summary-label">Order Total</span>
+                    <span class="cart-form__summary-value">120.00 EUR</span>
+                  </div>
+                  <p class="cart-form__summary-text">Check Out with Multiple Addresses</p>
+                </div>
+                <button type="button" class="cart-form__checkout-button">
+                  Proceed to Checkout
+                </button>
+              </div>
+          </section></div>
+        </div>
+      </div>
+    </main>
+    <section class="advantages">
+      <div class="container">
+        <div class="advantages__wrapper">
+          <ul class="advantages__list">
+            <li class="advantages__list-item">
+              <a class="advantages__list-link" href="#">
+                Гарантированные пошлины и налоги
+              </a>
+            </li>
+            <li class="advantages__list-item">
+              <a class="advantages__list-link" href="#">
+                Бесплатная Экспресс-доставка
+              </a>
+            </li>
+            <li class="advantages__list-item">
+              <a class="advantages__list-link" href="#">
+                Любовь клиентов
+              </a>
+            </li>
+            <li class="advantages__list-item">
+              <a class="advantages__list-link" href="#">
+                Легкая возврат
+              </a>
+            <li class="advantages__list-item">
+              <a class="advantages__list-link" href="#">
+                Безопасный платеж
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__column">
+            <a class="footer__logo logo" href="#">
+              <picture class="">
+                <source type="image/avif" srcset="images/logo@3x.avif,
+                                                images/logo@2x.avif,
+                                                images/logo.avif">
+                <source type="image/webp" srcset="images/logo@3x.webp,
+                                                images/logo@2x.webp,
+                                                images/logo.webp">
+                <source type="image/png" srcset="images/logo@3x.png,
+                                               images/logo@2x.png">
+                <img src="images/logo.png" alt="grips">
+              </picture>
+            </a>
+          </div>
+          <div class="footer__column" data-spollers="900,max">
+            <h3 class="footer__title" tabindex="-1" data-spoller>Категории</h3>
+            <ul class="footer__list">
+              <li><a href="#">мужское</a></li>
+              <li><a href="#">женское</a></li>
+              <li><a href="#">для мальчиков</a></li>
+              <li><a href="#">для девочек</a></li>
+              <li><a href="#">новое поступление</a></li>
+              <li><a href="#">обувь</a></li>
+              <li><a href="#">постельное</a></li>
+              <li><a href="#">аксесуары</a></li>
+            </ul>
+          </div>
+          <div class="footer__column" data-spollers="900,max">
+            <h3 class="footer__title" tabindex="-1" data-spoller>Меню</h3>
+            <ul class="footer__list">
+              <li><a href="#">о нас</a></li>
+              <li><a href="#">контакты</a></li>
+              <li><a href="#">мой аккаунт</a></li>
+              <li><a href="#">история заказов</a></li>
+              <li><a href="#">избранное</a></li>
+              <li><a href="#">блог</a></li>
+              <li><a href="#">логин</a></li>
+            </ul>
+          </div>
+          <div class="footer__column" data-spollers="900,max">
+            <h3 class="footer__title" tabindex="-1" data-spoller>Контакты</h3>
+            <dl>
+              <div>
+                <dt>адресс:</dt>
+                <dd>123 название улицы, город, страна</dd>
+              </div>
+              <div>
+                <dt>телефон:</dt>
+                <dd><a href="tel:1234567890">(123)456-7890</a></dd>
+              </div>
+              <div>
+                <dt>почта:</dt>
+                <dd><a href="mailto:mail@example.com">mail@example.com</a></dd>
+              </div>
+              <div>
+                <dt>часы работы:</dt>
+                <dd>пн - сб / 9:00 - 20:00</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="footer__column" data-spollers="900,max">
+            <h3 class="footer__title" tabindex="-1" data-spoller>подпишись</h3>
+            <ul class="footer__list">
+              <li><a href="#" class="footer__social">
+                  <svg width="800" height="800" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M19 17V3c0-1.1-.903-2-2.005-2H3.005C1.855 1 1 1.853 1 3v14c0 1.148.855 2 2.005 2h13.99A2.008 2.008 0 0019 17zm-3.816-5.393s1.132 1.117 1.411 1.635c.008.011.011.021.014.025.113.19.142.34.085.45-.094.183-.414.275-.523.283h-1.999c-.14 0-.43-.036-.782-.279-.27-.188-.537-.499-.797-.802-.388-.45-.724-.84-1.062-.84a.383.383 0 00-.126.021c-.257.082-.583.447-.583 1.422 0 .305-.24.479-.41.479h-.916c-.312 0-1.937-.109-3.376-1.628-1.766-1.86-3.352-5.591-3.366-5.624-.1-.241.107-.372.332-.372h2.02c.271 0 .358.164.42.311.07.167.334.841.766 1.599.703 1.233 1.136 1.735 1.481 1.735a.378.378 0 00.184-.049c.451-.249.367-1.857.347-2.189 0-.063-.001-.719-.231-1.034-.166-.228-.447-.315-.617-.348a.738.738 0 01.266-.226C8.031 6.022 8.588 6 9.142 6h.308c.601.008.757.047.974.102.439.105.448.39.409 1.36-.011.276-.023.589-.023.956 0 .079-.003.166-.003.256-.014.496-.03 1.057.32 1.287a.289.289 0 00.151.044c.122 0 .487 0 1.476-1.697.435-.749.77-1.633.793-1.699a.528.528 0 01.148-.183.347.347 0 01.166-.039h2.375c.26 0 .436.039.469.138.057.159-.011.644-1.096 2.11l-.483.64c-.984 1.288-.984 1.354.058 2.332z" />
+                  </svg>
+                  вконтакте
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer__social">
+                  <svg width="800" height="800" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M21 2H3a1 1 0 00-1 1v18a1 1 0 001 1h18a1 1 0 001-1V3a1 1 0 00-1-1zm-4.723 9.855c-.346 2.168-.722 4.538-.722 4.538s-.058.665-.549.78a2.369 2.369 0 01-1.445-.52c-.116-.087-2.168-1.387-2.919-2.023a.547.547 0 01.029-.925 111.39 111.39 0 003.034-2.89c.347-.347.694-1.156-.751-.173-2.052 1.416-4.075 2.745-4.075 2.745a1.7 1.7 0 01-1.33.029c-.867-.26-1.878-.607-1.878-.607s-.694-.433.491-.9c0 0 5-2.052 6.734-2.774.665-.289 2.919-1.214 2.919-1.214s1.041-.405.954.578c-.029.409-.26 1.825-.492 3.356z" />
+                  </svg>
+                  telegram
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer__social">
+                  <svg width="800" height="800" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
+                    <path
+                      d="M22 6.55a12.61 12.61 0 00-.1-1.29 4.29 4.29 0 00-.37-1.08 3.66 3.66 0 00-.71-1 3.91 3.91 0 00-1-.71 4.28 4.28 0 00-1.08-.36A10.21 10.21 0 0017.46 2H6.55a12.61 12.61 0 00-1.29.1 4.29 4.29 0 00-1.08.37 3.66 3.66 0 00-1 .71 3.91 3.91 0 00-.71 1 4.28 4.28 0 00-.36 1.08A10.21 10.21 0 002 6.54v10.91a12.61 12.61 0 00.1 1.29 4.29 4.29 0 00.37 1.08 3.66 3.66 0 00.71 1 3.91 3.91 0 001 .71 4.28 4.28 0 001.08.36 10.21 10.21 0 001.28.11h10.91a12.61 12.61 0 001.29-.1 4.29 4.29 0 001.08-.37 3.66 3.66 0 001-.71 3.91 3.91 0 00.71-1 4.28 4.28 0 00.36-1.08 10.21 10.21 0 00.11-1.28V6.55zM12.23 19a7.12 7.12 0 01-3.43-.9l-3.8 1 1-3.72a7.11 7.11 0 01-1-3.58 7.18 7.18 0 117.23 7.2zm0-13.13A6 6 0 007.18 15l.14.23-.6 2.19L9 16.8l.22.13a6 6 0 003 .83 6 6 0 006-6 6 6 0 00-6-6zm3.5 8.52a1.82 1.82 0 01-1.21.85 2.33 2.33 0 01-1.12-.07 8.9 8.9 0 01-1-.38 8 8 0 01-3.06-2.7 3.48 3.48 0 01-.73-1.85 2 2 0 01.63-1.5.65.65 0 01.48-.22H10c.11 0 .26 0 .4.31s.51 1.24.56 1.33a.34.34 0 010 .31 1.14 1.14 0 01-.18.3c-.09.11-.19.24-.27.32s-.18.18-.08.36a5.56 5.56 0 001 1.24 5 5 0 001.44.89c.18.09.29.08.39 0s.45-.52.57-.7.24-.15.4-.09 1.05.49 1.23.58.29.13.34.21a1.56 1.56 0 01-.07.78z" />
+                  </svg>
+                  whatsapp
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__column">
+            <h3 class="footer__title-form">
+              присоединяйся
+            </h3>
+            <p class="footer__text">Подпишитесь на нашу рассылку</p>
+            <form class="footer__form form-subscribe" action="#" method="post">
+              <input class="form-subscribe__input" type="email" name="formSubscribeMail" placeholder="Ваша почта">
+              <button class="form-subscribe__btn" type="submit">подписаться!</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer__copy">
+          © 2019. Свежая тема, разработанная компанией Belvg
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/cart.min.js"></script>
+</body>
+
+</html>

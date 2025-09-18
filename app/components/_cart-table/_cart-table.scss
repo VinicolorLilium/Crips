@@ -1,0 +1,153 @@
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &__head {
+    border-bottom: 1px solid $divider;
+  }
+
+  &__cell {
+    padding: rem(17) rem(20) rem(17) 0;
+    @extend %Roboto-500;
+    font-size: rem(14);
+    line-height: math.div(20, 14);
+    color: inherit;
+    text-align: left;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    &--head {
+      @extend %Oswald-500;
+      font-size: rem(18);
+      line-height: math.div(27, 18);
+      color: $gray;
+    }
+  }
+}
+
+.cart-item {
+  &:last-child {
+    border-bottom: 1px solid $divider;
+  }
+
+  &__product {
+    display: flex;
+    gap: rem(17);
+    // max-width: rem(203);
+  }
+
+  &__image {
+    position: relative;
+    flex: 0 0 rem(84);
+    aspect-ratio: 1 / 1.24;
+
+    img {
+      @include con-img;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: rem(13);
+  }
+
+  &__title {
+    @extend %Oswald-500;
+    font-size: rem(18);
+    line-height: math.div(27, 18);
+    text-transform: uppercase;
+  }
+
+  &__color {
+    width: rem(18);
+    height: rem(18);
+    border: rem(3) solid $white;
+    outline: 2px solid $divider;
+  }
+
+  &__quantity {
+    .quantity {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: rem(119);
+      border: 1px solid $divider;
+
+      &__btn {
+        @include flex-center;
+        width: rem(44);
+        height: rem(44);
+        color: $divider;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+
+        @media (any-hover: hover) {
+          &:hover {
+            background-color: #F0F2F2;
+          }
+        }
+      }
+
+      &__value {
+        @extend %Oswald-400;
+        font-size: rem(16);
+        line-height: math.div(24, 16);
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    transform: translateY(70%);
+  }
+
+  &__action {
+    @include flex-center;
+    width: rem(24);
+    height: rem(24);
+    border: none;
+    font-size: 14px;
+    background-color: #E6F1FA;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #D0E4F2;
+      }
+    }
+  }
+}
+
+.cart-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: rem(24);
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    width: rem(200);
+    padding: rem(12) rem(10);
+    border: 2px solid $divider;
+    @extend %Oswald-500;
+    font-size: rem(14);
+    line-height: math.div(21, 14);
+    text-transform: uppercase;
+    color: $gray;
+    background-color: #F0F2F2;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        border-color: $gray;
+      }
+    }
+  }
+}
